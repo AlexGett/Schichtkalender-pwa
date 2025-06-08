@@ -1,4 +1,4 @@
-Const holidaysData = {
+const holidaysData = {
     2023: [
         { date: '2023-01-01', names: { de: 'Neujahr', ru: 'Новый год', tr: 'Yılbaşı', sq: 'Viti i Ri', ar: 'رأس السنة', hr: 'Nova godina', sk: 'Nový rok', en: 'New Year\'s Day' } },
         { date: '2023-01-06', names: { de: 'Heilige Drei Könige', ru: 'Богоявление', tr: 'Epifani', sq: 'Uji i Bekuar', ar: 'عيد الغطاس', hr: 'Sveta Tri kralja', sk: 'Zjavenie Pána', en: 'Epiphany' } },
@@ -250,9 +250,8 @@ function generateCalendar(year) {
             }
 
             // Check if this is the current day in the currently displayed calendar year
-            // *** GEÄNDERTE ZEILE HIER ***
             if (day === currentDay && month === currentMonth && year === currentDisplayYear) {
-                classes.push('today'); // Changed from 'current-day' to 'today'
+                classes.push('today'); // Jetzt 'today' statt 'current-day'
             }
 
             currentWeek.push({ day: day, classes: classes.join(' '), originalDayOfWeek: dayOfWeek, weekNumber: weekNumber, holidayNames: holidayNames });
@@ -500,7 +499,7 @@ setYearButton.addEventListener('click', () => {
     }
 });
 
-// Register service worker
+// Register service worker (falls du eine PWA erstellen möchtest)
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('/service-worker.js')
