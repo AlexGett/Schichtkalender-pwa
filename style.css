@@ -305,6 +305,14 @@ h2 {
     cursor: default;
 }
 
+/* New style for today's date */
+.date-cell.today {
+    background-color: #A7D9D8; /* Example: A distinct color for today */
+    border: 2px solid #0056b3; /* Example: A bolder border */
+    font-weight: bold;
+    box-shadow: 0 0 8px rgba(0, 86, 179, 0.5); /* Subtle glow */
+}
+
 .fruehschicht {
     background-color: #FFF3E0;
 }
