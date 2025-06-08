@@ -3,81 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Schichtplan Kalender</title>
-    <link rel="stylesheet" href="style.css"> </head>
+    <title>Schichtkalender 2025</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Schichtkalender">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+</head>
 <body>
-
     <div class="calendar-container" id="calendarContainer">
-        <header class="calendar-header">
-            <button id="openSettingsDialog" class="icon-button settings-button" aria-label="Einstellungen öffnen">⚙️</button>
+        <i class="fas fa-phone-alt header-icon phone-icon-position" id="openPhoneDialog"></i>
+        <i class="fas fa-info-circle header-icon info-icon-position" id="openShiftInfoDialog"></i>
+        <img src="https://images.seeklogo.com/logo-png/54/2/motherson-logo-png_seeklogo-544537.png" alt="Motherson Logo" class="logo" id="openSettingsDialog">
+        <div class="header-section">
             <h1 id="currentYearDisplay">2025</h1>
-            <button id="openPhoneDialog" class="icon-button phone-button" aria-label="Telefonnummern anzeigen">📞</button>
-        </header>
-
+        </div>
+        <h2>Schichtkalender Schicht 2</h2>
         <div class="month-grid">
-            </div>
+        </div>
     </div>
 
     <div class="dialog-overlay" id="phoneDialogOverlay">
-        <div class="dialog-content">
-            <h2>Wichtige Telefonnummern</h2>
+        <div class="dialog">
+            <button class="close-button" id="closePhoneDialog">&times;</button>
+            <h3>Wichtige Telefonnummern</h3>
             <ul>
-                <li>Notruf: 112</li>
-                <li>Polizei: 110</li>
-                <li>Ärztlicher Bereitschaftsdienst: 116117</li>
-                </ul>
-            <button id="closePhoneDialog">Schließen</button>
+                <li>
+                    <span>Schichtmeister:</span>
+                    <a href="tel:08402774858">08402 / 774858</a>
+                </li>
+                <li>
+                    <span>Vorarbeiter BMW U1x:</span>
+                    <a href="tel:08402774098">08402 / 774098</a>
+                </li>
+                <li>
+                    <span>Vorarbeiter BMW U10:</span>
+                    <a href="tel:08402774508">08402 / 774508</a>
+                </li>
+                <li>
+                    <span>Vorarbeiter Audi:</span>
+                    <a href="tel:08402774830">08402 / 774830</a>
+                </li>
+            </ul>
         </div>
     </div>
 
     <div class="dialog-overlay" id="holidayDialogOverlay">
-        <div class="dialog-content">
-            <h2>Feiertagsübersetzungen</h2>
-            <div id="holidayTranslations">
-                </div>
-            <button id="closeHolidayDialog">Schließen</button>
+        <div class="dialog">
+            <button class="close-button" id="closeHolidayDialog">&times;</button>
+            <h3>Feiertag</h3>
+            <div id="holidayTranslations"></div>
         </div>
     </div>
 
     <div class="dialog-overlay" id="shiftInfoDialogOverlay">
-        <div class="dialog-content">
-            <h2>Schichtinformationen</h2>
-            <p><span class="color-box fruehschicht-color"></span> Frühschicht</p>
-            <p><span class="color-box spaetschicht-color"></span> Spätschicht</p>
-            <p><span class="color-box nachtschicht-color"></span> Nachtschicht</p>
-            <button id="closeShiftInfoDialog">Schließen</button>
+        <div class="dialog">
+            <button class="close-button" id="closeShiftInfoDialog">&times;</button>
+            <h3>Schichtzeiten & Farben</h3>
+            <div class="shift-info-item">
+                <div class="shift-color-box fruehschicht"></div>
+                <span>Frühschicht: 06:00 Uhr - 14:00 Uhr</span>
+            </div>
+            <div class="shift-info-item">
+                <div class="shift-color-box spaetschicht"></div>
+                <span>Spätschicht: 14:00 Uhr - 22:00 Uhr</span>
+            </div>
+            <div class="shift-info-item">
+                <div class="shift-color-box nachtschicht"></div>
+                <span>Nachtschicht: 22:00 Uhr - 06:00 Uhr</span>
+            </div>
+            <div class="shift-info-item">
+                <div class="shift-color-box samstag"></div>
+                <span>Samstag</span>
+            </div>
+            <div class="shift-info-item">
+                <div class="shift-color-box sonntag"></div>
+                <span>Sonntag</span>
+            </div>
+            <div class="shift-info-item">
+                <div class="shift-color-box feiertag"></div>
+                <span>Feiertag</span>
+            </div>
         </div>
     </div>
 
     <div class="dialog-overlay" id="settingsDialogOverlay">
-        <div class="dialog-content">
-            <h2>Einstellungen</h2>
-            <div class="setting-item">
-                <label for="toggleAnimations">Animationen deaktivieren:</label>
+        <div class="dialog">
+            <button class="close-button" id="closeSettingsDialog">&times;</button>
+            <h3>Einstellungen</h3>
+            <div class="settings-option">
+                <label for="toggleAnimations">Animationen ausschalten:</label>
                 <input type="checkbox" id="toggleAnimations">
             </div>
-            <div class="setting-item">
+            <div class="settings-option">
                 <label for="borderColorPicker">Randfarbe wählen:</label>
-                <input type="color" id="borderColorPicker">
-            </div>
-            <button id="closeSettingsDialog">Schließen</button>
+                <input type="color" id="borderColorPicker" value="#0161FD"> </div>
         </div>
     </div>
 
     <div class="dialog-overlay" id="yearInputDialogOverlay">
-        <div class="dialog-content">
-            <h2>Jahr auswählen</h2>
-            <div class="year-input-control">
-                <button id="decreaseYear" aria-label="Jahr verringern">-</button>
-                <input type="number" id="yearInput" min="2023" max="2030" value="2025">
-                <button id="increaseYear" aria-label="Jahr erhöhen">+</button>
+        <div class="dialog year-input-dialog">
+            <button class="close-button" id="closeYearInputDialog">&times;</button>
+            <h3>Jahr auswählen</h3>
+            <label for="yearInput">Geben Sie ein Jahr ein:</label>
+            <div class="input-group">
+                <button class="year-nav" id="decreaseYear">-</button>
+                <input type="number" id="yearInput" min="2023" max="2030">
+                <button class="year-nav" id="increaseYear">+</button>
             </div>
-            <button id="setYearButton">Jahr setzen</button>
-            <button id="closeYearInputDialog">Abbrechen</button>
+            <button id="setYearButton" class="confirm-button">Bestätigen</button>
         </div>
     </div>
 
-    <button id="openShiftInfoDialog" class="shift-info-button" aria-label="Schichtinformationen anzeigen">?</button>
-
-    <script src="script.js"></script> </body>
+    <script src="script.js"></script>
+</body>
 </html>
