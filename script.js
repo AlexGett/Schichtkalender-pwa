@@ -1,3 +1,4 @@
+/* Inhalt des <script>-Tags aus deiner index.html hierher kopieren */
 const holidaysData = {
     2023: [
         { date: '2023-01-01', names: { de: 'Neujahr', ru: 'Новый год', tr: 'Yılbaşı', sq: 'Viti i Ri', ar: 'رأس السنة', hr: 'Nova godina', sk: 'Nový rok', en: 'New Year\'s Day' } },
@@ -49,7 +50,7 @@ const holidaysData = {
         { date: '2025-06-09', names: { de: 'Pfingstmontag', ru: 'Понедельник Пятидесятницы', tr: 'Pentekost Pazartesi', sq: 'E Hëna e Pashkëve', ar: 'اثنين العنصرة', hr: 'Duhovski ponedjeljak', sk: 'Turíčny pondelok', en: 'Pentecost Monday' } },
         { date: '2025-06-19', names: { de: 'Fronleichnam', ru: 'Празdник Тела и Крови Христовых', tr: 'Katolik Yortusu', sq: 'Corpus Christi', ar: 'عيد القربان', hr: 'Tijelovo', sk: 'Božie Telo', en: 'Corpus Christi' } },
         { date: '2025-08-15', names: { de: 'Mariä Himmelfahrt', ru: 'Успение Пресвятой Богородицы', tr: 'Meryem\'in Göğe Kabulü', sq: 'Fjetja e Shën Mërisë', ar: 'عيد انتقال العذراء', hr: 'Velika Gospa', sk: 'Nanebovzatie Panny Márie', en: 'Assumption Day' } },
-        { date: '2025-10-03', names: { de: 'Tag der Deutschen Einheit', ru: 'День герmanischen einigkeit', tr: 'Alman Birliği Günü', sq: 'Dita e Bashkimit Gjerman', ar: 'يوم الوحدة الألمانية', hr: 'Dan njemačkog jedinstwa', sk: 'Deň nemeckej jednoty', en: 'German Unity Day' } },
+        { date: '2025-10-03', names: { de: 'Tag der Deutschen Einheit', ru: 'День германского единства', tr: 'Alman Birliği Günü', sq: 'Dita e Bashkimit Gjerman', ar: 'يوم الوحدة الألمانية', hr: 'Dan njemačkog jedinstwa', sk: 'Deň nemeckej jednoty', en: 'German Unity Day' } },
         { date: '2025-11-01', names: { de: 'Allerheiligen', ru: 'День всех святых', tr: 'Azizler Günü', sq: 'Dita e të Gjithë Shenjtorëve', ar: 'عيد جميع القديسين', hr: 'Svi Sveti', sk: 'Sviatok Všetkých svätých', en: 'All Saints\' Day' } },
         { date: '2025-12-24', names: { de: 'Heiligabend', ru: 'Сочельник', tr: 'Noel Arifesi', sq: 'Nata e Krishtlindjes', ar: 'ليلة عيد الميلاد', hr: 'Badnjak', sk: 'Štedrý deň', en: 'Christmas Eve' } },
         { date: '2025-12-25', names: { de: '1. Weihnachtstag', ru: 'Рождество', tr: 'Noel', sq: 'Dita e Parë e Krishtlindjes', ar: 'عيد الميلاد الأول', hr: 'Božić', sk: 'Prvý sviatok vianočný', en: 'Christmas Day' } },
@@ -171,33 +172,31 @@ function generateCalendar(year) {
     monthGrid.innerHTML = ''; // Clear existing calendar
     document.getElementById('currentYearDisplay').textContent = year; // Update displayed year
 
-    const today = new Date();
-    const todayFormatted = `${today.getFullYear()}-${(today.getMonth() + 1).toString().padStart(2, '0')}-${today.getDate().toString().padStart(2, '0')}`;
-
     const orderedDayNames = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'];
     const orderedDayIndices = [1, 2, 3, 4, 5, 6, 0];
 
-    // Define CSS variables based on calculation or fixed values
-        const CELL_WIDTH = 42;
+    const CELL_WIDTH = 42;
     const CELL_HEIGHT = 42;
     const CELL_GAP = 4;
+
     const DAY_LABEL_WIDTH = 55;
+
     const MAX_COLUMNS_FOR_DATES = 6;
     const MAX_DATE_COLUMNS_WIDTH = (MAX_COLUMNS_FOR_DATES * CELL_WIDTH) + ((MAX_COLUMNS_FOR_DATES - 1) * CELL_GAP);
+
     const MONTH_CARD_WIDTH = DAY_LABEL_WIDTH + MAX_DATE_COLUMNS_WIDTH + (20 * 2);
 
     document.documentElement.style.setProperty('--cell-width', `${CELL_WIDTH}px`);
-document.documentElement.style.setProperty('--cell-height', `${CELL_HEIGHT}px`);
-document.documentElement.style.setProperty('--cell-height-kw', `${CELL_HEIGHT * 0.8}px`);
-document.documentElement.style.setProperty('--cell-gap', `${CELL_GAP}px`);
-document.documentElement.style.setProperty('--day-label-width', `${DAY_LABEL_WIDTH}px`);
-document.documentElement.style.setProperty('--month-card-width', `${MONTH_CARD_WIDTH}px`);
-document.documentElement.style.setProperty('--month-grid-gap', `30px`);// Dieser Wert war immer fest, nur zur Info
-
+    document.documentElement.style.setProperty('--cell-height', `${CELL_HEIGHT}px`);
+    document.documentElement.style.setProperty('--cell-height-kw', `${CELL_HEIGHT * 0.8}px`);
+    document.documentElement.style.setProperty('--cell-gap', `${CELL_GAP}px`);
+    document.documentElement.style.setProperty('--day-label-width', `${DAY_LABEL_WIDTH}px`);
+    document.documentElement.style.setProperty('--month-card-width', `${MONTH_CARD_WIDTH}px`);
+    document.documentElement.style.setProperty('--month-grid-gap', `30px`);
 
     const yearHolidays = holidaysData[year] || []; // Get holidays for the selected year
 
-    for (let month = 0; month < 12; month++) { // Loop for all 12 months
+    for (let month = 0; month < 12; month++) {
         const monthCard = document.createElement('div');
         monthCard.classList.add('month-card');
 
@@ -208,18 +207,17 @@ document.documentElement.style.setProperty('--month-grid-gap', `30px`);// Dieser
 
         const weeksData = [];
         const firstDayOfMonth = new Date(year, month, 1);
-        const firstDayRelativePosition = (firstDayOfMonth.getDay() === 0) ? 6 : firstDayOfMonth.getDay() - 1; // 0 for Monday, 6 for Sunday
+        const firstDayRelativePosition = (firstDayOfMonth.getDay() === 0) ? 6 : firstDayOfMonth.getDay() - 1;
 
         let currentWeek = [];
 
-        // Add empty cells for days before the 1st of the month
         for (let i = 0; i < firstDayRelativePosition; i++) {
             currentWeek.push({ day: '', classes: 'empty-cell', weekNumber: null });
         }
 
         for (let day = 1; day <= daysInMonth; day++) {
             const currentDate = new Date(year, month, day);
-            const dayOfWeek = currentDate.getDay(); // 0 for Sunday, 6 for Saturday
+            const dayOfWeek = currentDate.getDay();
             const weekNumber = getWeekNumber(currentDate);
             weekNumbersSet.add(weekNumber);
 
@@ -231,14 +229,12 @@ document.documentElement.style.setProperty('--month-grid-gap', `30px`);// Dieser
             if (holiday) {
                 classes.push('feiertag');
                 holidayNames = holiday.names;
-            } else if (dayOfWeek === 6) { // Saturday
+            } else if (dayOfWeek === 6) {
                 classes.push('samstag');
-            } else if (dayOfWeek === 0) { // Sunday
+            } else if (dayOfWeek === 0) {
                 classes.push('sonntag');
             } else {
                 // Shift logic based on week number
-                // Example: Frühschicht, Spätschicht, Nachtschicht im 3-Wochen-Rhythmus
-                // (Diese Logik müsste an den tatsächlichen Schichtplan angepasst werden)
                 if (weekNumber % 3 === 0) {
                     classes.push('spaetschicht');
                 } else if ((weekNumber + 1) % 3 === 0) {
@@ -247,22 +243,15 @@ document.documentElement.style.setProperty('--month-grid-gap', `30px`);// Dieser
                     classes.push('fruehschicht');
                 }
             }
-
-            if (currentFormattedDate === todayFormatted) {
-                classes.push('today'); // Add class for today's date
-            }
-
             currentWeek.push({ day: day, classes: classes.join(' '), originalDayOfWeek: dayOfWeek, weekNumber: weekNumber, holidayNames: holidayNames });
         }
 
-        // Add empty cells for days after the last day of the month to fill the last week
         if (currentWeek.length % 7 !== 0) {
             while (currentWeek.length % 7 !== 0) {
                 currentWeek.push({ day: '', classes: 'empty-cell', weekNumber: null, holidayNames: {} });
             }
         }
 
-        // Divide currentWeek into arrays of 7 days (weeks)
         for (let i = 0; i < currentWeek.length; i += 7) {
             weeksData.push(currentWeek.slice(i, i + 7));
         }
@@ -289,13 +278,13 @@ document.documentElement.style.setProperty('--month-grid-gap', `30px`);// Dieser
         });
 
         // Special handling for KW 1 crossing into the next year (e.g., in December)
-        if (month === 11) { // If it's December
+        // This logic might need refinement depending on precise KW rules for ISO 8601
+        if (month === 11) {
             const kw1Index = actualKWsInMonth.indexOf(1);
             if (kw1Index > -1) {
-                // If KW 1 is found, move it to the end of the array
                 const kw1 = actualKWsInMonth.splice(kw1Index, 1)[0];
-                actualKWsInMonth.sort((a, b) => a - b); // Sort remaining KWs
-                actualKWsInMonth.push(kw1); // Add KW 1 to the end
+                actualKWsInMonth.sort((a, b) => a - b);
+                actualKWsInMonth.push(kw1);
             } else {
                 actualKWsInMonth.sort((a, b) => a - b);
             }
@@ -303,7 +292,7 @@ document.documentElement.style.setProperty('--month-grid-gap', `30px`);// Dieser
             actualKWsInMonth.sort((a, b) => a - b);
         }
 
-        for (let col = 0; col < MAX_COLUMNS_FOR_DATES; col++) { // Generate KW cells for up to 6 weeks
+        for (let col = 0; col < MAX_COLUMNS_FOR_DATES; col++) {
             const kwCell = document.createElement('div');
             kwCell.classList.add('kw-cell');
             if (actualKWsInMonth[col] !== undefined) {
@@ -339,7 +328,6 @@ document.documentElement.style.setProperty('--month-grid-gap', `30px`);// Dieser
             const columnDiv = document.createElement('div');
             columnDiv.classList.add('day-column');
 
-            // Iterate over orderedDayIndices to ensure correct day order
             orderedDayIndices.forEach(dayIndex => {
                 const cellData = week.find(data => data.originalDayOfWeek === dayIndex);
                 const dateCell = document.createElement('div');
