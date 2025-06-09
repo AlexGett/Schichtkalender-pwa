@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schichtkalender 2025</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -133,11 +133,7 @@
         // Service Worker Registrierung (wenn du ihn verwenden möchtest)
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                // HIER AUF KORREKTEN DATEINAMEN ACHTEN!
-                // Wenn dein Service Worker service-worker.js heißt:
-                navigator.serviceWorker.register('/service-worker.js')
-                // Wenn dein Service Worker worker.js heißt:
-                // navigator.serviceWorker.register('/worker.js')
+                navigator.serviceWorker.register('/worker.js')
                     .then(registration => {
                         console.log('Service Worker registriert mit Scope:', registration.scope);
                     })
