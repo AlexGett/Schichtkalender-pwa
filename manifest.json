@@ -4,8 +4,8 @@
     "description": "Schichtkalender Schicht 2",
     "start_url": "https://alexgett.github.io/Schichtkalender-pwa/",
     "display": "standalone",
-    "background_color": "#ffffff00",
-    "theme_color": "#007bff",
+    "background_color": "#007bff",
+    "theme_color": "#ffffff00",
     "icons": [
         {
             "src": "ios/16.png",
