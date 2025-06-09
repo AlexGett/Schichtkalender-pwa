@@ -1,6 +1,13 @@
-/* Inhalt des <script>-Tags aus deiner index.html hierher kopieren */
+/* Inhalt des <style>-Tags aus deiner index.html hierher kopieren */
 :root {
-    --calendar-border-color: #0161FD; /* Updated to 0161FD */
+    --calendar-border-color: #0161FD;
+    /* Festlegen von Standardwerten für die CSS-Variablen */
+    --month-card-width: 400px;
+    --month-grid-gap: 30px;
+    --cell-width: 42px;
+    --cell-height: 42px;
+    --cell-height-kw: 33px; /* Ca. 80% von cell-height */
+    --day-label-width: 55px;
 }
 
 body {

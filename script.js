@@ -177,16 +177,14 @@ function generateCalendar(year) {
     const orderedDayNames = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'];
     const orderedDayIndices = [1, 2, 3, 4, 5, 6, 0];
 
+    // Define CSS variables based on calculation or fixed values
     const CELL_WIDTH = 42;
     const CELL_HEIGHT = 42;
     const CELL_GAP = 4;
-
     const DAY_LABEL_WIDTH = 55;
-
     const MAX_COLUMNS_FOR_DATES = 6;
     const MAX_DATE_COLUMNS_WIDTH = (MAX_COLUMNS_FOR_DATES * CELL_WIDTH) + ((MAX_COLUMNS_FOR_DATES - 1) * CELL_GAP);
-
-    const MONTH_CARD_WIDTH = DAY_LABEL_WIDTH + MAX_DATE_COLUMNS_WIDTH + (20 * 2);
+    const MONTH_CARD_WIDTH = DAY_LABEL_WIDTH + MAX_DATE_COLUMNS_WIDTH + (20 * 2); // 20px padding on each side
 
     document.documentElement.style.setProperty('--cell-width', `${CELL_WIDTH}px`);
     document.documentElement.style.setProperty('--cell-height', `${CELL_HEIGHT}px`);
@@ -196,9 +194,10 @@ function generateCalendar(year) {
     document.documentElement.style.setProperty('--month-card-width', `${MONTH_CARD_WIDTH}px`);
     document.documentElement.style.setProperty('--month-grid-gap', `30px`);
 
+
     const yearHolidays = holidaysData[year] || []; // Get holidays for the selected year
 
-    for (let month = 0; month < 12; month++) {
+    for (let month = 0; month < 12; month++) { // Loop for all 12 months
         const monthCard = document.createElement('div');
         monthCard.classList.add('month-card');
 
@@ -209,17 +208,18 @@ function generateCalendar(year) {
 
         const weeksData = [];
         const firstDayOfMonth = new Date(year, month, 1);
-        const firstDayRelativePosition = (firstDayOfMonth.getDay() === 0) ? 6 : firstDayOfMonth.getDay() - 1;
+        const firstDayRelativePosition = (firstDayOfMonth.getDay() === 0) ? 6 : firstDayOfMonth.getDay() - 1; // 0 for Monday, 6 for Sunday
 
         let currentWeek = [];
 
+        // Add empty cells for days before the 1st of the month
         for (let i = 0; i < firstDayRelativePosition; i++) {
             currentWeek.push({ day: '', classes: 'empty-cell', weekNumber: null });
         }
 
         for (let day = 1; day <= daysInMonth; day++) {
             const currentDate = new Date(year, month, day);
-            const dayOfWeek = currentDate.getDay();
+            const dayOfWeek = currentDate.getDay(); // 0 for Sunday, 6 for Saturday
             const weekNumber = getWeekNumber(currentDate);
             weekNumbersSet.add(weekNumber);
 
@@ -231,12 +231,14 @@ function generateCalendar(year) {
             if (holiday) {
                 classes.push('feiertag');
                 holidayNames = holiday.names;
-            } else if (dayOfWeek === 6) {
+            } else if (dayOfWeek === 6) { // Saturday
                 classes.push('samstag');
-            } else if (dayOfWeek === 0) {
+            } else if (dayOfWeek === 0) { // Sunday
                 classes.push('sonntag');
             } else {
                 // Shift logic based on week number
+                // Example: Frühschicht, Spätschicht, Nachtschicht im 3-Wochen-Rhythmus
+                // (Diese Logik müsste an den tatsächlichen Schichtplan angepasst werden)
                 if (weekNumber % 3 === 0) {
                     classes.push('spaetschicht');
                 } else if ((weekNumber + 1) % 3 === 0) {
@@ -247,18 +249,20 @@ function generateCalendar(year) {
             }
 
             if (currentFormattedDate === todayFormatted) {
-                classes.push('today'); // Add class for today
+                classes.push('today'); // Add class for today's date
             }
 
             currentWeek.push({ day: day, classes: classes.join(' '), originalDayOfWeek: dayOfWeek, weekNumber: weekNumber, holidayNames: holidayNames });
         }
 
+        // Add empty cells for days after the last day of the month to fill the last week
         if (currentWeek.length % 7 !== 0) {
             while (currentWeek.length % 7 !== 0) {
                 currentWeek.push({ day: '', classes: 'empty-cell', weekNumber: null, holidayNames: {} });
             }
         }
 
+        // Divide currentWeek into arrays of 7 days (weeks)
         for (let i = 0; i < currentWeek.length; i += 7) {
             weeksData.push(currentWeek.slice(i, i + 7));
         }
@@ -285,13 +289,13 @@ function generateCalendar(year) {
         });
 
         // Special handling for KW 1 crossing into the next year (e.g., in December)
-        // This logic might need refinement depending on precise KW rules for ISO 8601
-        if (month === 11) {
+        if (month === 11) { // If it's December
             const kw1Index = actualKWsInMonth.indexOf(1);
             if (kw1Index > -1) {
+                // If KW 1 is found, move it to the end of the array
                 const kw1 = actualKWsInMonth.splice(kw1Index, 1)[0];
-                actualKWsInMonth.sort((a, b) => a - b);
-                actualKWsInMonth.push(kw1);
+                actualKWsInMonth.sort((a, b) => a - b); // Sort remaining KWs
+                actualKWsInMonth.push(kw1); // Add KW 1 to the end
             } else {
                 actualKWsInMonth.sort((a, b) => a - b);
             }
@@ -299,7 +303,7 @@ function generateCalendar(year) {
             actualKWsInMonth.sort((a, b) => a - b);
         }
 
-        for (let col = 0; col < MAX_COLUMNS_FOR_DATES; col++) {
+        for (let col = 0; col < MAX_COLUMNS_FOR_DATES; col++) { // Generate KW cells for up to 6 weeks
             const kwCell = document.createElement('div');
             kwCell.classList.add('kw-cell');
             if (actualKWsInMonth[col] !== undefined) {
@@ -335,6 +339,7 @@ function generateCalendar(year) {
             const columnDiv = document.createElement('div');
             columnDiv.classList.add('day-column');
 
+            // Iterate over orderedDayIndices to ensure correct day order
             orderedDayIndices.forEach(dayIndex => {
                 const cellData = week.find(data => data.originalDayOfWeek === dayIndex);
                 const dateCell = document.createElement('div');
