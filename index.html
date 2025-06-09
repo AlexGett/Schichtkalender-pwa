@@ -2,23 +2,34 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Schichtkalender 2025</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="style.css"> <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" href="ios/192.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="ios/180.png">
-    <link rel="apple-touch-icon" sizes="192x192" href="ios/192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="ios/32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="ios/16.png">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#0161FD"> </head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="/manifest.json">
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js')
+                .then(registration => {
+                    console.log('Service Worker registered with scope:', registration.scope);
+                })
+                .catch(error => {
+                    console.error('Service Worker registration failed:', error);
+                });
+        });
+    }
+</script>
+
+</head>
 <body>
-    <div class="calendar-container" id="calendarContainer">
+    <div class="app-header-placeholder">
         <i class="fas fa-phone-alt header-icon phone-icon-position" id="openPhoneDialog"></i>
         <i class="fas fa-info-circle header-icon info-icon-position" id="openShiftInfoDialog"></i>
         <img src="https://images.seeklogo.com/logo-png/54/2/motherson-logo-png_seeklogo-544537.png" alt="Motherson Logo" class="logo" id="openSettingsDialog">
+    </div>
+
+    <div class="calendar-container" id="calendarContainer">
         <div class="header-section">
             <h1 id="currentYearDisplay">2025</h1>
         </div>
@@ -28,7 +39,7 @@
     </div>
 
     <div class="dialog-overlay" id="phoneDialogOverlay">
-        <div class="dialog">
+        <div class="dialog dialog-content">
             <button class="close-button" id="closePhoneDialog">&times;</button>
             <h3>Wichtige Telefonnummern</h3>
             <ul>
@@ -53,7 +64,7 @@
     </div>
 
     <div class="dialog-overlay" id="holidayDialogOverlay">
-        <div class="dialog">
+        <div class="dialog dialog-content">
             <button class="close-button" id="closeHolidayDialog">&times;</button>
             <h3>Feiertag</h3>
             <div id="holidayTranslations"></div>
@@ -61,7 +72,7 @@
     </div>
 
     <div class="dialog-overlay" id="shiftInfoDialogOverlay">
-        <div class="dialog">
+        <div class="dialog dialog-content">
             <button class="close-button" id="closeShiftInfoDialog">&times;</button>
             <h3>Schichtzeiten & Farben</h3>
             <div class="shift-info-item">
@@ -92,7 +103,7 @@
     </div>
 
     <div class="dialog-overlay" id="settingsDialogOverlay">
-        <div class="dialog">
+        <div class="dialog dialog-content">
             <button class="close-button" id="closeSettingsDialog">&times;</button>
             <h3>Einstellungen</h3>
             <div class="settings-option">
@@ -106,7 +117,7 @@
     </div>
 
     <div class="dialog-overlay" id="yearInputDialogOverlay">
-        <div class="dialog year-input-dialog">
+        <div class="dialog year-input-dialog dialog-content">
             <button class="close-button" id="closeYearInputDialog">&times;</button>
             <h3>Jahr auswählen</h3>
             <label for="yearInput">Geben Sie ein Jahr ein:</label>
@@ -119,5 +130,7 @@
         </div>
     </div>
 
-    <script src="script.js"></script> </body>
+    <script src="script.js"></script>
+
+</body>
 </html>
