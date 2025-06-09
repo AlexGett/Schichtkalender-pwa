@@ -187,12 +187,12 @@ function generateCalendar(year) {
     const MONTH_CARD_WIDTH = DAY_LABEL_WIDTH + MAX_DATE_COLUMNS_WIDTH + (20 * 2);
 
     document.documentElement.style.setProperty('--cell-width', `${CELL_WIDTH}px`);
-    document.documentElement.style.setProperty('--cell-height', `${CELL_HEIGHT}px`);
-    document.documentElement.style.setProperty('--cell-height-kw', `${CELL_HEIGHT * 0.8}px`);
-    document.documentElement.style.setProperty('--cell-gap', `${CELL_GAP}px`);
-    document.documentElement.style.setProperty('--day-label-width', `${DAY_LABEL_WIDTH}px`);
-    document.documentElement.style.setProperty('--month-card-width', `${MONTH_CARD_WIDTH}px`);
-    document.documentElement.style.setProperty('--month-grid-gap', `30px`); // Dieser Wert war immer fest, nur zur Info
+document.documentElement.style.setProperty('--cell-height', `${CELL_HEIGHT}px`);
+document.documentElement.style.setProperty('--cell-height-kw', `${CELL_HEIGHT * 0.8}px`);
+document.documentElement.style.setProperty('--cell-gap', `${CELL_GAP}px`);
+document.documentElement.style.setProperty('--day-label-width', `${DAY_LABEL_WIDTH}px`);
+document.documentElement.style.setProperty('--month-card-width', `${MONTH_CARD_WIDTH}px`);
+document.documentElement.style.setProperty('--month-grid-gap', `30px`);// Dieser Wert war immer fest, nur zur Info
 
 
     const yearHolidays = holidaysData[year] || []; // Get holidays for the selected year
