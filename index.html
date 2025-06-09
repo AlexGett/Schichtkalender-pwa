@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Schichtkalender 2025</title>
+    <title>Schichtkalender</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="style.css"> <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" href="ios/192.png">
     <link rel="apple-touch-icon" sizes="180x180" href="ios/180.png">
     <link rel="apple-touch-icon" sizes="192x192" href="ios/192.png">
@@ -13,111 +14,106 @@
     <link rel="icon" type="image/png" sizes="16x16" href="ios/16.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#0161FD"> </head>
+    <meta name="theme-color" content="#0161FD">
+</head>
 <body>
-    <div class="calendar-container" id="calendarContainer">
-        <i class="fas fa-phone-alt header-icon phone-icon-position" id="openPhoneDialog"></i>
-        <i class="fas fa-info-circle header-icon info-icon-position" id="openShiftInfoDialog"></i>
-        <img src="https://images.seeklogo.com/logo-png/54/2/motherson-logo-png_seeklogo-544537.png" alt="Motherson Logo" class="logo" id="openSettingsDialog">
-        <div class="header-section">
-            <h1 id="currentYearDisplay">2025</h1>
+    <div class="header">
+        <div class="header-item" id="openPhoneDialog">
+            <i class="fa-solid fa-phone"></i>
+            <span class="tooltiptext">Wichtige Kontakte</span>
         </div>
-        <h2>Schichtkalender Schicht 2</h2>
-        <div class="month-grid">
+        <div class="header-item" id="openShiftInfoDialog">
+            <i class="fa-solid fa-circle-info"></i>
+            <span class="tooltiptext">Schicht-Infos</span>
+        </div>
+        <div class="header-item" id="currentYearDisplay">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span id="yearValue">2025</span>
+            <span class="tooltiptext">Jahr ändern</span>
+        </div>
+        <div class="header-item" id="openSettingsDialog">
+            <i class="fa-solid fa-gear"></i>
+            <span class="tooltiptext">Einstellungen</span>
         </div>
     </div>
 
+    <div class="calendar-container" id="calendarContainer">
+        <div class="month-grid">
+            </div>
+    </div>
+
     <div class="dialog-overlay" id="phoneDialogOverlay">
-        <div class="dialog">
+        <div class="dialog-content">
             <button class="close-button" id="closePhoneDialog">&times;</button>
-            <h3>Wichtige Telefonnummern</h3>
+            <h2>Wichtige Kontakte</h2>
             <ul>
-                <li>
-                    <span>Schichtmeister:</span>
-                    <a href="tel:08402774858">08402 / 774858</a>
-                </li>
-                <li>
-                    <span>Vorarbeiter BMW U1x:</span>
-                    <a href="tel:08402774098">08402 / 774098</a>
-                </li>
-                <li>
-                    <span>Vorarbeiter BMW U10:</span>
-                    <a href="tel:08402774508">08402 / 774508</a>
-                </li>
-                <li>
-                    <span>Vorarbeiter Audi:</span>
-                    <a href="tel:08402774830">08402 / 774830</a>
-                </li>
+                <li>**Meister:** 0176 / 12345678</li>
+                <li>**Leitstelle:** 0176 / 87654321</li>
+                <li>**Notfall:** 112 (Allgemein)</li>
+                <li>**Werksarzt:** 0176 / 98765432</li>
             </ul>
         </div>
     </div>
 
     <div class="dialog-overlay" id="holidayDialogOverlay">
-        <div class="dialog">
+        <div class="dialog-content">
             <button class="close-button" id="closeHolidayDialog">&times;</button>
-            <h3>Feiertag</h3>
-            <div id="holidayTranslations"></div>
+            <h2>Feiertag</h2>
+            <div id="holidayTranslations">
+                </div>
         </div>
     </div>
 
     <div class="dialog-overlay" id="shiftInfoDialogOverlay">
-        <div class="dialog">
+        <div class="dialog-content">
             <button class="close-button" id="closeShiftInfoDialog">&times;</button>
-            <h3>Schichtzeiten & Farben</h3>
-            <div class="shift-info-item">
-                <div class="shift-color-box fruehschicht"></div>
-                <span>Frühschicht: 06:00 Uhr - 14:00 Uhr</span>
+            <h2>Schicht-Informationen</h2>
+            <div class="shift-legend">
+                <div class="legend-item"><span class="color-box fruehschicht"></span> Frühschicht</div>
+                <div class="legend-item"><span class="color-box spaetschicht"></span> Spätschicht</div>
+                <div class="legend-item"><span class="color-box nachtschicht"></span> Nachtschicht</div>
+                <div class="legend-item"><span class="color-box samstag"></span> Samstag</div>
+                <div class="legend-item"><span class="color-box sonntag"></span> Sonntag</div>
+                <div class="legend-item"><span class="color-box feiertag"></span> Feiertag</div>
             </div>
-            <div class="shift-info-item">
-                <div class="shift-color-box spaetschicht"></div>
-                <span>Spätschicht: 14:00 Uhr - 22:00 Uhr</span>
-            </div>
-            <div class="shift-info-item">
-                <div class="shift-color-box nachtschicht"></div>
-                <span>Nachtschicht: 22:00 Uhr - 06:00 Uhr</span>
-            </div>
-            <div class="shift-info-item">
-                <div class="shift-color-box samstag"></div>
-                <span>Samstag</span>
-            </div>
-            <div class="shift-info-item">
-                <div class="shift-color-box sonntag"></div>
-                <span>Sonntag</span>
-            </div>
-            <div class="shift-info-item">
-                <div class="shift-color-box feiertag"></div>
-                <span>Feiertag</span>
-            </div>
+            <p>Die Schichtplanung basiert auf einem 3-Schicht-System:</p>
+            <ul>
+                <li>**Frühschicht:** Normalerweise 06:00 - 14:00 Uhr</li>
+                <li>**Spätschicht:** Normalerweise 14:00 - 22:00 Uhr</li>
+                <li>**Nachtschicht:** Normalerweise 22:00 - 06:00 Uhr</li>
+            </ul>
+            <p>**Hinweis:** Die Schichtzyklen wiederholen sich in einem festen Rhythmus und sind auf die Kalenderwoche abgestimmt. Änderungen vorbehalten.</p>
         </div>
     </div>
 
     <div class="dialog-overlay" id="settingsDialogOverlay">
-        <div class="dialog">
+        <div class="dialog-content">
             <button class="close-button" id="closeSettingsDialog">&times;</button>
-            <h3>Einstellungen</h3>
-            <div class="settings-option">
-                <label for="toggleAnimations">Animationen ausschalten:</label>
+            <h2>Einstellungen</h2>
+            <div class="setting-item">
+                <label for="toggleAnimations">Animationen deaktivieren:</label>
                 <input type="checkbox" id="toggleAnimations">
             </div>
-            <div class="settings-option">
-                <label for="borderColorPicker">Randfarbe wählen:</label>
-                <input type="color" id="borderColorPicker" value="#0161FD"> </div>
+            <div class="setting-item">
+                <label for="borderColorPicker">Kalender-Randfarbe:</label>
+                <input type="color" id="borderColorPicker">
+            </div>
         </div>
     </div>
 
     <div class="dialog-overlay" id="yearInputDialogOverlay">
-        <div class="dialog year-input-dialog">
+        <div class="dialog-content">
             <button class="close-button" id="closeYearInputDialog">&times;</button>
-            <h3>Jahr auswählen</h3>
-            <label for="yearInput">Geben Sie ein Jahr ein:</label>
-            <div class="input-group">
-                <button class="year-nav" id="decreaseYear">-</button>
-                <input type="number" id="yearInput" min="2023" max="2030">
-                <button class="year-nav" id="increaseYear">+</button>
+            <h2>Jahr auswählen</h2>
+            <div class="year-input-controls">
+                <button id="decreaseYear" class="year-nav-button">&lt;</button>
+                <input type="number" id="yearInput" min="2023" max="2030" value="2025">
+                <button id="increaseYear" class="year-nav-button">&gt;</button>
             </div>
-            <button id="setYearButton" class="confirm-button">Bestätigen</button>
+            <button id="setYearButton" class="dialog-button">Jahr setzen</button>
         </div>
     </div>
 
-    <script src="script.js"></script> </body>
+    <script src="script.js"></script>
+</body>
 </html>
