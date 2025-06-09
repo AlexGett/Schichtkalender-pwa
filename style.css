@@ -1,7 +1,6 @@
 /* Inhalt des <style>-Tags aus deiner index.html hierher kopieren */
 :root {
     --calendar-border-color: #0161FD;
-    /* Festlegen von Standardwerten für die CSS-Variablen */
     --month-card-width: 400px;
     --month-grid-gap: 30px;
     --cell-width: 42px;

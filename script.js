@@ -178,13 +178,13 @@ function generateCalendar(year) {
     const orderedDayIndices = [1, 2, 3, 4, 5, 6, 0];
 
     // Define CSS variables based on calculation or fixed values
-    const CELL_WIDTH = 42;
+        const CELL_WIDTH = 42;
     const CELL_HEIGHT = 42;
     const CELL_GAP = 4;
     const DAY_LABEL_WIDTH = 55;
     const MAX_COLUMNS_FOR_DATES = 6;
     const MAX_DATE_COLUMNS_WIDTH = (MAX_COLUMNS_FOR_DATES * CELL_WIDTH) + ((MAX_COLUMNS_FOR_DATES - 1) * CELL_GAP);
-    const MONTH_CARD_WIDTH = DAY_LABEL_WIDTH + MAX_DATE_COLUMNS_WIDTH + (20 * 2); // 20px padding on each side
+    const MONTH_CARD_WIDTH = DAY_LABEL_WIDTH + MAX_DATE_COLUMNS_WIDTH + (20 * 2);
 
     document.documentElement.style.setProperty('--cell-width', `${CELL_WIDTH}px`);
     document.documentElement.style.setProperty('--cell-height', `${CELL_HEIGHT}px`);
@@ -192,7 +192,7 @@ function generateCalendar(year) {
     document.documentElement.style.setProperty('--cell-gap', `${CELL_GAP}px`);
     document.documentElement.style.setProperty('--day-label-width', `${DAY_LABEL_WIDTH}px`);
     document.documentElement.style.setProperty('--month-card-width', `${MONTH_CARD_WIDTH}px`);
-    document.documentElement.style.setProperty('--month-grid-gap', `30px`);
+    document.documentElement.style.setProperty('--month-grid-gap', `30px`); // Dieser Wert war immer fest, nur zur Info
 
 
     const yearHolidays = holidaysData[year] || []; // Get holidays for the selected year
