@@ -1,11 +1,11 @@
 {
     "name": "Schichtkalender",
     "short_name": "Kalender",
-    "description": "Ein Schichtkalender für Schicht 2.",
-    "start_url": "https://alexgett.github.io/Schichtkalender-pwa/",
+    "description": "Schichtkalender für Schicht 2 bei Motherson",
+    "start_url": "./index.html",
     "display": "standalone",
-    "background_color": "#ffffff",
-    "theme_color": "#ffffff",
+    "background_color": "#f4f4f4",
+    "theme_color": "#0161FD",
     "icons": [
         {
             "src": "ios/16.png",
