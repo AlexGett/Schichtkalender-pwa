@@ -5,7 +5,7 @@
     "start_url": "https://alexgett.github.io/Schichtkalender-pwa/",
     "display": "standalone",
     "background_color": "#ffffff",
-    "theme_color": "#007bff",
+    "theme_color": "#ffffff",
     "icons": [
         {
             "src": "ios/16.png",
