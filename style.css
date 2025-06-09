@@ -1,23 +1,30 @@
-/* Inhalt des <style>-Tags aus deiner index.html hierher kopieren */
 :root {
     --calendar-border-color: #0161FD; /* Updated to 0161FD */
+    /* Füge hier ggf. weitere Variablen für z.B. --safe-area-inset-top hinzu, wenn du es flexibler haben möchtest,
+       aber env() ist der Standardweg */
 }
 
 body {
     font-family: sans-serif;
-    margin: 30px;
-    background-color: #f4f4f4;
+    margin: 0; /* Geändert von 30px auf 0 */
+    padding: 0; /* Neu hinzugefügt */
+    background-color: #f4f4f4; /* Diese Farbe wird unter der Statusleiste sichtbar sein */
     color: #333;
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    min-height: 10vh;
+    min-height: 100vh; /* Oder 100dvh für dynamische Viewport-Höhe */
+
+    /* ----- ANPASSUNGEN FÜR DIE STATUSLEISTE ----- */
+    padding-top: constant(safe-area-inset-top); /* Für ältere iOS-Versionen (z.B. iPhone X) */
+    padding-top: env(safe-area-inset-top);    /* Für neuere iOS-Versionen */
+    /* ------------------------------------------- */
 }
 
 .calendar-container {
     width: 100%;
     max-width: calc(var(--month-card-width) * 3 + var(--month-grid-gap) * 2);
-    background-color: #f3f3f3;
+    background-color: #f3f3f3; /* Der Hintergrund deines Containers */
     box-shadow: 0 0 10px var(--calendar-border-color);
     padding: 40px;
     border-radius: 12px;
@@ -71,7 +78,7 @@ h2 {
     font-size: 1.6em;
     margin-bottom: 35px;
     text-align: center;
-    color: #330;
+    color: #333;
 }
 
 .logo {
@@ -288,6 +295,7 @@ h2 {
     width: var(--cell-width);
     height: var(--cell-height);
     display: flex;
+    flex-direction: column; /* Allow content to stack */
     justify-content: center;
     align-items: center;
     border-radius: 5px;
@@ -297,6 +305,26 @@ h2 {
     border: 1px solid #00000033;
     background-color: #F5F5DC;
     cursor: pointer;
+    position: relative; /* For note icon positioning */
+    padding: 2px; /* Adjust padding for note */
+    overflow: hidden; /* Hide overflowing text */
+    text-overflow: ellipsis; /* Add ellipsis for overflow */
+}
+
+.date-cell .day-number {
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 2px; /* Space between number and note */
+}
+
+.date-cell .note-indicator {
+    font-size: 0.7em; /* Smaller font for notes */
+    color: #666; /* Color for note text */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    text-align: center;
 }
 
 .empty-cell {
@@ -339,6 +367,11 @@ h2 {
 }
 
 @media (max-width: 800px) {
+    body {
+        /* Auch hier sicherstellen, dass der body-padding für mobile Ansichten korrekt ist */
+        padding-top: constant(safe-area-inset-top);
+        padding-top: env(safe-area-inset-top);
+    }
     .calendar-container {
         max-width: var(--month-card-width);
     }
@@ -577,4 +610,51 @@ h2 {
 
 .year-input-dialog button.confirm-button:hover {
     background-color: #218838;
+}
+
+/* New styles for note dialog */
+#noteDialog textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    margin-bottom: 15px;
+    box-sizing: border-box; /* Include padding in width */
+    resize: vertical; /* Allow vertical resizing */
+}
+
+#noteDialog .button-group {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+#noteDialog .button-group button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#noteDialog #saveNoteButton {
+    background-color: #007bff;
+    color: white;
+    border: none;
+}
+
+#noteDialog #saveNoteButton:hover {
+    background-color: #0056b3;
+}
+
+#noteDialog #deleteNoteButton {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+}
+
+#noteDialog #deleteNoteButton:hover {
+    background-color: #c82333;
 }
