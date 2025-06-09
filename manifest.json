@@ -1,8 +1,8 @@
 {
     "name": "Schichtkalender",
     "short_name": "Kalender",
-    "description": "Ein Schichtkalender für Schicht 2.",
-    "start_url": "/index.html",
+    "description": "Schichtkalender Schicht 2",
+    "start_url": "https://alexgett.github.io/Schichtkalender-pwa/",
     "display": "standalone",
     "background_color": "#ffffff00",
     "theme_color": "#007bff",
