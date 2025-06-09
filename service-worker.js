@@ -1,4 +1,4 @@
-const CACHE_NAME = 'schichtkalender-v1'; // Behalte diese Version bei, wenn du nur das Logo änderst. Wenn der Cache komplett neu aufgebaut werden soll, erhöhe sie z.B. auf 'schichtkalender-v2'
+const CACHE_NAME = 'schichtkalender-v1.1'; // Cache-Version erhöht, damit der Service Worker aktualisiert wird
 const urlsToCache = [
     './',
     './index.html',
@@ -6,7 +6,7 @@ const urlsToCache = [
     './script.js',
     './manifest.json',
     'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css',
-    '/images/motherson-logo-full.png', // Lokaler Pfad für das Haupt-Logo im HTML
+    'https://motherson.com/sites/all/themes/motherson/logo.png', // Externe URL des Haupt-Logos
     // Alle Icon-Pfade aus der manifest.json - Stelle sicher, dass diese Dateien im Ordner 'ios/' existieren!
     './ios/16.png',
     './ios/20.png',
@@ -41,13 +41,9 @@ self.addEventListener('install', event => {
         caches.open(CACHE_NAME)
             .then(cache => {
                 console.log('Service Worker: Opened cache');
-                // Füge alle URLs zum Cache hinzu
                 return cache.addAll(urlsToCache).catch(error => {
                     console.error('Service Worker: Failed to cache some URLs:', error);
-                    // Du könntest hier spezifischer werden, welche Dateien nicht gecacht werden konnten.
-                    // Bei Fehlern bei addAll() schlägt der gesamte Install-Schritt fehl.
-                    // Wenn es nur wenige optionale Ressourcen sind, könnte man fetch() einzeln verwenden.
-                    throw error; // Re-throw, damit der Installationsschritt fehlschlägt, falls kritische Assets fehlen
+                    throw error;
                 });
             })
     );
@@ -57,33 +53,28 @@ self.addEventListener('fetch', event => {
     event.respondWith(
         caches.match(event.request)
             .then(response => {
-                // Cache hit - return response
                 if (response) {
                     return response;
                 }
-                // If not in cache, fetch from network
                 return fetch(event.request).then(
                     response => {
-                        // Check if we received a valid response
                         if (!response || response.status !== 200 || response.type !== 'basic') {
                             return response;
                         }
-                        // IMPORTANT: Clone the response. A response is a stream
-                        // and can only be consumed once. We must clone it so that
-                        // the browser can consume one and we can consume the other.
                         const responseToCache = response.clone();
-
-                        caches.open(CACHE_NAME)
-                            .then(cache => {
-                                cache.put(event.request, responseToCache);
-                            });
-
+                        // Nur den externen Link oder lokale PWA-Assets cachen, die in urlsToCache sind
+                        // Wenn die Anfrage in urlsToCache ist, füge sie zum Cache hinzu.
+                        // Andernfalls, wenn es ein dynamisches Asset ist, nicht cachen (es sei denn, spezifisch benötigt).
+                        if (urlsToCache.includes(event.request.url.replace(self.location.origin, '.')) || event.request.url.startsWith('https://cdnjs.cloudflare.com/') || event.request.url === 'https://motherson.com/sites/all/themes/motherson/logo.png') {
+                             caches.open(CACHE_NAME)
+                                .then(cache => {
+                                    cache.put(event.request, responseToCache);
+                                });
+                        }
                         return response;
                     }
                 ).catch(error => {
                     console.error('Fetch failed for:', event.request.url, error);
-                    // Hier könntest du eine Offline-Fallback-Seite zurückgeben, wenn ein Fetch fehlschlägt
-                    // z.B. return caches.match('/offline.html');
                 });
             })
     );
