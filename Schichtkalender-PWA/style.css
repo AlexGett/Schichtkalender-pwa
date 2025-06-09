@@ -59,16 +59,17 @@ body {
 }
 
 /* Header */
-.calendar-header {
+.header-section {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Zentriert den Inhalt */
     align-items: center;
     margin-bottom: 25px;
     padding-bottom: 15px;
     border-bottom: 1px solid var(--border-color);
+    position: relative; /* Für absolute Positionierung der Icons */
 }
 
-.calendar-header h1 {
+.header-section h1 {
     margin: 0;
     color: var(--primary-color);
     font-size: 2.2em;
@@ -76,42 +77,45 @@ body {
     transition: color 0.2s ease-in-out;
 }
 
-.calendar-header h1:hover {
+.header-section h1:hover {
     color: #004ac9; /* Dunklerer Ton für Hover */
 }
 
-/* Icon Buttons */
-.icon-button {
-    background: none;
-    border: none;
+/* Header Icons (Positionierung im HTML war als Klassen definiert) */
+.header-icon {
+    position: absolute;
     font-size: 1.8em;
     cursor: pointer;
     color: var(--primary-color);
-    padding: 8px;
-    border-radius: 8px;
-    transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+    transition: color 0.2s ease-in-out;
+    padding: 8px; /* Für bessere Klickfläche */
+    border-radius: 8px; /* Für bessere Optik beim Hover */
 }
 
-.icon-button:hover {
+.header-icon:hover {
     background-color: var(--hover-color);
-    transform: translateY(-2px);
 }
 
-.icon-button:active {
-    transform: translateY(0);
+.phone-icon-position {
+    top: 20px;
+    left: 20px;
+}
+
+.info-icon-position {
+    top: 20px;
+    left: 70px; /* Oder anderer passender Abstand zum Telefon-Icon */
 }
 
 /* Logo */
 .logo {
     position: absolute;
-    top: 20px; /* Oder eine andere passende Position */
-    right: 20px; /* Oder eine andere passende Position */
+    top: 20px;
+    right: 20px;
     width: 100px; /* Beispielgröße, anpassen nach Bedarf */
     height: auto;
     cursor: pointer; /* Wenn es klickbar sein soll */
     z-index: 10; /* Stellen Sie sicher, dass es über anderen Elementen liegt */
 }
-
 
 /* Month Grid */
 .month-grid {
@@ -319,7 +323,7 @@ body {
     opacity: 1;
 }
 
-.dialog { /* Wurde zu .dialog geändert, um den Dialog-Content im HTML zu passen */
+.dialog {
     background-color: var(--card-background);
     padding: 30px;
     border-radius: 12px;
@@ -337,26 +341,26 @@ body {
     opacity: 1;
 }
 
-.dialog h3 { /* Wurde zu h3 geändert, um den Dialog-Content im HTML zu passen */
+.dialog h3 {
     color: var(--primary-color);
     margin-top: 0;
     margin-bottom: 20px;
     font-size: 1.6em;
 }
 
-.dialog ul { /* Wurde zu ul geändert */
+.dialog ul {
     list-style: none;
     padding: 0;
     margin: 0 0 20px 0;
 }
 
-.dialog li { /* Wurde zu li geändert */
+.dialog li {
     padding: 8px 0;
     border-bottom: 1px dashed var(--border-color);
     font-size: 1.1em;
 }
 
-.dialog li:last-child { /* Wurde zu li geändert */
+.dialog li:last-child {
     border-bottom: none;
 }
 
@@ -405,7 +409,7 @@ body {
 }
 
 /* Einstellungen Dialog Spezifisch */
-.settings-option { /* Wurde zu settings-option geändert */
+.settings-option {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -439,9 +443,6 @@ body {
 }
 
 /* Shift Info Dialog */
-/* Die .shift-info-button Klasse wird nicht mehr direkt im HTML verwendet,
-   sondern die Icons im Header sind jetzt die Trigger.
-   Die .shift-info-item und .shift-color-box Klassen sind weiterhin relevant. */
 .shift-info-item {
     display: flex;
     align-items: center;
@@ -467,7 +468,7 @@ body {
 .feiertag { background-color: var(--feiertag-color); }
 
 
-/* Year Input Control (Diese Regeln sind für den Dialoginhalt relevant) */
+/* Year Input Control */
 .year-input-dialog .input-group {
     display: flex;
     justify-content: center;
@@ -508,31 +509,6 @@ body {
     margin: 0;
 }
 
-/* Header Icons (Positionierung im HTML war als Klassen definiert) */
-.header-icon {
-    position: absolute;
-    font-size: 1.8em;
-    cursor: pointer;
-    color: var(--primary-color);
-    transition: color 0.2s ease-in-out;
-    padding: 8px; /* Für bessere Klickfläche */
-    border-radius: 8px; /* Für bessere Optik beim Hover */
-}
-
-.header-icon:hover {
-    background-color: var(--hover-color);
-}
-
-.phone-icon-position {
-    top: 20px;
-    left: 20px;
-}
-
-.info-icon-position {
-    top: 20px;
-    left: 70px; /* Oder anderer passender Abstand zum Telefon-Icon */
-}
-
 
 /* Responsive adjustments */
 @media (max-width: 1024px) {
@@ -560,7 +536,7 @@ body {
         width: calc(100vw - 60px); /* Passt sich der Bildschirmbreite an, abzüglich Padding */
         max-width: var(--month-card-width); /* Stellt sicher, dass es nicht zu breit wird */
     }
-    .calendar-header h1 {
+    .header-section h1 {
         font-size: 1.8em;
     }
     .header-icon, .logo { /* Zusammengefasst für kleinere Bildschirme */
