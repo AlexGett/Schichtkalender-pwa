@@ -1,321 +1,392 @@
+/* Inhalt des <style>-Tags aus deiner index.html hierher kopieren */
 :root {
-    --primary-color: #0161FD;
-    --text-color: #333;
-    --background-color: #f4f7f6;
-    --card-background: #ffffff;
-    --border-color: #e0e0e0;
-    --hover-color: #f0f0f0;
-    --feiertag-color: #FF5733; /* Ein auffälligeres Rot/Orange */
-    --samstag-color: #C0C0C0; /* Helles Grau für Samstage */
-    --sonntag-color: #A0A0A0; /* Etwas dunkleres Grau für Sonntage */
-    --fruehschicht-color: #87CEEB; /* Himmelblau */
-    --spaetschicht-color: #FFD700; /* Gold */
-    --nachtschicht-color: #6A5ACD; /* Schieferblau */
-
-    /* Dynamische Variablen, gesetzt durch JS */
-    --cell-width: 42px;
-    --cell-height: 42px;
-    --cell-height-kw: 33.6px; /* 80% von cell-height */
-    --cell-gap: 4px;
-    --day-label-width: 55px;
-    --month-card-width: 300px; /* Standardwert, wird von JS überschrieben */
-    --month-grid-gap: 30px;
-
-    --calendar-border-color: #0161FD; /* Standardwert für die Kalender-Border-Farbe */
+    --calendar-border-color: #0161FD; /* Updated to 0161FD */
 }
 
-/* Base Styles */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 20px;
-    background-color: var(--background-color);
-    color: var(--text-color);
+    font-family: sans-serif;
+    margin: 30px;
+    background-color: #f4f4f4;
+    color: #333;
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    min-height: 100vh;
-    box-sizing: border-box;
+    min-height: 10vh;
 }
 
-/* Calendar Container */
 .calendar-container {
-    background-color: var(--card-background);
+    width: 100%;
+    max-width: calc(var(--month-card-width) * 3 + var(--month-grid-gap) * 2);
+    background-color: #f3f3f3;
+    box-shadow: 0 0 10px var(--calendar-border-color);
+    padding: 40px;
     border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    padding: 25px;
-    width: fit-content;
-    border: 2px solid var(--calendar-border-color); /* Verwendet die Variable */
-    transition: all 0.3s ease-in-out;
+    box-sizing: border-box;
+    position: relative;
+    animation: pulse-blue-border 2s infinite alternate;
 }
 
-/* Animationskontrolle */
+@keyframes pulse-blue-border {
+    0% {
+        box-shadow: 0 0 10px var(--calendar-border-color);
+    }
+    50% {
+        box-shadow: 0 0 30px var(--calendar-border-color);
+    }
+    100% {
+        box-shadow: 0 0 10px var(--calendar-border-color);
+    }
+}
+
 .calendar-container.no-animation {
-    transition: none !important;
+    animation: none;
+    box-shadow: 0 0 10px var(--calendar-border-color);
 }
 
-.calendar-container.no-animation * {
-    transition: none !important;
-}
-
-/* Header */
 .header-section {
-    display: flex;
-    justify-content: center; /* Zentriert den Inhalt */
-    align-items: center;
-    margin-bottom: 25px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid var(--border-color);
-    position: relative; /* Für absolute Positionierung der Icons */
+    text-align: center;
+    margin-bottom: 40px;
 }
 
 .header-section h1 {
-    margin: 0;
-    color: var(--primary-color);
-    font-size: 2.2em;
+    font-size: 3em;
+    color: #000000;
+    margin-bottom: 5px; /* Adjusted margin to bring underline closer */
+    display: inline-block; /* To make underline fit content */
+    cursor: pointer; /* Indicate clickable */
+    position: relative;
+}
+
+.header-section h1::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px; /* Position of the underline */
+    height: 3px; /* Thickness of the underline */
+    background-color: black;
+}
+
+h2 {
+    font-size: 1.6em;
+    margin-bottom: 35px;
+    text-align: center;
+    color: #330;
+}
+
+.logo {
+    position: absolute;
+    margin-top: -50px;
+    right: 20px;
+    width: 150px;
+    height: auto;
+    z-index: 10;
     cursor: pointer;
-    transition: color 0.2s ease-in-out;
 }
 
-.header-section h1:hover {
-    color: #004ac9; /* Dunklerer Ton für Hover */
-}
-
-/* Header Icons (Positionierung im HTML war als Klassen definiert) */
 .header-icon {
     position: absolute;
-    font-size: 1.8em;
+    margin-top: 35px;
+    font-size: 2.5em;
+    color: #12345;
     cursor: pointer;
-    color: var(--primary-color);
-    transition: color 0.2s ease-in-out;
-    padding: 8px; /* Für bessere Klickfläche */
-    border-radius: 8px; /* Für bessere Optik beim Hover */
+    z-index: 10;
+    transition: color 0.3s ease;
 }
 
 .header-icon:hover {
-    background-color: var(--hover-color);
+    color: #007f05;
 }
 
 .phone-icon-position {
-    top: 20px;
-    left: 20px;
+    left: 5px;
 }
 
 .info-icon-position {
-    top: 20px;
-    left: 70px; /* Oder anderer passender Abstand zum Telefon-Icon */
+    top: 105px; /* Adjusted from 75px to 105px (75 + 30) */
+    left: 5px; /* Aligned with the phone icon */
 }
 
-/* Logo */
-.logo {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 100px; /* Beispielgröße, anpassen nach Bedarf */
-    height: auto;
-    cursor: pointer; /* Wenn es klickbar sein soll */
-    z-index: 10; /* Stellen Sie sicher, dass es über anderen Elementen liegt */
-}
-
-/* Month Grid */
 .month-grid {
     display: grid;
-    grid-template-columns: repeat(3, var(--month-card-width));
+    grid-template-columns: repeat(auto-fit, var(--month-card-width));
     gap: var(--month-grid-gap);
     justify-content: center;
 }
 
-/* Month Card */
 .month-card {
-    background-color: var(--card-background);
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    padding: 15px;
-    text-align: center;
     width: var(--month-card-width);
+    border: 1px solid #a0a0a0;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #fcfcfc;
+    display: flex;
+    flex-direction: column;
     box-sizing: border-box;
 }
 
 .month-title {
     font-weight: bold;
-    margin-bottom: 15px;
-    color: var(--primary-color);
-    font-size: 1.1em;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.6em;
+    color: #333;
 }
 
-/* Week Numbers */
 .week-numbers-container {
     display: flex;
-    align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+    background-color: #ededed;
+    border-radius: 4px;
+    padding: 6px 0;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.week-numbers-container::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 6px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        transparent 20%,
+        #DCDCDC 30%,
+        #DCDCDC 70%,
+        transparent 80%,
+        transparent 100%
+    );
+    background-size: 200% 100%;
+    background-repeat: repeat-x;
+    animation: running-border 3s linear infinite;
+    z-index: -1;
+}
+
+.week-numbers-container::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    background-color: #ededed;
+    border-radius: 3px;
+    z-index: 0;
+}
+
+@keyframes running-border {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: -200% 0%;
+    }
 }
 
 .kw-label-column {
     width: var(--day-label-width);
-    font-weight: bold;
-    text-align: center;
-    color: var(--primary-color);
-    margin-right: var(--cell-gap);
+    flex-shrink: 0;
     display: flex;
     align-items: center;
-    justify-content: center;
-    height: var(--cell-height-kw); /* Anpassung der Höhe */
-    font-size: 0.85em;
-    flex-shrink: 0; /* Verhindert Schrumpfen */
+    justify-content: flex-end;
+    font-weight: bold;
+    font-size: 1em;
+    padding-right: 8px;
+    position: relative;
+    z-index: 2;
 }
 
 .kw-numbers-grid {
-    display: flex;
-    flex-wrap: nowrap; /* Verhindert Zeilenumbruch */
-    gap: var(--cell-gap);
-    overflow-x: hidden; /* Verhindert horizontale Scrollbalken, wenn nicht genug KW-Zellen */
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: var(--cell-width);
+    gap: calc(var(--cell-gap) - 4px);
     flex-grow: 1;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    position: relative;
+    z-index: 2;
+}
+
+.kw-numbers-grid::-webkit-scrollbar {
+    display: none;
 }
 
 .kw-cell {
     width: var(--cell-width);
-    height: var(--cell-height-kw); /* Anpassung der Höhe */
+    height: var(--cell-height-kw);
     display: flex;
-    align-items: center;
     justify-content: center;
-    font-size: 0.8em;
-    background-color: var(--hover-color);
-    border-radius: 5px;
-    color: var(--text-color);
-    flex-shrink: 0; /* Verhindert Schrumpfen */
+    align-items: center;
+    font-size: 1em;
+    font-weight: bold;
+    color: #444;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 2;
 }
 
-.empty-kw {
-    background-color: transparent;
-    border: none;
+.kw-cell.empty-kw {
+    background-color: transparent !important;
+    border: none !important;
+    visibility: hidden;
+    cursor: default;
 }
 
-/* Day Grid */
 .day-grid-container {
     display: flex;
+    position: relative;
 }
 
 .day-label-column {
     display: flex;
     flex-direction: column;
-    margin-right: var(--cell-gap);
-    width: var(--day-label-width);
-    flex-shrink: 0; /* Verhindert Schrumpfen */
+    justify-content: flex-start;
+    padding-right: 8px;
+    flex-shrink: 0;
+    gap: 4px;
 }
 
 .day-label {
     height: var(--cell-height);
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     font-weight: bold;
-    font-size: 0.9em;
-    color: var(--primary-color);
+    font-size: 1.1em;
+    flex-shrink: 0;
 }
 
 .date-columns-container {
     display: flex;
-    flex-wrap: nowrap; /* Verhindert Zeilenumbruch der Spalten */
-    gap: var(--cell-gap);
-    overflow-x: hidden; /* Verhindert horizontale Scrollbalken */
     flex-grow: 1;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.date-columns-container::-webkit-scrollbar {
+    display: none;
 }
 
 .day-column {
     display: flex;
     flex-direction: column;
+    flex-shrink: 0;
     gap: var(--cell-gap);
-    flex-shrink: 0; /* Verhindert Schrumpfen */
 }
 
 .date-cell {
     width: var(--cell-width);
     height: var(--cell-height);
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     border-radius: 5px;
-    background-color: var(--card-background);
-    font-size: 0.9em;
-    font-weight: 500;
-    transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
-    cursor: default;
-    position: relative; /* Für Tooltip */
-}
-
-.date-cell:not(.empty-cell):hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+    font-size: 1.1em;
+    box-sizing: border-box;
+    border: 1px solid #00000033;
+    background-color: #F5F5DC;
+    cursor: pointer;
 }
 
 .empty-cell {
-    background-color: transparent;
-    pointer-events: none;
+    background-color: transparent !important;
+    border: none !important;
+    visibility: hidden;
+    cursor: default;
 }
 
-/* Schichtfarben */
 .fruehschicht {
-    background-color: var(--fruehschicht-color);
-    color: #333;
+    background-color: #FFF3E0;
 }
-
 .spaetschicht {
-    background-color: var(--spaetschicht-color);
+    background-color: #C8E6C9;
     color: #333;
 }
-
 .nachtschicht {
-    background-color: var(--nachtschicht-color);
-    color: #fff;
-}
-
-/* Feiertage, Samstage, Sonntage */
-.feiertag {
-    background-color: var(--feiertag-color);
-    color: #fff;
-    font-weight: bold;
-    cursor: pointer; /* Zeigt an, dass es anklickbar ist */
-}
-
-.feiertag:hover {
-    filter: brightness(1.1); /* Leicht aufhellen beim Hover */
+    background-color: #BBDEFB;
+    color: #333;
 }
 
 .samstag {
-    background-color: var(--samstag-color);
-    color: #333;
+    background-color: #FFFFFF;
+    border: 1px solid #D7CCC8;
 }
-
 .sonntag {
-    background-color: var(--sonntag-color);
-    color: #fff;
+    background-color: #F5F5F5;
 }
-
-/* Hervorhebung des heutigen Tages */
-.date-cell.today {
-    border: 3px solid var(--primary-color); /* Auffälliger Rand */
-    box-shadow: 0 0 10px rgba(0, 97, 253, 0.4); /* Leuchtender Schatten */
-    transform: scale(1.05); /* Leicht vergrößern */
+.feiertag {
+    background-color: #FFCDD2;
+    color: #333;
     font-weight: bold;
-    color: var(--primary-color);
-    background-color: rgba(1, 97, 253, 0.1); /* Leichte Hintergrundfarbe */
+    cursor: pointer;
 }
 
-/* Dialog Overlays */
+@media (max-width: 1200px) {
+    .calendar-container {
+        max-width: calc(var(--month-card-width) * 2 + var(--month-grid-gap));
+    }
+}
+
+@media (max-width: 800px) {
+    .calendar-container {
+        max-width: var(--month-card-width);
+    }
+    .month-grid {
+        grid-template-columns: 1fr;
+    }
+    .day-label {
+        font-size: 1em;
+    }
+    .date-cell {
+        font-size: 1em;
+    }
+    .kw-cell {
+        font-size: 0.9em;
+    }
+    .logo {
+        FONT-WEIGHT: 300;
+        width: 100px;
+        top: -20px;
+        right: 10px;
+    }
+    .header-icon {
+        font-size: 2em;
+        top: -15px;
+    }
+    .phone-icon-position {
+        left: 15px;
+    }
+    .info-icon-position {
+        top: 55px; /* Adjusted from 25px to 55px (25 + 30) for mobile */
+        left: 15px; /* Aligned with phone on mobile */
+    }
+}
+
 .dialog-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.6);
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1000;
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0.3s, opacity 0.3s;
-    z-index: 1000;
+    transition: visibility 0s, opacity 0.3s ease;
 }
 
 .dialog-overlay.active {
@@ -324,108 +395,109 @@ body {
 }
 
 .dialog {
-    background-color: var(--card-background);
+    background-color: #ffffff;
     padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    max-width: 90%;
-    width: 400px;
-    transform: translateY(-20px);
-    opacity: 0;
-    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
-}
-
-.dialog-overlay.active .dialog {
-    transform: translateY(0);
-    opacity: 1;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 400px;
+    position: relative;
 }
 
 .dialog h3 {
-    color: var(--primary-color);
-    margin-top: 0;
-    margin-bottom: 20px;
-    font-size: 1.6em;
+    font-size: 1.8em;
+    color: #000000;
+    margin-bottom: 25px;
+    text-align: center;
 }
 
 .dialog ul {
     list-style: none;
     padding: 0;
-    margin: 0 0 20px 0;
+    margin: 0;
 }
 
 .dialog li {
-    padding: 8px 0;
-    border-bottom: 1px dashed var(--border-color);
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-size: 1.1em;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
 }
 
 .dialog li:last-child {
+    margin-bottom: 0;
     border-bottom: none;
+    padding-bottom: 0;
 }
 
-.dialog button.close-button {
+.dialog a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+.dialog a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.dialog .close-button {
     position: absolute;
     top: 10px;
     right: 10px;
     background: none;
     border: none;
-    font-size: 2em;
-    color: #999;
+    font-size: 1.8em;
+    color: #aaa;
     cursor: pointer;
-    transition: color 0.2s ease-in-out;
+    transition: color 0.2s ease;
 }
 
-.dialog button.close-button:hover {
-    color: #333;
+.dialog .close-button:hover {
+    color: #666;
 }
 
-
-.dialog button.confirm-button {
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 8px;
-    cursor: pointer;
+#holidayTranslations {
+    text-align: center;
     font-size: 1.1em;
-    transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
-    margin-top: 20px;
+    line-height: 1.6;
+    margin-top: 15px;
 }
 
-.dialog button.confirm-button:hover {
-    background-color: #004ac9;
-    transform: translateY(-1px);
-}
-
-.dialog button.confirm-button:active {
-    transform: translateY(0);
-}
-
-#holidayTranslations p {
-    margin: 8px 0;
+.shift-info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
     font-size: 1.1em;
-    color: var(--text-color);
 }
 
-/* Einstellungen Dialog Spezifisch */
+.shift-color-box {
+    width: 25px;
+    height: 25px;
+    border-radius: 4px;
+    margin-right: 15px;
+    border: 1px solid #ccc;
+}
+
+.shift-info-item span {
+    flex-grow: 1;
+    text-align: left;
+}
+
 .settings-option {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
-    padding-bottom: 10px;
-    border-bottom: 1px dashed var(--border-color);
-}
-
-.settings-option:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
+    margin-bottom: 20px;
 }
 
 .settings-option label {
     font-size: 1.1em;
-    color: var(--text-color);
+    margin-right: 15px;
 }
 
 .settings-option input[type="checkbox"] {
@@ -435,126 +507,74 @@ body {
 }
 
 .settings-option input[type="color"] {
-    width: 50px;
-    height: 30px;
+    width: 80px;
+    height: 35px;
     border: none;
-    background: transparent;
+    border-radius: 5px;
     cursor: pointer;
 }
 
-/* Shift Info Dialog */
-.shift-info-item {
-    display: flex;
-    align-items: center;
+/* Year input dialog specific styles */
+.year-input-dialog label {
+    display: block;
     margin-bottom: 10px;
     font-size: 1.1em;
+    text-align: center;
 }
 
-.shift-color-box {
-    display: inline-block;
-    width: 25px;
-    height: 25px;
-    border-radius: 5px;
-    margin-right: 15px;
-    border: 1px solid rgba(0,0,0,0.1);
-}
-
-/* Die spezifischen Farben werden über die CSS-Variablen zugewiesen */
-.fruehschicht { background-color: var(--fruehschicht-color); }
-.spaetschicht { background-color: var(--spaetschicht-color); }
-.nachtschicht { background-color: var(--nachtschicht-color); }
-.samstag { background-color: var(--samstag-color); }
-.sonntag { background-color: var(--sonntag-color); }
-.feiertag { background-color: var(--feiertag-color); }
-
-
-/* Year Input Control */
 .year-input-dialog .input-group {
     display: flex;
-    justify-content: center;
     align-items: center;
-    margin-top: 15px;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
-.year-input-dialog .year-nav {
-    background-color: var(--primary-color);
+.year-input-dialog button.year-nav {
+    background-color: #007bff;
     color: white;
     border: none;
     padding: 8px 15px;
     border-radius: 5px;
-    cursor: pointer;
     font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
     margin: 0 5px;
-    transition: background-color 0.2s;
 }
 
-.year-input-dialog .year-nav:hover {
-    background-color: #004ac9;
+.year-input-dialog button.year-nav:hover {
+    background-color: #0056b3;
 }
 
 .year-input-dialog input[type="number"] {
-    width: 80px;
-    padding: 8px;
-    border: 1px solid var(--border-color);
+    width: 100px; /* Fixed width for the input */
+    padding: 10px;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    text-align: center;
     font-size: 1.1em;
-    -moz-appearance: textfield; /* Remove default spinner for Firefox */
+    text-align: center;
+    -moz-appearance: textfield; /* Hide arrows for Firefox */
 }
 
-/* Remove default spinner for Chrome, Safari, Edge */
 .year-input-dialog input[type="number"]::-webkit-outer-spin-button,
 .year-input-dialog input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
+    -webkit-appearance: none; /* Hide arrows for Chrome, Safari, Edge */
     margin: 0;
 }
 
 
-/* Responsive adjustments */
-@media (max-width: 1024px) {
-    .month-grid {
-        grid-template-columns: repeat(2, var(--month-card-width));
-    }
+.year-input-dialog button.confirm-button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    width: calc(100% - 10px); /* Adjust width */
+    margin-top: 10px;
 }
 
-@media (max-width: 768px) {
-    body {
-        padding: 15px;
-    }
-    .calendar-container {
-        padding: 15px;
-        border-radius: 8px;
-    }
-    .month-grid {
-        grid-template-columns: 1fr; /* Eine Spalte auf kleineren Bildschirmen */
-    }
-    .month-card {
-        width: 100%;
-        padding: 10px;
-    }
-    .month-card {
-        width: calc(100vw - 60px); /* Passt sich der Bildschirmbreite an, abzüglich Padding */
-        max-width: var(--month-card-width); /* Stellt sicher, dass es nicht zu breit wird */
-    }
-    .header-section h1 {
-        font-size: 1.8em;
-    }
-    .header-icon, .logo { /* Zusammengefasst für kleinere Bildschirme */
-        font-size: 1.5em;
-        width: 40px; /* Kleinere Breite für Logo */
-        right: 15px; /* Angepasste Position */
-        top: 15px;
-    }
-    .phone-icon-position {
-        top: 15px;
-        left: 15px;
-    }
-    .info-icon-position {
-        top: 15px;
-        left: 60px; /* Angepasster Abstand */
-    }
-    .dialog {
-        padding: 20px;
-        width: 95%;
-    }
+.year-input-dialog button.confirm-button:hover {
+    background-color: #218838;
 }

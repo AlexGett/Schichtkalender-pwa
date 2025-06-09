@@ -5,14 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schichtkalender 2025</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="manifest" href="/manifest.json">
-</head>
+    <link rel="stylesheet" href="style.css"> <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="ios/192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="ios/180.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="ios/192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="ios/32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="ios/16.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#0161FD"> </head>
 <body>
     <div class="calendar-container" id="calendarContainer">
         <i class="fas fa-phone-alt header-icon phone-icon-position" id="openPhoneDialog"></i>
         <i class="fas fa-info-circle header-icon info-icon-position" id="openShiftInfoDialog"></i>
-        <img src="https://motherson.com/sites/all/themes/motherson/logo.png" alt="Motherson Logo" class="logo" id="openSettingsDialog">
+        <img src="https://images.seeklogo.com/logo-png/54/2/motherson-logo-png_seeklogo-544537.png" alt="Motherson Logo" class="logo" id="openSettingsDialog">
         <div class="header-section">
             <h1 id="currentYearDisplay">2025</h1>
         </div>
@@ -105,15 +111,13 @@
             <h3>Jahr auswählen</h3>
             <label for="yearInput">Geben Sie ein Jahr ein:</label>
             <div class="input-group">
-                <button class="year-nav" id="decreaseYear">+</button>
+                <button class="year-nav" id="decreaseYear">-</button>
                 <input type="number" id="yearInput" min="2023" max="2030">
-                <button class="year-nav" id="increaseYear">-</button>
+                <button class="year-nav" id="increaseYear">+</button>
             </div>
             <button id="setYearButton" class="confirm-button">Bestätigen</button>
         </div>
     </div>
 
-    <script src="script.js"></script>
-
-</body>
+    <script src="script.js"></script> </body>
 </html>
