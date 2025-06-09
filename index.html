@@ -23,15 +23,12 @@
 
 </head>
 <body>
-    <div class="app-header-placeholder">
-        <i class="fas fa-phone-alt header-icon phone-icon-position" id="openPhoneDialog"></i>
-        <i class="fas fa-info-circle header-icon info-icon-position" id="openShiftInfoDialog"></i>
-        <img src="https://images.seeklogo.com/logo-png/54/2/motherson-logo-png_seeklogo-544537.png" alt="Motherson Logo" class="logo" id="openSettingsDialog">
-    </div>
-
     <div class="calendar-container" id="calendarContainer">
-        <div class="header-section">
+        <div class="calendar-header">
+            <i class="fas fa-phone-alt icon-button" id="openPhoneDialog"></i>
+            <i class="fas fa-info-circle icon-button" id="openShiftInfoDialog"></i>
             <h1 id="currentYearDisplay">2025</h1>
+            <img src="https://images.seeklogo.com/logo-png/54/2/motherson-logo-png_seeklogo-544537.png" alt="Motherson Logo" class="logo" id="openSettingsDialog">
         </div>
         <h2>Schichtkalender Schicht 2</h2>
         <div class="month-grid">
@@ -39,7 +36,7 @@
     </div>
 
     <div class="dialog-overlay" id="phoneDialogOverlay">
-        <div class="dialog dialog-content">
+        <div class="dialog-content">
             <button class="close-button" id="closePhoneDialog">&times;</button>
             <h3>Wichtige Telefonnummern</h3>
             <ul>
@@ -64,7 +61,7 @@
     </div>
 
     <div class="dialog-overlay" id="holidayDialogOverlay">
-        <div class="dialog dialog-content">
+        <div class="dialog-content">
             <button class="close-button" id="closeHolidayDialog">&times;</button>
             <h3>Feiertag</h3>
             <div id="holidayTranslations"></div>
@@ -72,61 +69,62 @@
     </div>
 
     <div class="dialog-overlay" id="shiftInfoDialogOverlay">
-        <div class="dialog dialog-content">
+        <div class="dialog-content">
             <button class="close-button" id="closeShiftInfoDialog">&times;</button>
             <h3>Schichtzeiten & Farben</h3>
             <div class="shift-info-item">
-                <div class="shift-color-box fruehschicht"></div>
+                <div class="color-box fruehschicht-color"></div>
                 <span>Frühschicht: 06:00 Uhr - 14:00 Uhr</span>
             </div>
             <div class="shift-info-item">
-                <div class="shift-color-box spaetschicht"></div>
+                <div class="color-box spaetschicht-color"></div>
                 <span>Spätschicht: 14:00 Uhr - 22:00 Uhr</span>
             </div>
             <div class="shift-info-item">
-                <div class="shift-color-box nachtschicht"></div>
+                <div class="color-box nachtschicht-color"></div>
                 <span>Nachtschicht: 22:00 Uhr - 06:00 Uhr</span>
             </div>
             <div class="shift-info-item">
-                <div class="shift-color-box samstag"></div>
+                <div class="color-box samstag"></div>
                 <span>Samstag</span>
             </div>
             <div class="shift-info-item">
-                <div class="shift-color-box sonntag"></div>
+                <div class="color-box sonntag"></div>
                 <span>Sonntag</span>
             </div>
             <div class="shift-info-item">
-                <div class="shift-color-box feiertag"></div>
+                <div class="color-box feiertag"></div>
                 <span>Feiertag</span>
             </div>
         </div>
     </div>
 
     <div class="dialog-overlay" id="settingsDialogOverlay">
-        <div class="dialog dialog-content">
+        <div class="dialog-content">
             <button class="close-button" id="closeSettingsDialog">&times;</button>
             <h3>Einstellungen</h3>
-            <div class="settings-option">
+            <div class="setting-item">
                 <label for="toggleAnimations">Animationen ausschalten:</label>
                 <input type="checkbox" id="toggleAnimations">
             </div>
-            <div class="settings-option">
+            <div class="setting-item">
                 <label for="borderColorPicker">Randfarbe wählen:</label>
-                <input type="color" id="borderColorPicker" value="#0161FD"> </div>
+                <input type="color" id="borderColorPicker" value="#0161FD">
+            </div>
         </div>
     </div>
 
     <div class="dialog-overlay" id="yearInputDialogOverlay">
-        <div class="dialog year-input-dialog dialog-content">
+        <div class="dialog-content year-input-dialog">
             <button class="close-button" id="closeYearInputDialog">&times;</button>
             <h3>Jahr auswählen</h3>
             <label for="yearInput">Geben Sie ein Jahr ein:</label>
-            <div class="input-group">
-                <button class="year-nav" id="decreaseYear">-</button>
+            <div class="year-input-control">
+                <button id="decreaseYear">-</button>
                 <input type="number" id="yearInput" min="2023" max="2030">
-                <button class="year-nav" id="increaseYear">+</button>
+                <button id="increaseYear">+</button>
             </div>
-            <button id="setYearButton" class="confirm-button">Bestätigen</button>
+            <button id="setYearButton">Bestätigen</button>
         </div>
     </div>
 

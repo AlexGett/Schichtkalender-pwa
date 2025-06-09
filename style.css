@@ -28,7 +28,9 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
-    padding: 0; /* Changed to 0, app-header-placeholder handles top spacing */
+    padding: 20px;
+    /* Added to account for safe area insets, ensures content doesn't go under status bar */
+    padding-top: calc(20px + env(safe-area-inset-top)); 
     background-color: var(--background-color);
     color: var(--text-color);
     display: flex;
@@ -36,57 +38,6 @@ body {
     align-items: flex-start;
     min-height: 100vh;
     box-sizing: border-box;
-}
-
-/* App Header Placeholder (for transparent status bar) */
-.app-header-placeholder {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 100; /* Ensure it's above the scrollable content */
-    background-color: var(--card-background); /* White background for the header */
-    padding-top: env(safe-area-inset-top); /* Dynamic padding for system status bar */
-    padding-bottom: 10px; /* Padding below the icons/logo */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Slight shadow to separate from content */
-    display: flex; /* To easily position icons/logo */
-    justify-content: space-between; /* Push items to ends */
-    align-items: center;
-    box-sizing: border-box;
-}
-
-/* Icons and Logo within the header placeholder */
-.header-icon.phone-icon-position {
-    position: absolute; /* Absolute within the header placeholder */
-    top: 10px; /* Adjusted position, considering padding-top */
-    left: 20px;
-    font-size: 1.8em;
-    color: var(--primary-color);
-    padding: 8px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
-}
-
-.header-icon.info-icon-position {
-    position: absolute; /* Absolute within the header placeholder */
-    top: 10px; /* Adjusted position, considering padding-top */
-    left: 70px; /* Adjusted to be next to phone icon */
-    font-size: 1.8em;
-    color: var(--primary-color);
-    padding: 8px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
-}
-
-.logo {
-    position: absolute; /* Absolute within the header placeholder */
-    top: 10px; /* Adjusted position, considering padding-top */
-    right: 20px;
-    height: 40px; /* Adjust as needed */
-    cursor: pointer;
-    z-index: 101; /* Ensure logo is on top of other header elements if needed */
 }
 
 /* Calendar Container */
@@ -98,8 +49,6 @@ body {
     width: fit-content;
     border: 2px solid var(--calendar-border-color); /* Verwendet die Variable */
     transition: all 0.3s ease-in-out;
-    margin-top: 80px; /* Add margin to push content below the fixed header (adjust as needed) */
-    box-sizing: border-box;
 }
 
 /* Animationskontrolle */
@@ -111,8 +60,8 @@ body {
     transition: none !important;
 }
 
-/* Header (within calendar-container - this is now the "app title" section) */
-.header-section { /* Renamed from .calendar-header to avoid confusion with app-header */
+/* Header */
+.calendar-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -121,7 +70,7 @@ body {
     border-bottom: 1px solid var(--border-color);
 }
 
-.header-section h1 {
+.calendar-header h1 {
     margin: 0;
     color: var(--primary-color);
     font-size: 2.2em;
@@ -129,18 +78,18 @@ body {
     transition: color 0.2s ease-in-out;
 }
 
-.header-section h1:hover {
+.calendar-header h1:hover {
     color: #004ac9; /* Dunklerer Ton für Hover */
 }
 
-/* Icon Buttons (general style, specific positioning handled by classes above) */
-.icon-button { /* This rule might not be needed if specific positioning is used. Kept for general styling. */
+/* Icon Buttons */
+.icon-button {
     background: none;
     border: none;
-    /* font-size: 1.8em; (Moved to specific icon classes) */
+    font-size: 1.8em;
     cursor: pointer;
     color: var(--primary-color);
-    /* padding: 8px; (Moved to specific icon classes) */
+    padding: 8px;
     border-radius: 8px;
     transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
 }
@@ -360,7 +309,7 @@ body {
     opacity: 1;
 }
 
-.dialog-content { /* Existing .dialog-content class */
+.dialog-content {
     background-color: var(--card-background);
     padding: 30px;
     border-radius: 12px;
@@ -371,8 +320,6 @@ body {
     transform: translateY(-20px);
     opacity: 0;
     transition: transform 0.3s ease-out, opacity 0.3s ease-out;
-    /* Added to account for status bar on dialogs */
-    margin-top: env(safe-area-inset-top); 
 }
 
 .dialog-overlay.active .dialog-content {
@@ -399,7 +346,6 @@ body {
 .dialog-content .close-button:hover {
     background-color: var(--hover-color);
 }
-
 
 .dialog-content h2 {
     color: var(--primary-color);
@@ -575,13 +521,12 @@ body {
 
 @media (max-width: 768px) {
     body {
-        /* No padding-top here as it's handled by app-header-placeholder */
-        padding: 0 15px 15px 15px; /* Adjust padding for smaller screens, keep 0 top */
+        padding: 15px;
+        padding-top: calc(15px + env(safe-area-inset-top)); /* Adjust padding for smaller screens */
     }
     .calendar-container {
         padding: 15px;
         border-radius: 8px;
-        margin-top: 80px; /* Keep margin-top for mobile as well */
     }
     .month-grid {
         grid-template-columns: 1fr; /* Eine Spalte auf kleineren Bildschirmen */
@@ -594,18 +539,14 @@ body {
         width: calc(100vw - 60px); /* Passt sich der Bildschirmbreite an, abzüglich Padding */
         max-width: var(--month-card-width); /* Stellt sicher, dass es nicht zu breit wird */
     }
-    .header-section h1 { /* Changed from .calendar-header h1 */
+    .calendar-header h1 {
         font-size: 1.8em;
     }
-    .icon-button { /* This rule might not be needed if specific positioning is used. */
+    .icon-button {
         font-size: 1.5em;
     }
     .dialog-content {
         padding: 20px;
         width: 95%;
-        margin-top: env(safe-area-inset-top); /* Keep margin-top for dialogs on mobile */
-    }
-    .app-header-placeholder {
-        padding-bottom: 5px; /* Slightly less padding on mobile */
     }
 }
