@@ -1,4 +1,4 @@
-const CACHE_NAME = 'schichtkalender-v1';
+const CACHE_NAME = 'schichtkalender-v1'; // Wenn du Änderungen am Cache machst, erhöhe diese Version!
 const urlsToCache = [
     './',
     './index.html',
@@ -6,23 +6,41 @@ const urlsToCache = [
     './script.js',
     './manifest.json',
     'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css',
-    'https://images.seeklogo.com/logo-png/54/2/motherson-logo-png_seeklogo-544537.png',
-    // Füge hier alle Icon-Pfade hinzu, die du im manifest.json referenzierst
-    './icons/icon-72x72.png',
-    './icons/icon-96x96.png',
-    './icons/icon-128x128.png',
-    './icons/icon-144x144.png',
-    './icons/icon-152x152.png',
-    './icons/icon-192x192.png',
-    './icons/icon-384x384.png',
-    './icons/icon-512x512.png'
+    '/images/motherson-logo-full.png', // Lokaler Pfad für das Haupt-Logo im HTML
+    // Alle Icon-Pfade aus der manifest.json
+    './ios/16.png',
+    './ios/20.png',
+    './ios/29.png',
+    './ios/32.png',
+    './ios/40.png',
+    './ios/50.png',
+    './ios/57.png',
+    './ios/58.png',
+    './ios/60.png',
+    './ios/64.png',
+    './ios/72.png',
+    './ios/76.png',
+    './ios/80.png',
+    './ios/87.png',
+    './ios/100.png',
+    './ios/114.png',
+    './ios/120.png',
+    './ios/128.png',
+    './ios/144.png',
+    './ios/152.png',
+    './ios/167.png',
+    './ios/180.png',
+    './ios/192.png',
+    './ios/256.png',
+    './ios/512.png',
+    './ios/1024.png'
 ];
 
 self.addEventListener('install', event => {
     event.waitUntil(
         caches.open(CACHE_NAME)
             .then(cache => {
-                console.log('Opened cache');
+                console.log('Service Worker: Opened cache');
                 return cache.addAll(urlsToCache);
             })
     );
@@ -67,6 +85,7 @@ self.addEventListener('activate', event => {
             return Promise.all(
                 cacheNames.map(cacheName => {
                     if (cacheWhitelist.indexOf(cacheName) === -1) {
+                        console.log('Service Worker: Deleting old cache', cacheName);
                         return caches.delete(cacheName);
                     }
                 })
