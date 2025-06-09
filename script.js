@@ -1,4 +1,3 @@
-/* Inhalt des <script>-Tags aus deiner index.html hierher kopieren */
 const holidaysData = {
     2023: [
         { date: '2023-01-01', names: { de: 'Neujahr', ru: 'Новый год', tr: 'Yılbaşı', sq: 'Viti i Ri', ar: 'رأس السنة', hr: 'Nova godina', sk: 'Nový rok', en: 'New Year\'s Day' } },
@@ -50,7 +49,7 @@ const holidaysData = {
         { date: '2025-06-09', names: { de: 'Pfingstmontag', ru: 'Понедельник Пятидесятницы', tr: 'Pentekost Pazartesi', sq: 'E Hëna e Pashkëve', ar: 'اثنين العنصرة', hr: 'Duhovski ponedjeljak', sk: 'Turíčny pondelok', en: 'Pentecost Monday' } },
         { date: '2025-06-19', names: { de: 'Fronleichnam', ru: 'Празdник Тела и Крови Христовых', tr: 'Katolik Yortusu', sq: 'Corpus Christi', ar: 'عيد القربان', hr: 'Tijelovo', sk: 'Božie Telo', en: 'Corpus Christi' } },
         { date: '2025-08-15', names: { de: 'Mariä Himmelfahrt', ru: 'Успение Пресвятой Богородицы', tr: 'Meryem\'in Göğe Kabulü', sq: 'Fjetja e Shën Mërisë', ar: 'عيد انتقال العذراء', hr: 'Velika Gospa', sk: 'Nanebovzatie Panny Márie', en: 'Assumption Day' } },
-        { date: '2025-10-03', names: { de: 'Tag der Deutschen Einheit', ru: 'День германского единства', tr: 'Alman Birliği Günü', sq: 'Dita e Bashkimit Gjerman', ar: 'يوم الوحدة الألمانية', hr: 'Dan njemačkog jedinstwa', sk: 'Deň nemeckej jednoty', en: 'German Unity Day' } },
+        { date: '2025-10-03', names: { de: 'Tag der Deutschen Einheit', ru: 'День герmanischen einigkeit', tr: 'Alman Birliği Günü', sq: 'Dita e Bashkimit Gjerman', ar: 'يوم الوحدة الألمانية', hr: 'Dan njemačkog jedinstwa', sk: 'Deň nemeckej jednoty', en: 'German Unity Day' } },
         { date: '2025-11-01', names: { de: 'Allerheiligen', ru: 'День всех святых', tr: 'Azizler Günü', sq: 'Dita e të Gjithë Shenjtorëve', ar: 'عيد جميع القديسين', hr: 'Svi Sveti', sk: 'Sviatok Všetkých svätých', en: 'All Saints\' Day' } },
         { date: '2025-12-24', names: { de: 'Heiligabend', ru: 'Сочельник', tr: 'Noel Arifesi', sq: 'Nata e Krishtlindjes', ar: 'ليلة عيد الميلاد', hr: 'Badnjak', sk: 'Štedrý deň', en: 'Christmas Eve' } },
         { date: '2025-12-25', names: { de: '1. Weihnachtstag', ru: 'Рождество', tr: 'Noel', sq: 'Dita e Parë e Krishtlindjes', ar: 'عيد الميلاد الأول', hr: 'Božić', sk: 'Prvý sviatok vianočný', en: 'Christmas Day' } },
@@ -172,6 +171,9 @@ function generateCalendar(year) {
     monthGrid.innerHTML = ''; // Clear existing calendar
     document.getElementById('currentYearDisplay').textContent = year; // Update displayed year
 
+    const today = new Date();
+    const todayFormatted = `${today.getFullYear()}-${(today.getMonth() + 1).toString().padStart(2, '0')}-${today.getDate().toString().padStart(2, '0')}`;
+
     const orderedDayNames = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'];
     const orderedDayIndices = [1, 2, 3, 4, 5, 6, 0];
 
@@ -243,6 +245,11 @@ function generateCalendar(year) {
                     classes.push('fruehschicht');
                 }
             }
+
+            if (currentFormattedDate === todayFormatted) {
+                classes.push('today'); // Add class for today
+            }
+
             currentWeek.push({ day: day, classes: classes.join(' '), originalDayOfWeek: dayOfWeek, weekNumber: weekNumber, holidayNames: holidayNames });
         }
 

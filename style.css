@@ -1,4 +1,4 @@
-/* Inhalt des <style>-Tags aus deiner index.html hierher kopieren */
+/* Inhalt des <script>-Tags aus deiner index.html hierher kopieren */
 :root {
     --calendar-border-color: #0161FD; /* Updated to 0161FD */
 }
@@ -331,6 +331,14 @@ h2 {
     font-weight: bold;
     cursor: pointer;
 }
+
+/* New style for today's date */
+.date-cell.today {
+    box-shadow: inset 0 0 0 2px red; /* Red circle/border inside the cell */
+    position: relative;
+    z-index: 1; /* Ensure it's above other elements if needed */
+}
+
 
 @media (max-width: 1200px) {
     .calendar-container {
