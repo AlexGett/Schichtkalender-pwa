@@ -2,7 +2,7 @@
     "name": "Schichtkalender",
     "short_name": "Kalender",
     "description": "Ein Schichtkalender für Schicht 2.",
-    "start_url": "/",
+    "start_url": "/index.html",
     "display": "standalone",
     "background_color": "#ffffff00",
     "theme_color": "#007bff",
