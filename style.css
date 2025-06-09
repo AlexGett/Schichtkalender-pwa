@@ -5,7 +5,7 @@
     --month-grid-gap: 30px;
     --cell-width: 42px;
     --cell-height: 42px;
-    --cell-height-kw: 33px; /* Ca. 80% von cell-height */
+    --cell-weight-kw: 33px; /* Ca. 80% von cell-height */
     --day-label-width: 55px;
 }
 
