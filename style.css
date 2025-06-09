@@ -338,12 +338,7 @@ h2 {
     cursor: pointer;
 }
 
-/* New style for today's date */
-.date-cell.today {
-    box-shadow: inset 0 0 0 2px red; /* Red circle/border inside the cell */
-    position: relative;
-    z-index: 1; /* Ensure it's above other elements if needed */
-}
+/* Der .date-cell.today Stil wurde hier entfernt, um zu testen, ob er die Ursache ist. */
 
 
 @media (max-width: 1200px) {
