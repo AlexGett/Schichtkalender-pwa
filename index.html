@@ -2,15 +2,18 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schichtkalender 2025</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css"> <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="ios/192.png">
     <link rel="apple-touch-icon" sizes="180x180" href="ios/180.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="ios/152.png">
-    <link rel="apple-touch-icon" sizes="167x167" href="ios/167.png">
-</head>
+    <link rel="apple-touch-icon" sizes="192x192" href="ios/192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="ios/32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="ios/16.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#0161FD"> </head>
 <body>
     <div class="calendar-container" id="calendarContainer">
         <i class="fas fa-phone-alt header-icon phone-icon-position" id="openPhoneDialog"></i>
@@ -116,36 +119,5 @@
         </div>
     </div>
 
-    <div class="dialog-overlay" id="noteDialogOverlay">
-        <div class="dialog" id="noteDialog">
-            <button class="close-button" id="closeNoteDialog">&times;</button>
-            <h3 id="noteDialogTitle">Notiz für [Datum]</h3>
-            <textarea id="noteInput" placeholder="Hier Notizen eingeben..."></textarea>
-            <div class="button-group">
-                <button id="deleteNoteButton">Notiz löschen</button>
-                <button id="saveNoteButton">Notiz speichern</button>
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
-    <script>
-        // Service Worker Registrierung (wenn du ihn verwenden möchtest)
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                // HIER AUF KORREKTEN DATEINAMEN ACHTEN!
-                // Wenn dein Service Worker service-worker.js heißt:
-                navigator.serviceWorker.register('/service-worker.js')
-                // Wenn dein Service Worker worker.js heißt:
-                // navigator.serviceWorker.register('/worker.js')
-                    .then(registration => {
-                        console.log('Service Worker registriert mit Scope:', registration.scope);
-                    })
-                    .catch(error => {
-                        console.log('Service Worker Registrierung fehlgeschlagen:', error);
-                    });
-            });
-        }
-    </script>
-</body>
+    <script src="script.js"></script> </body>
 </html>
