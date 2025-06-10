@@ -4,7 +4,7 @@
 
 body {
     font-family: sans-serif;
-    margin: 60px;
+    padding-top: calc(20px + env(safe-area-inset-top));
     background-color: #f4f4f4;
     color: #333;
     display: flex;
