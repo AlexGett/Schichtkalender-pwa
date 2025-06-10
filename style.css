@@ -5,10 +5,6 @@
 body {
     font-family: sans-serif;
     margin: 30px;
-    padding-top: calc(20px + env(safe-area-inset-top));
-    padding-bottom: calc(20px + env(safe-area-inset-bottom)); /* Auch für unten wichtig! */
-    padding-left: env(safe-area-inset-left);
-    padding-right: env(safe-area-inset-right);
     background-color: #f4f4f4;
     color: #333;
     display: flex;
