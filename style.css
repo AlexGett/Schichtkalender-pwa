@@ -1,5 +1,5 @@
 :root {
-    --calendar-border-color: #0161FD; /* Updated to 0161FD */
+    --calendar-border-color: #0161FD;
 }
 
 body {
@@ -50,10 +50,10 @@ body {
 
 .header-section h1 {
     font-size: 3em;
-    color: #000000;
-    margin-bottom: 5px; /* Adjusted margin to bring underline closer */
-    display: inline-block; /* To make underline fit content */
-    cursor: pointer; /* Indicate clickable */
+    color: inherit;
+    margin-bottom: 5px;
+    display: inline-block;
+    cursor: pointer;
     position: relative;
 }
 
@@ -62,16 +62,16 @@ body {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: -5px; /* Position of the underline */
-    height: 3px; /* Thickness of the underline */
-    background-color: black;
+    bottom: -5px;
+    height: 3px;
+    background-color: #333;
 }
 
 h2 {
     font-size: 1.6em;
     margin-bottom: 35px;
     text-align: center;
-    color: #333;
+    color: inherit;
 }
 
 .logo {
@@ -88,7 +88,7 @@ h2 {
     position: absolute;
     margin-top: 35px;
     font-size: 2.5em;
-    color: #12345;
+    color: inherit;
     cursor: pointer;
     z-index: 10;
     transition: color 0.3s ease;
@@ -103,8 +103,13 @@ h2 {
 }
 
 .info-icon-position {
-    top: 105px; /* Adjusted from 75px to 105px (75 + 30) */
-    left: 5px; /* Aligned with the phone icon */
+    top: 105px;
+    left: 5px;
+}
+
+.today-icon-position {
+    top: 175px;
+    left: 5px;
 }
 
 .month-grid {
@@ -130,7 +135,7 @@ h2 {
     text-align: center;
     margin-bottom: 20px;
     font-size: 1.6em;
-    color: #333;
+    color: inherit;
 }
 
 .week-numbers-container {
@@ -265,6 +270,10 @@ h2 {
     flex-shrink: 0;
 }
 
+.day-label.sunday {
+    color: red;
+}
+
 .date-columns-container {
     display: flex;
     flex-grow: 1;
@@ -288,7 +297,7 @@ h2 {
     width: var(--cell-width);
     height: var(--cell-height);
     display: flex;
-    flex-direction: column; /* Allow content to stack */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 5px;
@@ -298,21 +307,21 @@ h2 {
     border: 1px solid #00000033;
     background-color: #F5F5DC;
     cursor: pointer;
-    position: relative; /* For note icon positioning */
-    padding: 2px; /* Adjust padding for note */
-    overflow: hidden; /* Hide overflowing text */
-    text-overflow: ellipsis; /* Add ellipsis for overflow */
+    position: relative;
+    padding: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .date-cell .day-number {
     font-size: 1em;
     font-weight: bold;
-    margin-bottom: 2px; /* Space between number and note */
+    margin-bottom: 2px;
 }
 
 .date-cell .note-indicator {
-    font-size: 0.7em; /* Smaller font for notes */
-    color: #666; /* Color for note text */
+    font-size: 0.7em;
+    color: #666;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -388,9 +397,11 @@ h2 {
     .phone-icon-position {
         left: 15px;
     }
+    .today-icon-position {
+        left: 150px;
+    }
     .info-icon-position {
-        top: 55px; /* Adjusted from 25px to 55px (25 + 30) for mobile */
-        left: 15px; /* Aligned with phone on mobile */
+    left: 280px;
     }
 }
 
@@ -427,7 +438,7 @@ h2 {
 
 .dialog h3 {
     font-size: 1.8em;
-    color: #000000;
+    color: inherit;
     margin-bottom: 25px;
     text-align: center;
 }
@@ -535,7 +546,6 @@ h2 {
     cursor: pointer;
 }
 
-/* Year input dialog specific styles */
 .year-input-dialog label {
     display: block;
     margin-bottom: 10px;
@@ -567,18 +577,18 @@ h2 {
 }
 
 .year-input-dialog input[type="number"] {
-    width: 100px; /* Fixed width for the input */
+    width: 100px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1.1em;
     text-align: center;
-    -moz-appearance: textfield; /* Hide arrows for Firefox */
+    -moz-appearance: textfield;
 }
 
 .year-input-dialog input[type="number"]::-webkit-outer-spin-button,
 .year-input-dialog input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none; /* Hide arrows for Chrome, Safari, Edge */
+    -webkit-appearance: none;
     margin: 0;
 }
 
@@ -592,7 +602,7 @@ h2 {
     font-size: 1.1em;
     cursor: pointer;
     transition: background-color 0.2s ease;
-    width: calc(100% - 10px); /* Adjust width */
+    width: calc(100% - 10px);
     margin-top: 10px;
 }
 
@@ -600,7 +610,6 @@ h2 {
     background-color: #218838;
 }
 
-/* New styles for note dialog */
 #noteDialog textarea {
     width: 100%;
     min-height: 100px;
@@ -609,8 +618,8 @@ h2 {
     border-radius: 5px;
     font-size: 1em;
     margin-bottom: 15px;
-    box-sizing: border-box; /* Include padding in width */
-    resize: vertical; /* Allow vertical resizing */
+    box-sizing: border-box;
+    resize: vertical;
 }
 
 #noteDialog .button-group {
@@ -645,4 +654,171 @@ h2 {
 
 #noteDialog #deleteNoteButton:hover {
     background-color: #c82333;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode .calendar-container {
+    background-color: #1e1e1e;
+    box-shadow: 0 0 10px var(--calendar-border-color);
+}
+
+body.dark-mode .calendar-container.no-animation {
+    box-shadow: 0 0 10px var(--calendar-border-color);
+}
+
+body.dark-mode .header-section h1::after {
+    background-color: #e0e0e0;
+}
+
+body.dark-mode .header-icon:hover {
+    color: #4CAF50;
+}
+
+body.dark-mode .month-card {
+    border: 1px solid #333;
+    background-color: #2c2c2c;
+}
+
+body.dark-mode .week-numbers-container {
+    background-color: #222;
+}
+
+body.dark-mode .week-numbers-container::after {
+    background-color: #222;
+}
+
+body.dark-mode .kw-cell {
+    color: #bbb;
+}
+
+body.dark-mode .day-label {
+    color: #ccc;
+}
+
+body.dark-mode .day-label.sunday {
+    color: #ff6b6b;
+}
+
+body.dark-mode .date-cell {
+    border: 1px solid #333;
+    background-color: #3a3a3a;
+    color: #e0e0e0;
+}
+
+body.dark-mode .date-cell .note-indicator {
+    color: #aaa;
+}
+
+body.dark-mode .fruehschicht {
+    background-color: #40362b;
+}
+body.dark-mode .spaetschicht {
+    background-color: #314a32;
+}
+body.dark-mode .nachtschicht {
+    background-color: #25394e;
+}
+body.dark-mode .samstag {
+    background-color: #282828;
+    border: 1px solid #4a4a4a;
+}
+body.dark-mode .sonntag {
+    background-color: #222;
+}
+body.dark-mode .feiertag {
+    background-color: #7a3d3d;
+}
+
+body.dark-mode .dialog {
+    background-color: #2c2c2c;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+}
+
+body.dark-mode .dialog ul {
+    color: #e0e0e0;
+}
+
+body.dark-mode .dialog li {
+    border-bottom: 1px solid #444;
+    color: #e0e0e0;
+}
+
+body.dark-mode .dialog a {
+    color: #8ab4f8;
+}
+
+body.dark-mode .dialog a:hover {
+    color: #a6c8ff;
+}
+
+body.dark-mode .dialog .close-button {
+    color: #ccc;
+}
+
+body.dark-mode .dialog .close-button:hover {
+    color: #eee;
+}
+
+body.dark-mode #holidayTranslations {
+    color: #e0e0e0;
+}
+
+body.dark-mode .shift-info-item span {
+    color: #e0e0e0;
+}
+
+body.dark-mode .settings-option label {
+    color: #e0e0e0;
+}
+
+body.dark-mode .year-input-dialog label {
+    color: #e0e0e0;
+}
+
+body.dark-mode .year-input-dialog input[type="number"] {
+    background-color: #3a3a3a;
+    color: #e0e0e0;
+    border: 1px solid #555;
+}
+
+body.dark-mode .year-input-dialog button.year-nav {
+    background-color: #555;
+}
+body.dark-mode .year-input-dialog button.year-nav:hover {
+    background-color: #777;
+}
+
+body.dark-mode .year-input-dialog button.confirm-button {
+    background-color: #007bff;
+}
+body.dark-mode .year-input-dialog button.confirm-button:hover {
+    background-color: #0056b3;
+}
+
+body.dark-mode #noteDialog textarea {
+    background-color: #3a3a3a;
+    color: #e0e0e0;
+    border: 1px solid #555;
+}
+
+body.dark-mode #noteDialog .button-group {
+    color: #e0e0e0;
+}
+
+body.dark-mode #noteDialog #saveNoteButton {
+    background-color: #007bff;
+}
+body.dark-mode #noteDialog #saveNoteButton:hover {
+    background-color: #0056b3;
+}
+
+body.dark-mode #noteDialog #deleteNoteButton {
+    background-color: #b8212e;
+}
+body.dark-mode #noteDialog #deleteNoteButton:hover {
+    background-color: #9f1c29;
 }

@@ -1,42 +1,4 @@
 const holidaysData = {
-    2023: [
-        { date: '2023-01-01', names: { de: 'Neujahr', ru: 'Новый год', tr: 'Yılbaşı', sq: 'Viti i Ri', ar: 'رأس السنة', hr: 'Nova godina', sk: 'Nový rok', en: 'New Year\'s Day' } },
-        { date: '2023-01-06', names: { de: 'Heilige Drei Könige', ru: 'Богоявление', tr: 'Epifani', sq: 'Uji i Bekuar', ar: 'عيد الغطاس', hr: 'Sveta Tri kralja', sk: 'Zjavenie Pána', en: 'Epiphany' } },
-        { date: '2023-04-07', names: { de: 'Karfreitag', ru: 'Страстная пятница', tr: 'Kutsal Cuma', sq: 'E Premtja e Madhe', ar: 'الجمعة العظيمة', hr: 'Veliki petak', sk: 'Veľký piatok', en: 'Good Friday' } },
-        { date: '2023-04-09', names: { de: 'Ostersonntag', ru: 'Пасха', tr: 'Paskalya Pazarı', sq: 'E Diela e Pashkëve', ar: 'أحد الفصح', hr: 'Uskrsna nedeľa', sk: 'Veľkonočná nedeľa', en: 'Easter Sunday' } },
-        { date: '2023-04-10', names: { de: 'Ostermontag', ru: 'Пасхальный понедельник', tr: 'Paskalya Pazartesi', sq: 'E Hëna e Pashkëve', ar: 'اثنين الفصح', hr: 'Uskrsni ponedjeljak', sk: 'Veľkonočný pondeljak', en: 'Easter Monday' } },
-        { date: '2023-05-01', names: { de: 'Tag der Arbeit', ru: 'День труда', tr: 'İşçi Bayramı', sq: 'Dita e Punës', ar: 'عيد العمال', hr: 'Praznik rada', sk: 'Sviatok práce', en: 'Labour Day' } },
-        { date: '2023-05-18', names: { de: 'Christi Himmelfahrt', ru: 'Вознесение Господне', tr: 'İsa\'nın Göğe Yükselişi', sq: 'Dita e Ngritjes së Krishtit', ar: 'عيد الصعود', hr: 'Uzašašće', sk: 'Nanebovstúpenie Pána', en: 'Ascension Day' } },
-        { date: '2023-05-28', names: { de: 'Pfingstsonntag', ru: 'Пятидесятница', tr: 'Pentekost Pazarı', sq: 'E Diela e Rrëshajëve', ar: 'أحد العنصرة', hr: 'Duhovi', sk: 'Turíce', en: 'Pentecost Sunday' } },
-        { date: '2023-05-29', names: { de: 'Pfingstmontag', ru: 'Понедельник Пятидесятницы', tr: 'Pentekost Pazartesi', sq: 'E Hëna e Pashkëve', ar: 'اثنين العنصرة', hr: 'Duhovski ponedjeljak', sk: 'Turíčny pondelok', en: 'Pentecost Monday' } },
-        { date: '2023-06-08', names: { de: 'Fronleichnam', ru: 'Празdник Тела и Крови Христовых', tr: 'Katolik Yortusu', sq: 'Corpus Christi', ar: 'عيد القربان', hr: 'Tijelovo', sk: 'Božie Telo', en: 'Corpus Christi' } },
-        { date: '2023-08-15', names: { de: 'Mariä Himmelfahrt', ru: 'Успение Пресвятой Богородицы', tr: 'Meryem\'in Göğe Kabulü', sq: 'Fjetja e Shën Mërisë', ar: 'عيد انتقال العذراء', hr: 'Velika Gospa', sk: 'Nanebovzatie Panny Márie', en: 'Assumption Day' } },
-        { date: '2023-10-03', names: { de: 'Tag der Deutschen Einheit', ru: 'День германского единства', tr: 'Alman Birliği Günü', sq: 'Dita e Bashkimit Gjerman', ar: 'يوم الوحدة الألمانية', hr: 'Dan njemačkog jedinstva', sk: 'Deň nemeckej jednoty', en: 'German Unity Day' } },
-        { date: '2023-11-01', names: { de: 'Allerheiligen', ru: 'День всех святых', tr: 'Azizler Günü', sq: 'Dita e të Gjithë Shenjtorëve', ar: 'عيد جميع القديسين', hr: 'Svi Sveti', sk: 'Sviatok Všetkých svätých', en: 'All Saints\' Day' } },
-        { date: '2023-12-24', names: { de: 'Heiligabend', ru: 'Сочельник', tr: 'Noel Arifesi', sq: 'Nata e Krishtlindjes', ar: 'ليلة عيد الميلاد', hr: 'Badnjak', sk: 'Štedrý deň', en: 'Christmas Eve' } },
-        { date: '2023-12-25', names: { de: '1. Weihnachtstag', ru: 'Рождество', tr: 'Noel', sq: 'Dita e Parë e Krishtlindjes', ar: 'عيد الميلاد الأول', hr: 'Božić', sk: 'Prvý sviatok vianočný', en: 'Christmas Day' } },
-        { date: '2023-12-26', names: { de: '2. Weihnachtstag', ru: 'Второй день Рождества', tr: 'Noel\'in İkiиci Günü', sq: 'Dita e Dytë e Krishtlindjes', ar: 'عيد الميلاد الثاني', hr: 'Sveti Stjepan', sk: 'Druhý sviatok vianočný', en: 'St. Stephen\'s Day' } },
-        { date: '2023-12-31', names: { de: 'Silvester', ru: 'Новый год', tr: 'Yılbaşı Gecesi', sq: 'Nata e Vitit të Ri', ar: 'ليلة رأس السنة', hr: 'Stara godina', sk: 'Silvester', en: 'New Year\'s Eve' } }
-    ],
-    2024: [
-        { date: '2024-01-01', names: { de: 'Neujahr', ru: 'Новый год', tr: 'Yılbaşı', sq: 'Viti i Ri', ar: 'رأس السنة', hr: 'Nova godina', sk: 'Nový rok', en: 'New Year\'s Day' } },
-        { date: '2024-01-06', names: { de: 'Heilige Drei Könige', ru: 'Богоявление', tr: 'Epifani', sq: 'Uji i Bekuar', ar: 'عيد الغطاس', hr: 'Sveta Tri kralja', sk: 'Zjavenie Pána', en: 'Epiphany' } },
-        { date: '2024-03-29', names: { de: 'Karfreitag', ru: 'Страстная пятница', tr: 'Kutsal Cuma', sq: 'E Premtja e Madhe', ar: 'الجمعة العظيمة', hr: 'Veliki petak', sk: 'Veľký piatok', en: 'Good Friday' } },
-        { date: '2024-03-31', names: { de: 'Ostersonntag', ru: 'Пасха', tr: 'Paskalya Pazarı', sq: 'E Diela e Pashkëve', ar: 'أحد الفصح', hr: 'Uskrsna nedeľa', sk: 'Veľkonočná nedeľa', en: 'Easter Sunday' } },
-        { date: '2024-04-01', names: { de: 'Ostermontag', ru: 'Пасхальный понедельник', tr: 'Paskalya Pazartesi', sq: 'E Hëna e Pashkëve', ar: 'اثنين الفصح', hr: 'Uskrsni ponedjeljak', sk: 'Veľkonočný pondelok', en: 'Easter Monday' } },
-        { date: '2024-05-01', names: { de: 'Tag der Arbeit', ru: 'День труда', tr: 'İşçi Bayramı', sq: 'Dita e Punës', ar: 'عيد العمال', hr: 'Praznik rada', sk: 'Sviatok práce', en: 'Labour Day' } },
-        { date: '2024-05-09', names: { de: 'Christi Himmelfahrt', ru: 'Вознесение Господне', tr: 'İsa\'nın Göğe Yükselişi', sq: 'Dita e Ngritjes së Krishtit', ar: 'عيد الصعود', hr: 'Uzašašće', sk: 'Nanebovstúpenie Pána', en: 'Ascension Day' } },
-        { date: '2024-05-19', names: { de: 'Pfingstsonntag', ru: 'Пятидесятница', tr: 'Pentekost Pazarı', sq: 'E Diela e Rrëshajëve', ar: 'أحد العنصرة', hr: 'Duhovi', sk: 'Turíce', en: 'Pentecost Sunday' } },
-        { date: '2024-05-20', names: { de: 'Pfingstmontag', ru: 'Понедельник Пятидесятницы', tr: 'Pentekost Pazartesi', sq: 'E Hëna e Pashkëve', ar: 'اثنين العنصرة', hr: 'Duhovski ponedjeljak', sk: 'Turíčny pondelok', en: 'Pentecost Monday' } },
-        { date: '2024-05-30', names: { de: 'Fronleichnam', ru: 'Празdник Тела и Крови Христовых', tr: 'Katolik Yortusu', sq: 'Corpus Christi', ar: 'عيد القربان', hr: 'Tijelovo', sk: 'Božie Telo', en: 'Corpus Christi' } },
-        { date: '2024-08-15', names: { de: 'Mariä Himmelfahrt', ru: 'Успение Пресвятой Богородицы', tr: 'Meryem\'in Göğe Kabulü', sq: 'Fjetja e Shën Mërisë', ar: 'عيد انتقال العذراء', hr: 'Velika Gospa', sk: 'Nanebovzatie Panny Márie', en: 'Assumption Day' } },
-        { date: '2024-10-03', names: { de: 'Tag der Deutschen Einheit', ru: 'День германского единства', tr: 'Alman Birliği Günü', sq: 'Dita e Bashkimit Gjerman', ar: 'يوم الوحدة الألمانية', hr: 'Dan njemačkog jedinstva', sk: 'Deň nemeckej jednoty', en: 'German Unity Day' } },
-        { date: '2024-11-01', names: { de: 'Allerheiligen', ru: 'День всех святых', tr: 'Azizler Günü', sq: 'Dita e të Gjithë Shenjtorëve', ar: 'عيد جميع القديسين', hr: 'Svi Sveti', sk: 'Sviatok Všetkých svätých', en: 'All Saints\' Day' } },
-        { date: '2024-12-24', names: { de: 'Heiligabend', ru: 'Сочельник', tr: 'Noel Arifesi', sq: 'Nata e Krishtlindjes', ar: 'ليلة عيد الميلاد', hr: 'Badnjak', sk: 'Štedrý deň', en: 'Christmas Eve' } },
-        { date: '2024-12-25', names: { de: '1. Weihnachtstag', ru: 'Рождество', tr: 'Noel', sq: 'Dita e Parë e Krishtlindjes', ar: 'عيد الميلاد الأول', hr: 'Božić', sk: 'Prvý sviatok vianočný', en: 'Christmas Day' } },
-        { date: '2024-12-26', names: { de: '2. Weihnachtstag', ru: 'Второй день Рождества', tr: 'Noel\'in İkiиci Günü', sq: 'Dita e Dytë e Krishtlindjes', ar: 'عيد الميلاد الثاني', hr: 'Sveti Stjepan', sk: 'Druhý sviatok vianočný', en: 'St. Stephen\'s Day' } },
-        { date: '2024-12-31', names: { de: 'Silvester', ru: 'Новый год', tr: 'Yılbaşı Gecesi', sq: 'Nata e Vitit të Ri', ar: 'ليلة رأس السنة', hr: 'Stara godina', sk: 'Silvester', en: 'New Year\'s Eve' } }
-    ],
     2025: [
         { date: '2025-01-01', names: { de: 'Neujahr', ru: 'Новый год', tr: 'Yılbaşı', sq: 'Viti i Ri', ar: 'رأس السنة', hr: 'Nova godina', sk: 'Nový rok', en: 'New Year\'s Day' } },
         { date: '2025-01-06', names: { de: 'Heilige Drei Könige', ru: 'Богоявление', tr: 'Epifani', sq: 'Uji i Bekuar', ar: 'عيد الغطاس', hr: 'Sveta Tri kralja', sk: 'Zjavenie Pána', en: 'Epiphany' } },
@@ -153,9 +115,8 @@ const holidaysData = {
     ]
 };
 
-// Retrieve currentCalendarYear from localStorage or default to 2025
 let currentCalendarYear = parseInt(localStorage.getItem('currentCalendarYear')) || 2025;
-let notesData = JSON.parse(localStorage.getItem('calendarNotes')) || {}; // Load notes from localStorage
+let notesData = JSON.parse(localStorage.getItem('calendarNotes')) || {};
 
 function getWeekNumber(d) {
     const date = new Date(d.getTime());
@@ -167,10 +128,10 @@ function getWeekNumber(d) {
 
 function generateCalendar(year) {
     currentCalendarYear = year;
-    localStorage.setItem('currentCalendarYear', year); // Save the year to localStorage
+    localStorage.setItem('currentCalendarYear', year);
     const monthGrid = document.querySelector('.month-grid');
-    monthGrid.innerHTML = ''; // Clear existing calendar
-    document.getElementById('currentYearDisplay').textContent = year; // Update displayed year
+    monthGrid.innerHTML = '';
+    document.getElementById('currentYearDisplay').textContent = year;
 
     const orderedDayNames = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'];
     const orderedDayIndices = [1, 2, 3, 4, 5, 6, 0];
@@ -194,7 +155,7 @@ function generateCalendar(year) {
     document.documentElement.style.setProperty('--month-card-width', `${MONTH_CARD_WIDTH}px`);
     document.documentElement.style.setProperty('--month-grid-gap', `30px`);
 
-    const yearHolidays = holidaysData[year] || []; // Get holidays for the selected year
+    const yearHolidays = holidaysData[year] || [];
 
     for (let month = 0; month < 12; month++) {
         const monthCard = document.createElement('div');
@@ -234,7 +195,6 @@ function generateCalendar(year) {
             } else if (dayOfWeek === 0) {
                 classes.push('sonntag');
             } else {
-                // Shift logic based on week number
                 if (weekNumber % 3 === 0) {
                     classes.push('spaetschicht');
                 } else if ((weekNumber + 1) % 3 === 0) {
@@ -277,20 +237,12 @@ function generateCalendar(year) {
             }
         });
 
-        // Special handling for KW 1 crossing into the next year (e.g., in December)
-        // This logic might need refinement depending on precise KW rules for ISO 8601
-        if (month === 11) {
-            const kw1Index = actualKWsInMonth.indexOf(1);
-            if (kw1Index > -1) {
-                const kw1 = actualKWsInMonth.splice(kw1Index, 1)[0];
-                actualKWsInMonth.sort((a, b) => a - b);
-                actualKWsInMonth.push(kw1);
-            } else {
-                actualKWsInMonth.sort((a, b) => a - b);
-            }
-        } else {
-            actualKWsInMonth.sort((a, b) => a - b);
-        }
+        actualKWsInMonth.sort((a, b) => {
+            if (a === 1 && b !== 1) return 1;
+            if (b === 1 && a !== 1) return -1;
+            return a - b;
+        });
+
 
         for (let col = 0; col < MAX_COLUMNS_FOR_DATES; col++) {
             const kwCell = document.createElement('div');
@@ -315,6 +267,9 @@ function generateCalendar(year) {
         orderedDayNames.forEach(name => {
             const label = document.createElement('div');
             label.classList.add('day-label');
+            if (name === 'So') {
+                label.classList.add('sunday');
+            }
             label.textContent = name;
             dayLabelColumn.appendChild(label);
         });
@@ -333,9 +288,9 @@ function generateCalendar(year) {
                 const dateCell = document.createElement('div');
                 if (cellData && cellData.fullDate) {
                     dateCell.classList.add('date-cell', cellData.classes);
-                    dateCell.dataset.fullDate = cellData.fullDate; // Store full date
-                    dateCell.innerHTML = `<div class="day-number">${cellData.day}</div><div class="note-indicator"></div>`; // Add day number and note indicator
-                    
+                    dateCell.dataset.fullDate = cellData.fullDate;
+                    dateCell.innerHTML = `<div class="day-number">${cellData.day}</div><div class="note-indicator"></div>`;
+
                     const noteText = notesData[cellData.fullDate];
                     if (noteText) {
                         dateCell.querySelector('.note-indicator').textContent = noteText;
@@ -357,13 +312,11 @@ function generateCalendar(year) {
         monthGrid.appendChild(monthCard);
     }
 
-    // Event listener for holiday cells
-    document.querySelectorAll('.feiertag').forEach(cell => {
-        cell.addEventListener('click', function(event) {
-            // Prevent holiday click from triggering note dialog if both are present
-            if (event.target.closest('.date-cell').classList.contains('feiertag')) {
+    document.querySelectorAll('.date-cell').forEach(cell => {
+        if (!cell.classList.contains('empty-cell')) {
+            cell.addEventListener('click', function(event) {
                 const holidayNamesJson = this.dataset.holidayNames;
-                if (holidayNamesJson) {
+                if (this.classList.contains('feiertag') && holidayNamesJson && (event.target === this || event.target.classList.contains('day-number'))) {
                     const holidayNames = JSON.parse(holidayNamesJson);
                     const holidayTranslationsDiv = document.getElementById('holidayTranslations');
                     holidayTranslationsDiv.innerHTML = '';
@@ -373,31 +326,7 @@ function generateCalendar(year) {
                         p.textContent = `${langCode.toUpperCase()}: ${holidayNames[langCode]}`;
                         holidayTranslationsDiv.appendChild(p);
                     }
-                    holidayDialogOverlay.classList.add('active');
-                }
-            }
-        });
-    });
-
-    // Event listener for all date cells (including empty ones for consistency, though notes won't be saved)
-    document.querySelectorAll('.date-cell').forEach(cell => {
-        if (!cell.classList.contains('empty-cell')) {
-            cell.addEventListener('click', function(event) {
-                // If it's a holiday cell, and the click target is directly the cell or the day number, open holiday dialog
-                if (this.classList.contains('feiertag') && (event.target === this || event.target.classList.contains('day-number'))) {
-                    const holidayNamesJson = this.dataset.holidayNames;
-                    if (holidayNamesJson) {
-                        const holidayNames = JSON.parse(holidayNamesJson);
-                        const holidayTranslationsDiv = document.getElementById('holidayTranslations');
-                        holidayTranslationsDiv.innerHTML = '';
-
-                        for (const langCode in holidayNames) {
-                            const p = document.createElement('p');
-                            p.textContent = `${langCode.toUpperCase()}: ${holidayNames[langCode]}`;
-                            holidayTranslationsDiv.appendChild(p);
-                        }
-                        holidayDialogOverlay.classList.add('active');
-                    }
+                    document.getElementById('holidayDialogOverlay').classList.add('active');
                 } else {
                     openNoteDialog(this);
                 }
@@ -406,9 +335,25 @@ function generateCalendar(year) {
     });
 }
 
-// Initial calendar generation
-// Load the saved year, or use 2025 as default
 generateCalendar(currentCalendarYear);
+
+const todayButton = document.getElementById('todayButton');
+if (todayButton) {
+    todayButton.addEventListener('click', () => {
+        const today = new Date();
+        const currentYear = today.getFullYear();
+
+        if (currentYear !== currentCalendarYear) {
+            generateCalendar(currentYear);
+        }
+
+        const todayMonth = today.getMonth();
+        const monthCards = document.querySelectorAll('.month-card');
+        if (monthCards[todayMonth]) {
+            monthCards[todayMonth].scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+}
 
 function setupDialog(openBtnId, dialogOverlayId, closeBtnId) {
     const openBtn = openBtnId ? document.getElementById(openBtnId) : null;
@@ -439,15 +384,16 @@ function setupDialog(openBtnId, dialogOverlayId, closeBtnId) {
 setupDialog('openPhoneDialog', 'phoneDialogOverlay', 'closePhoneDialog');
 setupDialog(null, 'holidayDialogOverlay', 'closeHolidayDialog');
 setupDialog('openShiftInfoDialog', 'shiftInfoDialogOverlay', 'closeShiftInfoDialog');
+setupDialog('openSettingsDialog', 'settingsDialogOverlay', 'closeSettingsDialog');
 
-const openSettingsDialogBtn = document.getElementById('openSettingsDialog');
+
 const settingsDialogOverlay = document.getElementById('settingsDialogOverlay');
-const closeSettingsDialogBtn = document.getElementById('closeSettingsDialog');
 const toggleAnimationsCheckbox = document.getElementById('toggleAnimations');
 const borderColorPicker = document.getElementById('borderColorPicker');
 const calendarContainer = document.getElementById('calendarContainer');
+const toggleDarkModeCheckbox = document.getElementById('toggleDarkMode');
+const toggleAutoDarkModeCheckbox = document.getElementById('toggleAutoDarkMode');
 
-setupDialog('openSettingsDialog', 'settingsDialogOverlay', 'closeSettingsDialog');
 
 const savedAnimationState = localStorage.getItem('animationsDisabled');
 if (savedAnimationState === 'true') {
@@ -463,9 +409,44 @@ if (savedBorderColor) {
     borderColorPicker.value = savedBorderColor;
     document.documentElement.style.setProperty('--calendar-border-color', savedBorderColor);
 } else {
-    borderColorPicker.value = '#0161FD'; // Set default here as well
+    borderColorPicker.value = '#0161FD';
     document.documentElement.style.setProperty('--calendar-border-color', '#0161FD');
 }
+
+function applyDarkMode(isDarkMode) {
+    if (isDarkMode) {
+        document.body.classList.add('dark-mode');
+    } else {
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+function updateDarkModeState() {
+    const autoModeEnabled = localStorage.getItem('autoDarkModeEnabled') === 'true';
+    const manualDarkModeEnabled = localStorage.getItem('darkModeEnabled') === 'true';
+
+    toggleAutoDarkModeCheckbox.checked = autoModeEnabled;
+    toggleDarkModeCheckbox.checked = manualDarkModeEnabled;
+    toggleDarkModeCheckbox.disabled = autoModeEnabled;
+
+    if (autoModeEnabled) {
+        applyDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches);
+    } else {
+        applyDarkMode(manualDarkModeEnabled);
+    }
+}
+
+if (localStorage.getItem('autoDarkModeEnabled') === null) {
+    localStorage.setItem('autoDarkModeEnabled', 'true');
+}
+
+updateDarkModeState();
+
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+    if (localStorage.getItem('autoDarkModeEnabled') === 'true') {
+        updateDarkModeState();
+    }
+});
 
 toggleAnimationsCheckbox.addEventListener('change', () => {
     if (toggleAnimationsCheckbox.checked) {
@@ -483,7 +464,16 @@ borderColorPicker.addEventListener('input', () => {
     localStorage.setItem('calendarBorderColor', newColor);
 });
 
-// Year input dialog functionality
+toggleAutoDarkModeCheckbox.addEventListener('change', () => {
+    localStorage.setItem('autoDarkModeEnabled', toggleAutoDarkModeCheckbox.checked);
+    updateDarkModeState();
+});
+
+toggleDarkModeCheckbox.addEventListener('change', () => {
+    localStorage.setItem('darkModeEnabled', toggleDarkModeCheckbox.checked);
+    updateDarkModeState();
+});
+
 const currentYearDisplay = document.getElementById('currentYearDisplay');
 const yearInputDialogOverlay = document.getElementById('yearInputDialogOverlay');
 const closeYearInputDialogBtn = document.getElementById('closeYearInputDialog');
@@ -493,7 +483,7 @@ const decreaseYearButton = document.getElementById('decreaseYear');
 const increaseYearButton = document.getElementById('increaseYear');
 
 currentYearDisplay.addEventListener('click', () => {
-    yearInput.value = currentCalendarYear; // Pre-fill with current year
+    yearInput.value = currentCalendarYear;
     yearInputDialogOverlay.classList.add('active');
 });
 
@@ -508,7 +498,7 @@ yearInputDialogOverlay.addEventListener('click', (event) => {
 });
 
 decreaseYearButton.addEventListener('click', () => {
-    yearInput.value = Math.max(2023, parseInt(yearInput.value, 10) - 1);
+    yearInput.value = Math.max(2025, parseInt(yearInput.value, 10) - 1);
 });
 
 increaseYearButton.addEventListener('click', () => {
@@ -517,15 +507,14 @@ increaseYearButton.addEventListener('click', () => {
 
 setYearButton.addEventListener('click', () => {
     const newYear = parseInt(yearInput.value, 10);
-    if (!isNaN(newYear) && newYear >= 2023 && newYear <= 2030) {
-        generateCalendar(newYear); // This will now save the year to localStorage
+    if (!isNaN(newYear) && newYear >= 2025 && newYear <= 2030) {
+        generateCalendar(newYear);
         yearInputDialogOverlay.classList.remove('active');
     } else {
-        alert('Bitte geben Sie ein gültiges Jahr zwischen 2023 und 2030 ein.');
+        alert('Bitte geben Sie ein gültiges Jahr zwischen 2025 und 2030 ein.');
     }
 });
 
-// Note Dialog functionality
 const noteDialogOverlay = document.getElementById('noteDialogOverlay');
 const closeNoteDialogBtn = document.getElementById('closeNoteDialog');
 const noteDialogTitle = document.getElementById('noteDialogTitle');
@@ -533,19 +522,19 @@ const noteInput = document.getElementById('noteInput');
 const saveNoteButton = document.getElementById('saveNoteButton');
 const deleteNoteButton = document.getElementById('deleteNoteButton');
 
-let currentDayCell = null; // To keep track of the cell being edited
+let currentDayCell = null;
 
 function openNoteDialog(cell) {
     currentDayCell = cell;
     const fullDate = cell.dataset.fullDate;
-    const dateParts = fullDate.split('-'); // Example: ["2025", "06", "09"]
+    const dateParts = fullDate.split('-');
     const day = dateParts[2];
-    const monthIndex = parseInt(dateParts[1], 10) - 1; // 0-indexed month
+    const monthIndex = parseInt(dateParts[1], 10) - 1;
     const year = dateParts[0];
     const monthName = new Date(year, monthIndex, 1).toLocaleString('de-DE', { month: 'long' });
 
     noteDialogTitle.textContent = `Notiz für den ${day}. ${monthName} ${year}`;
-    noteInput.value = notesData[fullDate] || ''; // Load existing note
+    noteInput.value = notesData[fullDate] || '';
 
     noteDialogOverlay.classList.add('active');
 }
@@ -569,7 +558,7 @@ saveNoteButton.addEventListener('click', () => {
             notesData[fullDate] = note;
             currentDayCell.querySelector('.note-indicator').textContent = note;
         } else {
-            delete notesData[fullDate]; // Remove note if empty
+            delete notesData[fullDate];
             currentDayCell.querySelector('.note-indicator').textContent = '';
         }
         localStorage.setItem('calendarNotes', JSON.stringify(notesData));
@@ -582,8 +571,8 @@ deleteNoteButton.addEventListener('click', () => {
         const fullDate = currentDayCell.dataset.fullDate;
         delete notesData[fullDate];
         localStorage.setItem('calendarNotes', JSON.stringify(notesData));
-        currentDayCell.querySelector('.note-indicator').textContent = ''; // Clear display
-        noteInput.value = ''; // Clear input field
+        currentDayCell.querySelector('.note-indicator').textContent = '';
+        noteInput.value = '';
         noteDialogOverlay.classList.remove('active');
     }
 });
