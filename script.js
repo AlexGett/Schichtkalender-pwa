@@ -350,7 +350,7 @@ if (todayButton) {
         const todayMonth = today.getMonth();
         const monthCards = document.querySelectorAll('.month-card');
         if (monthCards[todayMonth]) {
-            monthCards[todayMonth].scrollIntoView({ behavior: 'smooth', block: 'start' });
+            monthCards[todayMonth].scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
     });
 }
