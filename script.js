@@ -118,6 +118,11 @@ const holidaysData = {
 let currentCalendarYear = parseInt(localStorage.getItem('currentCalendarYear')) || 2025;
 let notesData = JSON.parse(localStorage.getItem('calendarNotes')) || {};
 
+// NEUE KONSTANTEN FÜR GITHUB-DATEN
+const GITHUB_USERNAME = 'alexgett'; // Passe dies an deinen GitHub-Benutzernamen an
+const GITHUB_REPO_NAME = 'Schichtkalender-pwa'; // Passe dies an den Namen deines GitHub-Repositorys an
+const INFO_FOLDER_PATH = 'info_data'; // Der neue Ordner für deine PDFs und Bilder
+
 function getWeekNumber(d) {
     const date = new Date(d.getTime());
     const dayOfWeek = (date.getDay() === 0) ? 7 : date.getDay();
@@ -363,6 +368,10 @@ function setupDialog(openBtnId, dialogOverlayId, closeBtnId) {
     if (openBtn) {
         openBtn.addEventListener('click', () => {
             dialogOverlay.classList.add('active');
+            // Wenn der Info-Dialog geöffnet wird, Dateien laden
+            if (dialogOverlayId === 'shiftInfoDialogOverlay') {
+                loadInfoFiles();
+            }
         });
     }
 
@@ -393,7 +402,6 @@ const borderColorPicker = document.getElementById('borderColorPicker');
 const calendarContainer = document.getElementById('calendarContainer');
 const toggleDarkModeCheckbox = document.getElementById('toggleDarkMode');
 const toggleAutoDarkModeCheckbox = document.getElementById('toggleAutoDarkMode');
-
 
 const savedAnimationState = localStorage.getItem('animationsDisabled');
 if (savedAnimationState === 'true') {
@@ -576,3 +584,68 @@ deleteNoteButton.addEventListener('click', () => {
         noteDialogOverlay.classList.remove('active');
     }
 });
+
+// NEUE FUNKTIONEN FÜR DIE ANZEIGE VON INFODATEIEN
+async function fetchInfoFiles() {
+    const url = `https://api.github.com/repos/${GITHUB_USERNAME}/${GITHUB_REPO_NAME}/contents/${INFO_FOLDER_PATH}`;
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            if (response.status === 404) {
+                console.warn(`Der Ordner "${INFO_FOLDER_PATH}" wurde nicht gefunden. Bitte stelle sicher, dass er existiert und Dateien enthält.`);
+                return [];
+            }
+            throw new Error(`GitHub API Fehler: ${response.statusText}`);
+        }
+        const data = await response.json();
+        // Filtert nur Dateien und ignoriert Unterordner
+        return data.filter(item => item.type === 'file');
+    } catch (error) {
+        console.error('Fehler beim Abrufen der Info-Dateien:', error);
+        return [];
+    }
+}
+
+async function loadInfoFiles() {
+    const infoFilesList = document.getElementById('infoFilesList');
+    infoFilesList.innerHTML = '<p class="loading-message">Lade Informationen...</p>'; // Ladeanzeige
+
+    const files = await fetchInfoFiles();
+
+    infoFilesList.innerHTML = ''; // Lösche die Ladeanzeige
+
+    if (files.length === 0) {
+        infoFilesList.innerHTML = '<p>Keine weiteren Informationen verfügbar.</p>';
+        return;
+    }
+
+    const ul = document.createElement('ul');
+    ul.classList.add('info-files-ul');
+
+    files.forEach(file => {
+        const li = document.createElement('li');
+        const fileLink = document.createElement('a');
+        fileLink.href = file.download_url; // Direkter Link zur Datei
+        fileLink.textContent = file.name;
+        fileLink.target = '_blank'; // Öffnet Link in neuem Tab
+
+        const fileIcon = document.createElement('i');
+        const fileNameLower = file.name.toLowerCase();
+
+        if (fileNameLower.endsWith('.pdf')) {
+            fileIcon.classList.add('fas', 'fa-file-pdf');
+            fileIcon.style.color = 'red';
+        } else if (fileNameLower.endsWith('.jpg') || fileNameLower.endsWith('.jpeg') || fileNameLower.endsWith('.png') || fileNameLower.endsWith('.gif')) {
+            fileIcon.classList.add('fas', 'fa-image');
+            fileIcon.style.color = 'blue';
+        } else {
+            fileIcon.classList.add('fas', 'fa-file'); // Standard-Symbol für andere Dateitypen
+        }
+        fileIcon.classList.add('file-list-icon');
+        
+        li.appendChild(fileIcon);
+        li.appendChild(fileLink);
+        ul.appendChild(li);
+    });
+    infoFilesList.appendChild(ul);
+}

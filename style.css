@@ -95,7 +95,7 @@ h2 {
 }
 
 .header-icon:hover {
-    color: #FFFFFF;
+    color: #007f05;
 }
 
 .phone-icon-position {
@@ -434,6 +434,13 @@ h2 {
     width: 90%;
     max-width: 400px;
     position: relative;
+    max-height: 80vh; /* Ermöglicht Scrollen bei viel Inhalt */
+    overflow-y: auto; /* Ermöglicht Scrollen bei viel Inhalt */
+}
+
+/* Anpassungen für den Info-Dialog, damit er größer sein kann */
+.dialog.shift-info-dialog {
+    max-width: 500px; /* Breiter für die Dateiliste */
 }
 
 .dialog h3 {
@@ -519,6 +526,63 @@ h2 {
     flex-grow: 1;
     text-align: left;
 }
+
+/* NEUE STYLES FÜR INFODATEIEN */
+.info-divider {
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    margin: 25px 0;
+}
+
+.info-files-list {
+    margin-top: 15px;
+}
+
+.info-files-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.info-files-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+}
+
+.info-files-list li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.info-files-list a {
+    font-weight: normal;
+    color: #007bff;
+    text-decoration: none;
+    margin-left: 10px;
+    flex-grow: 1;
+}
+
+.info-files-list a:hover {
+    text-decoration: underline;
+}
+
+.file-list-icon {
+    font-size: 1.3em;
+    width: 25px; /* Feste Breite für Icons */
+    text-align: center;
+}
+
+.loading-message {
+    text-align: center;
+    font-style: italic;
+    color: #777;
+}
+
 
 .settings-option {
     display: flex;
@@ -656,6 +720,7 @@ h2 {
     background-color: #c82333;
 }
 
+/* DARK MODE STYLES */
 body.dark-mode {
     background-color: #121212;
     color: #e0e0e0;
@@ -675,12 +740,20 @@ body.dark-mode .header-section h1::after {
 }
 
 body.dark-mode .header-icon:hover {
-    color: #000000;
+    color: #4CAF50;
 }
 
 body.dark-mode .month-card {
     border: 1px solid #333;
     background-color: #2c2c2c;
+}
+
+body.dark-mode .month-title {
+    color: #e0e0e0;
+}
+
+body.dark-mode h2 {
+    color: #e0e0e0;
 }
 
 body.dark-mode .week-numbers-container {
@@ -736,6 +809,10 @@ body.dark-mode .feiertag {
 body.dark-mode .dialog {
     background-color: #2c2c2c;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+}
+
+body.dark-mode .dialog h3 {
+    color: #e0e0e0;
 }
 
 body.dark-mode .dialog ul {
@@ -821,4 +898,25 @@ body.dark-mode #noteDialog #deleteNoteButton {
 }
 body.dark-mode #noteDialog #deleteNoteButton:hover {
     background-color: #9f1c29;
+}
+
+/* DARK MODE FÜR NEUE INFO-SEKTION */
+body.dark-mode .info-divider {
+    background: #444;
+}
+
+body.dark-mode .info-files-list li {
+    border-bottom: 1px solid #3a3a3a;
+}
+
+body.dark-mode .info-files-list a {
+    color: #8ab4f8;
+}
+
+body.dark-mode .info-files-list a:hover {
+    color: #a6c8ff;
+}
+
+body.dark-mode .loading-message {
+    color: #aaa;
 }

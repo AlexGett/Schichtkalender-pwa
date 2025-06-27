@@ -1,4 +1,4 @@
-const CACHE_NAME = 'schichtkalender-cache-v1.1';
+const CACHE_NAME = 'schichtkalender-cache-v1';
 const urlsToCache = [
     '/',
     '/index.html',
@@ -16,7 +16,12 @@ const urlsToCache = [
     '/ios/167.png',
     '/ios/180.png',
     '/ios/192.png',
-    '/ios/512.png'
+    '/ios/512.png',
+    // Hier können weitere spezifische Info-Dateien hinzugefügt werden,
+    // wenn du möchtest, dass sie sofort gecacht werden.
+    // Ansonsten werden sie bei der ersten Anfrage gecacht.
+    // Beispiel: '/info_data/mein_info_bild.png',
+    // '/info_data/wichtige_infos.pdf'
 ];
 
 self.addEventListener('install', event => {
