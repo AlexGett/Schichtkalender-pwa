@@ -49,11 +49,11 @@ const holidaysData = {
         { date: '2027-05-17', names: { de: 'Pfingstmontag', en: 'Pentecost Monday', ru: 'Понедельник Пятидесятницы', tr: 'Pentekost Pazartesi', sq: 'E Hëna e Pashkëve', ar: 'اثنين العنصرة', hr: 'Duhovski ponedjeljak', sk: 'Turíčny pondelok' } },
         { date: '2027-05-27', names: { de: 'Fronleichnam', en: 'Corpus Christi', ru: 'Празdник Тела и Крови Христовых', tr: 'Katolik Yortusu', sq: 'Corpus Christi', ar: 'عيد القربان', hr: 'Tijelovo', sk: 'Božie Telo' } },
         { date: '2027-08-15', names: { de: 'Mariä Himmelfahrt', en: 'Assumption Day', ru: 'Успение Пресвятой Богородицы', tr: 'Meryem\'in Göğe Kabulü', sq: 'Fjetja e Shën Mërisë', ar: 'عيد انتقال العذراء', hr: 'Velika Gospa', sk: 'Nanebovzatie Panny Márie' } },
-        { date: '2027-10-03', names: { de: 'Tag der Deutschen Einheit', en: 'German Unity Day', ru: 'День германского единства', tr: 'Alman Birliği Günü', sq: 'Dita e Bashkimit Gjerman', ar: 'يوم الوحدة الألمانية', hr: 'Dan njemačkog jedinstwa', sk: 'Deň nemeckej jednoty' } },
+        { date: '2027-10-03', names: { de: 'Tag der Deutschen Einheit', en: 'German Unity Day', ru: 'День герmanческого единства', tr: 'Alman Birliği Günü', sq: 'Dita e Bashkimit Gjerman', ar: 'يوم الوحدة الألمانية', hr: 'Dan njemačkog jedinstwa', sk: 'Deň nemeckej jednoty' } },
         { date: '2027-11-01', names: { de: 'Allerheiligen', en: 'All Saints\' Day', ru: 'День всех святых', tr: 'Azizler Günü', sq: 'Dita e të Gjithë Shenjtorëve', ar: 'عيد جميع القديسين', hr: 'Svi Sveti', sk: 'Sviatok Všetkých svätých' } },
         { date: '2027-12-24', names: { de: 'Heiligabend', en: 'Christmas Eve', ru: 'Сочельник', tr: 'Noel Arifesi', sq: 'Nata e Krishtlindjes', ar: 'ليلة عيد الميلاد', hr: 'Badnjak', sk: 'Štedrý deň' } },
         { date: '2027-12-25', names: { de: '1. Weihnachtstag', en: 'Christmas Day', ru: 'Рождество', tr: 'Noel', sq: 'Dita e Parë e Krishtlindjes', ar: 'عيد الميلاد الأول', hr: 'Božić', sk: 'Prvý sviatok vianočný' } },
-        { date: '2027-12-26', names: { de: '2. Weihnachtstag', en: 'St. Stephen\'s Day', ru: 'Второй день Рождества', tr: 'Noel\'in İkiиci Günü', sq: 'Dita e Dytë e Krishtlindjes', ar: 'عيد الميلاد الثاني', hr: 'Sveti Stjepan', sk: 'Druhý sviatok vianočný' } },
+        { date: '2027-12-26', names: { de: '2. Weihnachtstag', en: 'St. Stephen\'s Day', ru: 'Второй день Рождества', tr: 'Noel\'in الإكيиكي Günü', sq: 'Dita e Dytë e Krishtlindjes', ar: 'عيد الميلاد الثاني', hr: 'Sveti Stjepan', sk: 'Druhý sviatok vianočný' } },
         { date: '2027-12-31', names: { de: 'Silvester', en: 'New Year\'s Eve', ru: 'Новый год', tr: 'Yılbaşı Gecesi', sq: 'Nata e Vitit të Ri', ar: 'ليلة رأس السنة', hr: 'Stara godina', sk: 'Silvester' } }
     ],
     2028: [
@@ -124,12 +124,18 @@ const GITHUB_REPO_NAME = 'Schichtkalender-pwa'; // Passe dies an den Namen deine
 const INFO_FOLDER_PATH = 'info_data'; // Der neue Ordner für deine PDFs und Bilder
 
 function getWeekNumber(d) {
-    const date = new Date(d.getTime());
-    const dayOfWeek = (date.getDay() === 0) ? 7 : date.getDay();
-    date.setDate(date.getDate() + 4 - dayOfWeek);
-    const yearStart = new Date(date.getFullYear(), 0, 1);
-    return Math.ceil((((date - yearStart) / 86400000) + 1) / 7);
+    // Copy date so don't modify original
+    d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+    // Set to nearest Thursday: current date + 4 - current day number
+    // Make Sunday's day number 7
+    d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
+    // Get first day of year
+    var yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+    // Calculate full weeks to nearest Thursday
+    var weekNo = Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+    return weekNo;
 }
+
 
 function generateCalendar(year) {
     currentCalendarYear = year;
@@ -168,9 +174,6 @@ function generateCalendar(year) {
 
         monthCard.innerHTML = `<div class="month-title">${new Date(year, month, 1).toLocaleString('de-DE', { month: 'long' }).toUpperCase()}</div>`;
 
-        const weekNumbersSet = new Set();
-        const daysInMonth = new Date(year, month + 1, 0).getDate();
-
         const weeksData = [];
         const firstDayOfMonth = new Date(year, month, 1);
         const firstDayRelativePosition = (firstDayOfMonth.getDay() === 0) ? 6 : firstDayOfMonth.getDay() - 1;
@@ -181,11 +184,10 @@ function generateCalendar(year) {
             currentWeek.push({ day: '', classes: 'empty-cell', weekNumber: null });
         }
 
-        for (let day = 1; day <= daysInMonth; day++) {
+        for (let day = 1; day <= daysInMonth(year, month); day++) {
             const currentDate = new Date(year, month, day);
             const dayOfWeek = currentDate.getDay();
             const weekNumber = getWeekNumber(currentDate);
-            weekNumbersSet.add(weekNumber);
 
             const currentFormattedDate = `${year}-${(month + 1).toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
             const holiday = yearHolidays.find(h => h.date === currentFormattedDate);
@@ -200,6 +202,7 @@ function generateCalendar(year) {
             } else if (dayOfWeek === 0) {
                 classes.push('sonntag');
             } else {
+                // Shift logic based on week number
                 if (weekNumber % 3 === 0) {
                     classes.push('spaetschicht');
                 } else if ((weekNumber + 1) % 3 === 0) {
@@ -211,6 +214,7 @@ function generateCalendar(year) {
             currentWeek.push({ day: day, classes: classes.join(' '), originalDayOfWeek: dayOfWeek, weekNumber: weekNumber, holidayNames: holidayNames, fullDate: currentFormattedDate });
         }
 
+        // Fill up the last week if it's not full
         if (currentWeek.length % 7 !== 0) {
             while (currentWeek.length % 7 !== 0) {
                 currentWeek.push({ day: '', classes: 'empty-cell', weekNumber: null, holidayNames: {}, fullDate: null });
@@ -232,22 +236,37 @@ function generateCalendar(year) {
         const kwNumbersGrid = document.createElement('div');
         kwNumbersGrid.classList.add('kw-numbers-grid');
 
-        const actualKWsInMonth = [];
+        const kwsInMonth = new Set();
         weeksData.forEach(week => {
-            const firstActualDayInWeek = week.find(day => day.weekNumber !== null);
-            if (firstActualDayInWeek) {
-                if (!actualKWsInMonth.includes(firstActualDayInWeek.weekNumber)) {
-                    actualKWsInMonth.push(firstActualDayInWeek.weekNumber);
+            week.forEach(day => {
+                if (day.weekNumber !== null) {
+                    kwsInMonth.add(day.weekNumber);
                 }
-            }
+            });
         });
 
+        // Collect all unique KW numbers for the month
+        let actualKWsInMonth = Array.from(kwsInMonth);
+
+        // Sortierung der Kalenderwochen:
+        // Problem: KW 1 kann zum Vorjahr gehören oder die letzte KW des Vorjahres kann im aktuellen Jahr liegen.
+        // Die `getWeekNumber` Funktion liefert eine Zahl. KW 1 ist immer die kleinste Zahl.
+        // Wenn eine KW > 50 und KW 1 im gleichen Monat sind, dann gehört KW 1 wahrscheinlich zum nächsten Jahr.
         actualKWsInMonth.sort((a, b) => {
-            if (a === 1 && b !== 1) return 1;
-            if (b === 1 && a !== 1) return -1;
+            const isAHigh = a > 50; // Check if A is a high KW (e.g., 52, 53)
+            const isBHigh = b > 50; // Check if B is a high KW
+
+            // If a is KW 1 and b is a high KW, a should come after b
+            if (a === 1 && isBHigh) {
+                return 1;
+            }
+            // If b is KW 1 and a is a high KW, b should come after a
+            if (b === 1 && isAHigh) {
+                return -1;
+            }
+            // Otherwise, sort numerically
             return a - b;
         });
-
 
         for (let col = 0; col < MAX_COLUMNS_FOR_DATES; col++) {
             const kwCell = document.createElement('div');
@@ -338,6 +357,10 @@ function generateCalendar(year) {
             });
         }
     });
+}
+
+function daysInMonth(year, month) {
+    return new Date(year, month + 1, 0).getDate();
 }
 
 generateCalendar(currentCalendarYear);
