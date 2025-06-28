@@ -95,7 +95,7 @@ h2 {
 }
 
 .header-icon:hover {
-    color: #007f05;
+    color: #FF0000;
 }
 
 .phone-icon-position {
@@ -740,7 +740,7 @@ body.dark-mode .header-section h1::after {
 }
 
 body.dark-mode .header-icon:hover {
-    color: #4CAF50;
+    color: #FF0000;
 }
 
 body.dark-mode .month-card {

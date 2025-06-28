@@ -7,7 +7,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Schichtkalender</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" sizes="180x180" href="ios/180.png">
@@ -16,9 +17,11 @@
 </head>
 <body>
     <div class="calendar-container" id="calendarContainer">
-        <i class="fas fa-phone-alt header-icon phone-icon-position" id="openPhoneDialog"></i>
-        <i class="fas fa-info-circle header-icon info-icon-position" id="openShiftInfoDialog"></i>
-        <i class="fas fa-calendar-day header-icon today-icon-position" id="todayButton"></i>
+        <i class="fa-solid fa-phone-flip header-icon fa-beat phone-icon-position" id="openPhoneDialog"
+            style="--fa-animation-delay: 0.20s;"></i>
+        <i class="fa-regular fa-circle-info fa-beat header-icon info-icon-position" id="openShiftInfoDialog" style="--fa-animation-delay: 0.60s;"></i>
+        <i class="fa-solid fa-calendar-day header-icon fa-beat today-icon-position" id="todayButton"
+            style="--fa-animation-delay: 0.40s;"></i>
         <img src="https://images.seeklogo.com/logo-png/54/2/motherson-logo-png_seeklogo-544537.png" alt="Motherson Logo" class="logo" id="openSettingsDialog">
         <div class="header-section">
             <h1 id="currentYearDisplay">2025</h1>
