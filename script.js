@@ -11,7 +11,7 @@ const holidaysData = {
         { date: '2025-06-09', names: { de: 'Pfingstmontag', ru: 'Понедельник Пятидесятницы', tr: 'Pentekost Pazartesi', sq: 'E Hëna e Pashkëve', ar: 'اثنين العنصرة', hr: 'Duhovski ponedjeljak', sk: 'Turíčny pondelok', en: 'Pentecost Monday' } },
         { date: '2025-06-19', names: { de: 'Fronleichnam', ru: 'Празdник Тела и Крови Христовых', tr: 'Katolik Yortusu', sq: 'Corpus Christi', ar: 'عيد القربان', hr: 'Tijelovo', sk: 'Božie Telo', en: 'Corpus Christi' } },
         { date: '2025-08-15', names: { de: 'Mariä Himmelfahrt', ru: 'Успение Пресвятой Богородицы', tr: 'Meryem\'in Göğe Kabulü', sq: 'Fjetja e Shën Mërisë', ar: 'عيد انتقال العذراء', hr: 'Velika Gospa', sk: 'Nanebovzatie Panny Márie', en: 'Assumption Day' } },
-        { date: '2025-10-03', names: { de: 'Tag der Deutschen Einheit', ru: 'День германского единства', tr: 'Alman Birliği Günü', sq: 'Dita e Bashkimit Gjerman', ar: 'يوم الوحدة الألمانية', hr: 'Dan njemačkog jedinstwa', sk: 'Deň nemeckej jednoty', en: 'German Unity Day' } },
+        { date: '2025-10-03', names: { de: 'Tag der Deutschen Einheit', ru: 'День герmanского единства', tr: 'Alman Birliği Günü', sq: 'Dita e Bashkimit Gjerman', ar: 'يوم الوحدة الألمانية', hr: 'Dan njemačkog jedinstwa', sk: 'Deň nemeckej jednoty', en: 'German Unity Day' } },
         { date: '2025-11-01', names: { de: 'Allerheiligen', ru: 'День всех святых', tr: 'Azizler Günü', sq: 'Dita e të Gjithë Shenjtorëve', ar: 'عيد جميع القديسين', hr: 'Svi Sveti', sk: 'Sviatok Všetkých svätých', en: 'All Saints\' Day' } },
         { date: '2025-12-24', names: { de: 'Heiligabend', ru: 'Сочельник', tr: 'Noel Arifesi', sq: 'Nata e Krishtlindjes', ar: 'ليلة عيد الميلاد', hr: 'Badnjak', sk: 'Štedrý deň', en: 'Christmas Eve' } },
         { date: '2025-12-25', names: { de: '1. Weihnachtstag', ru: 'Рождество', tr: 'Noel', sq: 'Dita e Parë e Krishtlindjes', ar: 'عيد الميلاد الأول', hr: 'Božić', sk: 'Prvý sviatok vianočný', en: 'Christmas Day' } },
@@ -30,7 +30,7 @@ const holidaysData = {
         { date: '2026-05-25', names: { de: 'Pfingstmontag', en: 'Pentecost Monday', ru: 'Понедельник Пятидесятницы', tr: 'Pentekost Pazartesi', sq: 'E Hëna e Pashkëve', ar: 'اثنين العنصرة', hr: 'Duhovski ponedjeljak', sk: 'Turíčny pondelok' } },
         { date: '2026-06-04', names: { de: 'Fronleichnam', en: 'Corpus Christi', ru: 'Празdник Тела и Крови Христовых', tr: 'Katolik Yortusu', sq: 'Corpus Christi', ar: 'عيد القربان', hr: 'Tijelovo', sk: 'Božie Telo' } },
         { date: '2026-08-15', names: { de: 'Mariä Himmelfahrt', en: 'Assumption Day', ru: 'Успение Пресвятой Богородицы', tr: 'Meryem\'in Göğe Kabulü', sq: 'Fjetja e Shën Mërisë', ar: 'عيد انتقال العذراء', hr: 'Velika Gospa', sk: 'Nanebovzatie Panny Márie' } },
-        { date: '2026-10-03', names: { de: 'Tag der Deutschen Einheit', en: 'German Unity Day', ru: 'День германского единства', tr: 'Alman Birliği Günü', sq: 'Dita e Bashkimit Gjerman', ar: 'يوم الوحدة الألمانية', hr: 'Dan njemačkog jedinstwa', sk: 'Deň nemeckej jednoty' } },
+        { date: '2026-10-03', names: { de: 'Tag der Deutschen Einheit', en: 'German Unity Day', ru: 'День герmanского единства', tr: 'Alman Birliği Günü', sq: 'Dita e Bashkimit Gjerman', ar: 'يوم الوحدة الألمانية', hr: 'Dan njemačkog jedinstwa', sk: 'Deň nemeckej jednoty' } },
         { date: '2026-11-01', names: { de: 'Allerheiligen', en: 'All Saints\' Day', ru: 'День всех святых', tr: 'Azizler Günü', sq: 'Dita e të Gjithë Shenjtorëve', ar: 'عيد جميع القديسين', hr: 'Svi Sveti', sk: 'Sviatok Všetkých svätých' } },
         { date: '2026-12-24', names: { de: 'Heiligabend', en: 'Christmas Eve', ru: 'Сочельник', tr: 'Noel Arifesi', sq: 'Nata e Krishtlindjes', ar: 'ليلة عيد الميلاد', hr: 'Badnjak', sk: 'Štedrý deň' } },
         { date: '2026-12-25', names: { de: '1. Weihnachtstag', en: 'Christmas Day', ru: 'Рождество', tr: 'Noel', sq: 'Dita e Parë e Krishtlindjes', ar: 'عيد الميلاد الأول', hr: 'Božić', sk: 'Prvý sviatok vianočný' } },
@@ -53,7 +53,7 @@ const holidaysData = {
         { date: '2027-11-01', names: { de: 'Allerheiligen', en: 'All Saints\' Day', ru: 'День всех святых', tr: 'Azizler Günü', sq: 'Dita e të Gjithë Shenjtorëve', ar: 'عيد جميع القديسين', hr: 'Svi Sveti', sk: 'Sviatok Všetkých svätých' } },
         { date: '2027-12-24', names: { de: 'Heiligabend', en: 'Christmas Eve', ru: 'Сочельник', tr: 'Noel Arifesi', sq: 'Nata e Krishtlindjes', ar: 'ليلة عيد الميلاد', hr: 'Badnjak', sk: 'Štedrý deň' } },
         { date: '2027-12-25', names: { de: '1. Weihnachtstag', en: 'Christmas Day', ru: 'Рождество', tr: 'Noel', sq: 'Dita e Parë e Krishtlindjes', ar: 'عيد الميلاد الأول', hr: 'Božić', sk: 'Prvý sviatok vianočný' } },
-        { date: '2027-12-26', names: { de: '2. Weihnachtstag', en: 'St. Stephen\'s Day', ru: 'Второй день Рождества', tr: 'Noel\'in الإكيиكي Günü', sq: 'Dita e Dytë e Krishtlindjes', ar: 'عيد الميلاد الثاني', hr: 'Sveti Stjepan', sk: 'Druhý sviatok vianočný' } },
+        { date: '2027-12-26', names: { de: '2. Weihnachtstag', en: 'St. Stephen\'s Day', ru: 'Второй день Рождества', tr: 'Noel\'in الإكييكي Günü', sq: 'Dita e Dytë e Krishtlindjes', ar: 'عيد الميلاد الثاني', hr: 'Sveti Stjepan', sk: 'Druhý sviatok vianočný' } },
         { date: '2027-12-31', names: { de: 'Silvester', en: 'New Year\'s Eve', ru: 'Новый год', tr: 'Yılbaşı Gecesi', sq: 'Nata e Vitit të Ri', ar: 'ليلة رأس السنة', hr: 'Stara godina', sk: 'Silvester' } }
     ],
     2028: [
@@ -88,7 +88,8 @@ const holidaysData = {
         { date: '2029-05-31', names: { de: 'Fronleichnam', en: 'Corpus Christi' } },
         { date: '2029-08-15', names: { de: 'Mariä Himmelfahrt', en: 'Assumption Day' } },
         { date: '2029-10-03', names: { de: 'Tag der Deutschen Einheit', en: 'German Unity Day' } },
-        { date: '2029-11-01', names: { de: 'Allerheiligen', en: 'All Saints\' Day' } },
+        { date: '2029-11-01', names: { de: 'Allerheiligen', en: 'All Saints\' Day' } }
+        ,
         { date: '2029-12-24', names: { de: 'Heiligabend', en: 'Christmas Eve' } },
         { date: '2029-12-25', names: { de: '1. Weihnachtstag', en: 'Christmas Day' } },
         { date: '2029-12-26', names: { de: '2. Weihnachtstag', en: 'St. Stephen\'s Day' } },
@@ -168,6 +169,11 @@ function generateCalendar(year) {
 
     const yearHolidays = holidaysData[year] || [];
 
+    // Referenzdatum für den Schichtzyklus: Montag, 06. Januar 2025.
+    // Die Schicht am 06.01.2025 soll NACHTSCHICHT (Index 1) sein.
+    const referenceShiftStartDate = new Date('2025-01-06T00:00:00Z');
+    const referenceShiftTypeForStartDate = 1; // 0=Früh, 1=Nacht, 2=Spät
+
     for (let month = 0; month < 12; month++) {
         const monthCard = document.createElement('div');
         monthCard.classList.add('month-card');
@@ -185,32 +191,55 @@ function generateCalendar(year) {
         }
 
         for (let day = 1; day <= daysInMonth(year, month); day++) {
-            const currentDate = new Date(year, month, day);
-            const dayOfWeek = currentDate.getDay();
-            const weekNumber = getWeekNumber(currentDate);
+            const currentDate = new Date(year, month, day, 12, 0, 0); // 12 Uhr mittags, um DST-Probleme zu minimieren
+            const dayOfWeek = currentDate.getDay(); // 0 for Sunday, 1 for Monday, ..., 6 for Saturday
 
             const currentFormattedDate = `${year}-${(month + 1).toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
             const holiday = yearHolidays.find(h => h.date === currentFormattedDate);
 
             let classes = [];
             let holidayNames = {};
+
             if (holiday) {
                 classes.push('feiertag');
                 holidayNames = holiday.names;
-            } else if (dayOfWeek === 6) {
+            } else if (dayOfWeek === 6) { // Samstag
                 classes.push('samstag');
-            } else if (dayOfWeek === 0) {
+            } else if (dayOfWeek === 0) { // Sonntag
                 classes.push('sonntag');
-            } else {
-                // Shift logic based on week number
-                if (weekNumber % 3 === 0) {
-                    classes.push('spaetschicht');
-                } else if ((weekNumber + 1) % 3 === 0) {
-                    classes.push('nachtschicht');
-                } else {
+            } else { // Wochentage Mo-Fr
+                // Finden des Montags der aktuellen Woche (oder currentDate selbst, wenn es ein Montag ist)
+                let mondayOfCurrentWeek = new Date(currentDate);
+                const daysToMonday = (dayOfWeek === 0) ? 6 : dayOfWeek - 1; // 0=So -> 6 Tage zurück, 1=Mo -> 0 Tage zurück, etc.
+                mondayOfCurrentWeek.setDate(currentDate.getDate() - daysToMonday);
+                mondayOfCurrentWeek.setHours(0, 0, 0, 0); // Setze Uhrzeit auf 00:00:00
+
+                // Berechnung der Differenz in Tagen vom Referenz-Schichtstart zum Montag der aktuellen Woche
+                const oneDay = 1000 * 60 * 60 * 24;
+                const diffTime = mondayOfCurrentWeek.getTime() - referenceShiftStartDate.getTime();
+                let diffWeeks = Math.round(diffTime / (7 * oneDay)); // Runde, um Rundungsfehler bei Zeitzonen zu vermeiden
+
+                // Berechnung des Schicht-Typs mit korrektem Modulo für negative Zahlen
+                // Die Formel (n % m + m) % m stellt sicher, dass das Ergebnis immer positiv ist.
+                // referenceShiftTypeForStartDate ist der Startschicht-Typ für die referenceShiftStartDate.
+                // diffWeeks ist die Anzahl der Wochen, die vom referenceShiftStartDate abweichen.
+                // Die Schicht ändert sich jede Woche.
+                let shiftType = (referenceShiftTypeForStartDate + diffWeeks) % 3;
+                if (shiftType < 0) {
+                    shiftType += 3; // Sicherstellen, dass das Ergebnis positiv ist
+                }
+                
+                if (shiftType === 0) {
                     classes.push('fruehschicht');
+                } else if (shiftType === 1) {
+                    classes.push('nachtschicht');
+                } else { // shiftType === 2
+                    classes.push('spaetschicht');
                 }
             }
+
+            const weekNumber = getWeekNumber(currentDate);
+
             currentWeek.push({ day: day, classes: classes.join(' '), originalDayOfWeek: dayOfWeek, weekNumber: weekNumber, holidayNames: holidayNames, fullDate: currentFormattedDate });
         }
 
@@ -245,26 +274,18 @@ function generateCalendar(year) {
             });
         });
 
-        // Collect all unique KW numbers for the month
         let actualKWsInMonth = Array.from(kwsInMonth);
 
-        // Sortierung der Kalenderwochen:
-        // Problem: KW 1 kann zum Vorjahr gehören oder die letzte KW des Vorjahres kann im aktuellen Jahr liegen.
-        // Die `getWeekNumber` Funktion liefert eine Zahl. KW 1 ist immer die kleinste Zahl.
-        // Wenn eine KW > 50 und KW 1 im gleichen Monat sind, dann gehört KW 1 wahrscheinlich zum nächsten Jahr.
         actualKWsInMonth.sort((a, b) => {
-            const isAHigh = a > 50; // Check if A is a high KW (e.g., 52, 53)
-            const isBHigh = b > 50; // Check if B is a high KW
+            const isAHigh = a > 50;
+            const isBHigh = b > 50;
 
-            // If a is KW 1 and b is a high KW, a should come after b
             if (a === 1 && isBHigh) {
                 return 1;
             }
-            // If b is KW 1 and a is a high KW, b should come after a
             if (b === 1 && isAHigh) {
                 return -1;
             }
-            // Otherwise, sort numerically
             return a - b;
         });
 
