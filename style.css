@@ -86,12 +86,12 @@ h2 {
 
 .header-icon {
     position: absolute;
-    margin-top: 35px;
-    font-size: 2.5em;
-    color: inherit;
+    margin-top: 20px;
+    font-size: 8em; /* Wichtig für die Größe des Emojis */
+    color: inherit; /* Emojis ignorieren diese Eigenschaft oft, aber gut zu haben */
     cursor: pointer;
     z-index: 10;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease; /* Übergang für Hover-Effekt */
 }
 
 .header-icon:hover {
@@ -111,6 +111,27 @@ h2 {
     top: 175px;
     left: 5px;
 }
+
+/* NEUE CSS-Regeln für die Beat-Animation des Emojis */
+.beat-animation {
+    display: inline-block; /* Wichtig, damit transform funktioniert */
+    transform-origin: center;
+    animation: beat 1.5s infinite; /* Dauer und Wiederholung der Animation */
+    animation-delay: var(--fa-animation-delay, 0s); /* Nutzt die delay-Variable */
+}
+
+@keyframes beat {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2); /* Größer werden */
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 
 .month-grid {
     display: grid;
@@ -391,17 +412,17 @@ h2 {
         right: 10px;
     }
     .header-icon {
-        font-size: 2em;
+        font-size: 2.7em;
         top: -15px;
     }
     .phone-icon-position {
-        left: 15px;
+        left: 12px;
     }
     .today-icon-position {
-        left: 150px;
+        left: 142px;
     }
     .info-icon-position {
-    left: 280px;
+    left: 271px;
     }
 }
 
@@ -845,7 +866,7 @@ body.dark-mode #holidayTranslations {
 }
 
 body.dark-mode .shift-info-item span {
-    color: #e0e0e0;
+    color: #E0E0E0;
 }
 
 body.dark-mode .settings-option label {
