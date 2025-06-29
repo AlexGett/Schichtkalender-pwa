@@ -357,17 +357,23 @@ h2 {
     cursor: default;
 }
 
+/* Schichtfarben */
 .fruehschicht {
-    background-color: #FFF3E0;
+    background-color: #FFF3E0; /* Hellorange */
 }
 .spaetschicht {
-    background-color: #C8E6C9;
+    background-color: #C8E6C9; /* Hellgrün */
     color: #333;
 }
 .nachtschicht {
-    background-color: #BBDEFB;
+    background-color: #BBDEFB; /* Hellblau */
     color: #333;
 }
+.freischicht {
+    background-color: #C4FFF8; /* Ein helles Blau/Grau für "Frei" */
+    color: #333;
+}
+
 
 .samstag {
     background-color: #FFFFFF;
@@ -605,22 +611,53 @@ h2 {
 }
 
 
+/* Einstellungen Dialog Styles */
+.settings-section {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 25px;
+    background-color: #f9f9f9;
+}
+
+.settings-section h4 {
+    font-size: 1.3em;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #555;
+}
+
 .settings-option {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+    flex-direction: column; /* Für Labels über den Eingabefeldern */
+    margin-bottom: 15px;
+    align-items: flex-start; /* Labels und Inputs linksbündig */
 }
 
 .settings-option label {
     font-size: 1.1em;
-    margin-right: 15px;
+    margin-bottom: 8px; /* Abstand zwischen Label und Input */
+    font-weight: bold;
+}
+
+.settings-option input[type="text"],
+.settings-option input[type="date"],
+.settings-option input[type="number"] {
+    width: calc(100% - 22px); /* Volle Breite - Padding und Border */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box; /* Padding und Border werden in die Breite eingerechnet */
 }
 
 .settings-option input[type="checkbox"] {
     width: 20px;
     height: 20px;
     cursor: pointer;
+    align-self: flex-end; /* Checkbox rechtsbündig */
+    margin-top: -30px; /* Anpassen, um neben dem Label zu stehen */
 }
 
 .settings-option input[type="color"] {
@@ -629,7 +666,73 @@ h2 {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    align-self: flex-end; /* Color Picker rechtsbündig */
+    margin-top: -30px; /* Anpassen, um neben dem Label zu stehen */
 }
+
+/* Anpassung für Settings-Optionen, die nebeneinander sein sollen */
+.settings-option.inline {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.settings-option.inline label {
+    margin-bottom: 0;
+}
+.settings-option.inline input[type="checkbox"],
+.settings-option.inline input[type="color"] {
+    margin-top: 0;
+}
+
+
+.button-group {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.confirm-button, .delete-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    flex-grow: 1; /* Buttons füllen den verfügbaren Platz aus */
+}
+
+.confirm-button {
+    background-color: #28a745;
+    color: white;
+}
+.confirm-button:hover {
+    background-color: #218838;
+}
+
+.delete-button {
+    background-color: #dc3545;
+    color: white;
+}
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+.small-text {
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 15px;
+    text-align: center;
+    line-height: 1.4;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #e0e0e0;
+    margin: 30px 0;
+}
+
 
 .year-input-dialog label {
     display: block;
@@ -816,6 +919,9 @@ body.dark-mode .spaetschicht {
 body.dark-mode .nachtschicht {
     background-color: #25394e;
 }
+body.dark-mode .freischicht {
+    background-color: #466F6A;
+}
 body.dark-mode .samstag {
     background-color: #282828;
     border: 1px solid #4a4a4a;
@@ -869,9 +975,50 @@ body.dark-mode .shift-info-item span {
     color: #E0E0E0;
 }
 
+/* Dark Mode für Settings Dialog */
+body.dark-mode .settings-section {
+    border: 1px solid #444;
+    background-color: #333;
+}
+
+body.dark-mode .settings-section h4 {
+    color: #e0e0e0;
+}
+
 body.dark-mode .settings-option label {
     color: #e0e0e0;
 }
+
+body.dark-mode .settings-option input[type="text"],
+body.dark-mode .settings-option input[type="date"],
+body.dark-mode .settings-option input[type="number"] {
+    background-color: #3a3a3a;
+    color: #e0e0e0;
+    border: 1px solid #555;
+}
+
+body.dark-mode .confirm-button {
+    background-color: #007bff;
+}
+body.dark-mode .confirm-button:hover {
+    background-color: #0056b3;
+}
+
+body.dark-mode .delete-button {
+    background-color: #b8212e;
+}
+body.dark-mode .delete-button:hover {
+    background-color: #9f1c29;
+}
+
+body.dark-mode .small-text {
+    color: #aaa;
+}
+
+body.dark-mode hr {
+    background: #444;
+}
+
 
 body.dark-mode .year-input-dialog label {
     color: #e0e0e0;

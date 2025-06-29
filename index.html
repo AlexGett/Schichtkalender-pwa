@@ -25,7 +25,7 @@
         <div class="header-section">
             <h1 id="currentYearDisplay">2025</h1>
         </div>
-        <h2>Schichtkalender Schicht 2</h2>
+        <h2>Schichtkalender</h2>
         <div class="month-grid">
         </div>
     </div>
@@ -80,6 +80,10 @@
                 <span>Nachtschicht: 22:00 Uhr - 06:00 Uhr</span>
             </div>
             <div class="shift-info-item">
+                <div class="shift-color-box freischicht"></div>
+                <span>Freischicht (Frei)</span>
+            </div>
+            <div class="shift-info-item">
                 <div class="shift-color-box samstag"></div>
                 <span>Samstag</span>
             </div>
@@ -105,6 +109,29 @@
         <div class="dialog">
             <button class="close-button" id="closeSettingsDialog">&times;</button>
             <h3>Einstellungen</h3>
+
+            <div class="settings-section">
+                <h4>Eigenes Schichtsystem festlegen</h4>
+                <div class="settings-option">
+                    <label for="customShiftSequence">Schicht- & Freie-age-Sequenz (z.B. F,F,N,N,S,S,Frei,Frei):</label>
+                    <input type="text" id="customShiftSequence" placeholder="F,F,F,F,F,Frei,Frei,N,N,N,N,N,Frei,Frei,S,S,S,S,S,Frei,Frei">
+                </div>
+                <div class="settings-option">
+                    <label for="customShiftStartDate">Startdatum des Zyklus (TT.MM.JJJJ):</label>
+                    <input type="date" id="customShiftStartDate">
+                </div>
+                <div class="settings-option">
+                    <label for="customShiftStartType">Schichtart am Startdatum (z.B. Früh, Nacht, Spät, Frei):</label>
+                    <input type="text" id="customShiftStartType" placeholder="Früh">
+                </div>
+                <div class="button-group">
+                    <button id="saveCustomShiftSystem" class="confirm-button">Schichtsystem speichern</button>
+                    <button id="resetCustomShiftSystem" class="confirm-button">Schichtsystem zurücksetzen</button>
+                </div>
+                <p class="small-text">Verwende 'F' für Frühschicht, 'N' für Nachtschicht, 'S' für Spätschicht und 'Frei' für freie Tage. Trenne die Einträge mit Kommas.</p>
+            </div>
+            <hr>
+
             <div class="settings-option">
                 <label for="toggleAnimations">Animationen ausschalten:</label>
                 <input type="checkbox" id="toggleAnimations">

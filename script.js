@@ -7,7 +7,7 @@ const holidaysData = {
         { date: '2025-04-21', names: { de: 'Ostermontag', ru: 'Пасхальный понедельник', tr: 'Paskalya Pazartesi', sq: 'E Hëna e Pashkëve', ar: 'اثنين الفصح', hr: 'Uskrsni ponedjeljak', sk: 'Veľkonočný pondelok', en: 'Easter Monday' } },
         { date: '2025-05-01', names: { de: 'Tag der Arbeit', ru: 'День труда', tr: 'İşçi Bayramı', sq: 'Dita e Punës', ar: 'عيد العمال', hr: 'Praznik rada', sk: 'Sviatok práce', en: 'Labour Day' } },
         { date: '2025-05-29', names: { de: 'Christi Himmelfahrt', ru: 'Вознесение Господне', tr: 'İsa\'nın Göğe Yükselişi', sq: 'Dita e Ngritjes së Krishtit', ar: 'عيد الصعود', hr: 'Uzašašće', sk: 'Nanebovstúpenie Pána', en: 'Ascension Day' } },
-        { date: '2025-06-08', names: { de: 'Pfingstsonntag', ru: 'Пятидесятница', tr: 'Pentekost Pazarı', sq: 'E Diela e Rrëshajëve', ar: 'أحد العنصرة', hr: 'Duhovi', sk: 'Turíce', en: 'Pentecost Sunday' } },
+        { date: '2025-06-08', names: { de: 'Pfingstsonntag', ru: 'Пятидесятница', tr: 'Pentekost Pazarı', sq: 'E Diela e Rrëshajëve', ar: 'أحد العنصرë', hr: 'Duhovi', sk: 'Turíce', en: 'Pentecost Sunday' } },
         { date: '2025-06-09', names: { de: 'Pfingstmontag', ru: 'Понедельник Пятидесятницы', tr: 'Pentekost Pazartesi', sq: 'E Hëna e Pashkëve', ar: 'اثنين العنصرة', hr: 'Duhovski ponedjeljak', sk: 'Turíčny pondelok', en: 'Pentecost Monday' } },
         { date: '2025-06-19', names: { de: 'Fronleichnam', ru: 'Празdник Тела и Крови Христовых', tr: 'Katolik Yortusu', sq: 'Corpus Christi', ar: 'عيد القربان', hr: 'Tijelovo', sk: 'Božie Telo', en: 'Corpus Christi' } },
         { date: '2025-08-15', names: { de: 'Mariä Himmelfahrt', ru: 'Успение Пресвятой Богородицы', tr: 'Meryem\'in Göğe Kabulü', sq: 'Fjetja e Shën Mërisë', ar: 'عيد انتقال العذراء', hr: 'Velika Gospa', sk: 'Nanebovzatie Panny Márie', en: 'Assumption Day' } },
@@ -15,7 +15,7 @@ const holidaysData = {
         { date: '2025-11-01', names: { de: 'Allerheiligen', ru: 'День всех святых', tr: 'Azizler Günü', sq: 'Dita e të Gjithë Shenjtorëve', ar: 'عيد جميع القديسين', hr: 'Svi Sveti', sk: 'Sviatok Všetkých svätých', en: 'All Saints\' Day' } },
         { date: '2025-12-24', names: { de: 'Heiligabend', ru: 'Сочельник', tr: 'Noel Arifesi', sq: 'Nata e Krishtlindjes', ar: 'ليلة عيد الميلاد', hr: 'Badnjak', sk: 'Štedrý deň', en: 'Christmas Eve' } },
         { date: '2025-12-25', names: { de: '1. Weihnachtstag', ru: 'Рождество', tr: 'Noel', sq: 'Dita e Parë e Krishtlindjes', ar: 'عيد الميلاد الأول', hr: 'Božić', sk: 'Prvý sviatok vianočný', en: 'Christmas Day' } },
-        { date: '2025-12-26', names: { de: '2. Weihnachtstag', ru: 'Второй день Рождества', tr: 'Noel\'in İkiиci Günü', sq: 'Dita e Dytë e Krishtlindjes', ar: 'عيد الميلاد الثاني', hr: 'Sveti Stjepan', sk: 'Druhý sviatok vianočný', en: 'St. Stephen\'s Day' } },
+        { date: '2025-12-26', names: { de: '2. Weihnachtstag', ru: 'Второй день Рождества', tr: 'Noel\'in Икиии Günü', sq: 'Dita e Dytë e Krishtlindjes', ar: 'عيد الميلاد الثاني', hr: 'Sveti Stjepan', sk: 'Druhý sviatok vianočný', en: 'St. Stephen\'s Day' } },
         { date: '2025-12-31', names: { de: 'Silvester', ru: 'Новый год', tr: 'Yılbaşı Gecesi', sq: 'Nata e Vitit të Ri', ar: 'ليلة رأس السنة', hr: 'Stara godina', sk: 'Silvester', en: 'New Year\'s Eve' } }
     ],
     2026: [
@@ -34,7 +34,7 @@ const holidaysData = {
         { date: '2026-11-01', names: { de: 'Allerheiligen', en: 'All Saints\' Day', ru: 'День всех святых', tr: 'Azizler Günü', sq: 'Dita e të Gjithë Shenjtorëve', ar: 'عيد جميع القديسين', hr: 'Svi Sveti', sk: 'Sviatok Všetkých svätých' } },
         { date: '2026-12-24', names: { de: 'Heiligabend', en: 'Christmas Eve', ru: 'Сочельник', tr: 'Noel Arifesi', sq: 'Nata e Krishtlindjes', ar: 'ليلة عيد الميلاد', hr: 'Badnjak', sk: 'Štedrý deň' } },
         { date: '2026-12-25', names: { de: '1. Weihnachtstag', en: 'Christmas Day', ru: 'Рождество', tr: 'Noel', sq: 'Dita e Parë e Krishtlindjes', ar: 'عيد الميلاد الأول', hr: 'Božić', sk: 'Prvý sviatok vianočný' } },
-        { date: '2026-12-26', names: { de: '2. Weihnachtstag', en: 'St. Stephen\'s Day', ru: 'Второй день Рождества', tr: 'Noel\'in İkiиci Günü', sq: 'Dita e Dytë e Krishtlindjes', ar: 'عيد الميلاد الثاني', hr: 'Sveti Stjepan', sk: 'Druhý sviatok vianočný' } },
+        { date: '2026-12-26', names: { de: '2. Weihnachtstag', en: 'St. Stephen\'s Day', ru: 'Второй день Рождества', tr: 'Noel\'in Икиии Günü', sq: 'Dita e Dytë e Krishtlindjes', ar: 'عيد الميلاد الثاني', hr: 'Sveti Stjepan', sk: 'Druhý sviatok vianočný' } },
         { date: '2026-12-31', names: { de: 'Silvester', en: 'New Year\'s Eve', ru: 'Новый год', tr: 'Yılbaşı Gecesi', sq: 'Nata e Vitit të Ri', ar: 'ليلة رأس السنة', hr: 'Stara godina', sk: 'Silvester' } }
     ],
     2027: [
@@ -49,11 +49,11 @@ const holidaysData = {
         { date: '2027-05-17', names: { de: 'Pfingstmontag', en: 'Pentecost Monday', ru: 'Понедельник Пятидесятницы', tr: 'Pentekost Pazartesi', sq: 'E Hëna e Pashkëve', ar: 'اثنين العنصرة', hr: 'Duhovski ponedjeljak', sk: 'Turíčny pondelok' } },
         { date: '2027-05-27', names: { de: 'Fronleichnam', en: 'Corpus Christi', ru: 'Празdник Тела и Крови Христовых', tr: 'Katolik Yortusu', sq: 'Corpus Christi', ar: 'عيد القربان', hr: 'Tijelovo', sk: 'Božie Telo' } },
         { date: '2027-08-15', names: { de: 'Mariä Himmelfahrt', en: 'Assumption Day', ru: 'Успение Пресвятой Богородицы', tr: 'Meryem\'in Göğe Kabulü', sq: 'Fjetja e Shën Mërisë', ar: 'عيد انتقال العذراء', hr: 'Velika Gospa', sk: 'Nanebovzatie Panny Márie' } },
-        { date: '2027-10-03', names: { de: 'Tag der Deutschen Einheit', en: 'German Unity Day', ru: 'День герmanческого единства', tr: 'Alman Birliği Günü', sq: 'Dita e Bashkimit Gjerman', ar: 'يوم الوحدة الألمانية', hr: 'Dan njemačkog jedinstwa', sk: 'Deň nemeckej jednoty' } },
+        { date: '2027-10-03', names: { de: 'Tag der Deutschen Einheit', en: 'German Unity Day', ru: 'День герmanского единства', tr: 'Alman Birliği Günü', sq: 'Dita e Bashkimit Germa', ar: 'يوم الوحدة الألمانية', hr: 'Dan njemačkog jedinstwa', sk: 'Deň nemeckej jednoty' } },
         { date: '2027-11-01', names: { de: 'Allerheiligen', en: 'All Saints\' Day', ru: 'День всех святых', tr: 'Azizler Günü', sq: 'Dita e të Gjithë Shenjtorëve', ar: 'عيد جميع القديسين', hr: 'Svi Sveti', sk: 'Sviatok Všetkých svätých' } },
         { date: '2027-12-24', names: { de: 'Heiligabend', en: 'Christmas Eve', ru: 'Сочельник', tr: 'Noel Arifesi', sq: 'Nata e Krishtlindjes', ar: 'ليلة عيد الميلاد', hr: 'Badnjak', sk: 'Štedrý deň' } },
         { date: '2027-12-25', names: { de: '1. Weihnachtstag', en: 'Christmas Day', ru: 'Рождество', tr: 'Noel', sq: 'Dita e Parë e Krishtlindjes', ar: 'عيد الميلاد الأول', hr: 'Božić', sk: 'Prvý sviatok vianočný' } },
-        { date: '2027-12-26', names: { de: '2. Weihnachtstag', en: 'St. Stephen\'s Day', ru: 'Второй день Рождества', tr: 'Noel\'in الإكييكي Günü', sq: 'Dita e Dytë e Krishtlindjes', ar: 'عيد الميلاد الثاني', hr: 'Sveti Stjepan', sk: 'Druhý sviatok vianočný' } },
+        { date: '2027-12-26', names: { de: '2. Weihnachtstag', en: 'St. Stephen\'s Day', ru: 'Второй день Рождества', tr: 'Noel\'in Икиии Günü', sq: 'Dita e Dytë e Krishtlindjes', ar: 'عيد الميلاد الثاني', hr: 'Sveti Stjepan', sk: 'Druhý sviatok vianočný' } },
         { date: '2027-12-31', names: { de: 'Silvester', en: 'New Year\'s Eve', ru: 'Новый год', tr: 'Yılbaşı Gecesi', sq: 'Nata e Vitit të Ri', ar: 'ليلة رأس السنة', hr: 'Stara godina', sk: 'Silvester' } }
     ],
     2028: [
@@ -124,15 +124,63 @@ const GITHUB_USERNAME = 'alexgett'; // Passe dies an deinen GitHub-Benutzernamen
 const GITHUB_REPO_NAME = 'Schichtkalender-pwa'; // Passe dies an den Namen deines GitHub-Repositorys an
 const INFO_FOLDER_PATH = 'info_data'; // Der neue Ordner für deine PDFs und Bilder
 
+// --- BENUTZERDEFINIERTES SCHICHTSYSTEM ---
+// Schichttypen und ihre CSS-Klassen
+const SHIFT_TYPES = {
+    'F': 'fruehschicht',
+    'N': 'nachtschicht',
+    'S': 'spaetschicht',
+    'Frei': 'freischicht',
+    'Früh': 'fruehschicht', // Alternative Bezeichnungen für bessere UX
+    'Nacht': 'nachtschicht',
+    'Spät': 'spaetschicht'
+};
+
+// Laden des benutzerdefinierten Schichtsystems aus dem localStorage
+let customShiftSystem = JSON.parse(localStorage.getItem('customShiftSystem')) || {
+    sequence: [],
+    referenceStartDate: null,
+    referenceShiftType: null
+};
+
+// Standard-Schichtsystem, falls kein benutzerdefiniertes gesetzt ist
+// (Dies ist ein Beispiel für ein 3-Schicht-System, falls der Benutzer noch nichts eingegeben hat)
+const defaultShiftSystem = {
+    sequence: ['fruehschicht', 'fruehschicht', 'fruehschicht', 'fruehschicht', 'fruehschicht', 'freischicht', 'freischicht', 'nachtschicht', 'nachtschicht', 'nachtschicht', 'nachtschicht', 'nachtschicht', 'freischicht', 'freischicht', 'spaetschicht', 'spaetschicht', 'spaetschicht', 'spaetschicht', 'spaetschicht', 'freischicht', 'freischicht'],
+    // WICHTIG: Passe dieses Datum an einen bekannten Startpunkt an, z.B. einen Montag, an dem die erste Schicht des Zyklus war
+    referenceStartDate: '2025-01-06', // Beispiel: Ein Montag
+    referenceShiftType: 'nachtschicht' // Beispiel: Die Schicht, die am 2025-01-06 beginnt
+};
+
+// Überprüfen, ob ein benutzerdefiniertes System gültig ist, sonst Standard verwenden
+function getActiveShiftSystem() {
+    if (customShiftSystem.sequence.length > 0 && customShiftSystem.referenceStartDate && customShiftSystem.referenceShiftType) {
+        // Validierung der benutzerdefinierten Schichtsequenz
+        const validSequence = customShiftSystem.sequence.every(shift => Object.values(SHIFT_TYPES).includes(shift));
+        const validReferenceType = Object.values(SHIFT_TYPES).includes(customShiftSystem.referenceShiftType);
+
+        if (validSequence && validReferenceType) {
+            return {
+                sequence: customShiftSystem.sequence,
+                referenceStartDate: new Date(customShiftSystem.referenceStartDate + 'T12:00:00Z'), // Wichtig: UTC für konsistente Datumsberechnung
+                referenceShiftType: customShiftSystem.referenceShiftType
+            };
+        }
+    }
+    // Fallback zum Standard, wenn kein gültiges benutzerdefiniertes System vorhanden ist
+    return {
+        sequence: defaultShiftSystem.sequence,
+        referenceStartDate: new Date(defaultShiftSystem.referenceStartDate + 'T12:00:00Z'),
+        referenceShiftType: defaultShiftSystem.referenceShiftType
+    };
+}
+// --- ENDE BENUTZERDEFINIERTES SCHICHTSYSTEM ---
+
+
 function getWeekNumber(d) {
-    // Copy date so don't modify original
     d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
-    // Set to nearest Thursday: current date + 4 - current day number
-    // Make Sunday's day number 7
     d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
-    // Get first day of year
     var yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
-    // Calculate full weeks to nearest Thursday
     var weekNo = Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
     return weekNo;
 }
@@ -144,6 +192,21 @@ function generateCalendar(year) {
     const monthGrid = document.querySelector('.month-grid');
     monthGrid.innerHTML = '';
     document.getElementById('currentYearDisplay').textContent = year;
+
+    // --- ANPASSUNG FÜR INDIVIDUELLES SCHICHTSYSTEM ---
+    const activeSystem = getActiveShiftSystem();
+    const shiftSequence = activeSystem.sequence;
+    const referenceShiftStartDate = activeSystem.referenceStartDate;
+    const referenceShiftType = activeSystem.referenceShiftType;
+
+    // Finde den Index des Referenz-Schichttyps in der Sequenz
+    const referenceShiftStartIndex = shiftSequence.indexOf(referenceShiftType);
+    if (referenceShiftStartIndex === -1) {
+        console.error(`Referenz-Schichttyp "${referenceShiftType}" nicht in der benutzerdefinierten Sequenz gefunden.`);
+        // Fallback zur Standardsequenz, wenn der Referenztyp nicht in der benutzerdefinierten Sequenz ist
+        // Dies sollte durch bessere Validierung bei der Eingabe verhindert werden.
+    }
+    // --- ENDE ANPASSUNG FÜR INDIVIDUELLES SCHICHTSYSTEM ---
 
     const orderedDayNames = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'];
     const orderedDayIndices = [1, 2, 3, 4, 5, 6, 0];
@@ -168,11 +231,6 @@ function generateCalendar(year) {
     document.documentElement.style.setProperty('--month-grid-gap', `30px`);
 
     const yearHolidays = holidaysData[year] || [];
-
-    // Referenzdatum für den Schichtzyklus: Montag, 06. Januar 2025.
-    // Die Schicht am 06.01.2025 soll NACHTSCHICHT (Index 1) sein.
-    const referenceShiftStartDate = new Date('2025-01-06T00:00:00Z');
-    const referenceShiftTypeForStartDate = 1; // 0=Früh, 1=Nacht, 2=Spät
 
     for (let month = 0; month < 12; month++) {
         const monthCard = document.createElement('div');
@@ -208,34 +266,16 @@ function generateCalendar(year) {
             } else if (dayOfWeek === 0) { // Sonntag
                 classes.push('sonntag');
             } else { // Wochentage Mo-Fr
-                // Finden des Montags der aktuellen Woche (oder currentDate selbst, wenn es ein Montag ist)
-                let mondayOfCurrentWeek = new Date(currentDate);
-                const daysToMonday = (dayOfWeek === 0) ? 6 : dayOfWeek - 1; // 0=So -> 6 Tage zurück, 1=Mo -> 0 Tage zurück, etc.
-                mondayOfCurrentWeek.setDate(currentDate.getDate() - daysToMonday);
-                mondayOfCurrentWeek.setHours(0, 0, 0, 0); // Setze Uhrzeit auf 00:00:00
-
-                // Berechnung der Differenz in Tagen vom Referenz-Schichtstart zum Montag der aktuellen Woche
+                // --- ANPASSUNG FÜR INDIVIDUELLES SCHICHTSYSTEM ---
                 const oneDay = 1000 * 60 * 60 * 24;
-                const diffTime = mondayOfCurrentWeek.getTime() - referenceShiftStartDate.getTime();
-                let diffWeeks = Math.round(diffTime / (7 * oneDay)); // Runde, um Rundungsfehler bei Zeitzonen zu vermeiden
+                const diffDays = Math.round((currentDate.getTime() - referenceShiftStartDate.getTime()) / oneDay);
 
-                // Berechnung des Schicht-Typs mit korrektem Modulo für negative Zahlen
-                // Die Formel (n % m + m) % m stellt sicher, dass das Ergebnis immer positiv ist.
-                // referenceShiftTypeForStartDate ist der Startschicht-Typ für die referenceShiftStartDate.
-                // diffWeeks ist die Anzahl der Wochen, die vom referenceShiftStartDate abweichen.
-                // Die Schicht ändert sich jede Woche.
-                let shiftType = (referenceShiftTypeForStartDate + diffWeeks) % 3;
-                if (shiftType < 0) {
-                    shiftType += 3; // Sicherstellen, dass das Ergebnis positiv ist
+                let shiftIndex = (referenceShiftStartIndex + diffDays) % shiftSequence.length;
+                if (shiftIndex < 0) {
+                    shiftIndex += shiftSequence.length;
                 }
-                
-                if (shiftType === 0) {
-                    classes.push('fruehschicht');
-                } else if (shiftType === 1) {
-                    classes.push('nachtschicht');
-                } else { // shiftType === 2
-                    classes.push('spaetschicht');
-                }
+                classes.push(shiftSequence[shiftIndex]);
+                // --- ENDE ANPASSUNG FÜR INDIVIDUELLES SCHICHTSYSTEM ---
             }
 
             const weekNumber = getWeekNumber(currentDate);
@@ -384,7 +424,132 @@ function daysInMonth(year, month) {
     return new Date(year, month + 1, 0).getDate();
 }
 
-generateCalendar(currentCalendarYear);
+// Initialisierung bei DOMContentLoaded
+document.addEventListener('DOMContentLoaded', () => {
+    // Lade die gespeicherten Einstellungen für das benutzerdefinierte Schichtsystem
+    const storedShiftSystem = localStorage.getItem('customShiftSystem');
+    if (storedShiftSystem) {
+        try {
+            const parsedSystem = JSON.parse(storedShiftSystem);
+            document.getElementById('customShiftSequence').value = parsedSystem.sequence_input || '';
+            document.getElementById('customShiftStartDate').value = parsedSystem.referenceStartDate_input || '';
+            document.getElementById('customShiftStartType').value = parsedSystem.referenceShiftType_input || '';
+        } catch (e) {
+            console.error('Fehler beim Parsen des gespeicherten Schichtsystems:', e);
+            // Optional: Daten zurücksetzen, wenn sie ungültig sind
+            localStorage.removeItem('customShiftSystem');
+        }
+    }
+
+    // Event Listener für Speichern des benutzerdefinierten Schichtsystems
+    const saveButton = document.getElementById('saveCustomShiftSystem');
+    if (saveButton) { // Sicherstellen, dass das Element existiert
+        saveButton.addEventListener('click', saveCustomShiftSystem);
+    }
+    
+    // Geänderter Event Listener für das "Einstellen" des Standard-Schichtsystems
+    const setStandardButton = document.getElementById('resetCustomShiftSystem'); // Die ID des Buttons bleibt gleich
+    if (setStandardButton) {
+        setStandardButton.addEventListener('click', resetCustomShiftSystem); // Die Funktion heißt weiterhin so
+    }
+
+    generateCalendar(currentCalendarYear); // Initialer Kalenderaufbau
+});
+
+// --- FUNKTIONEN FÜR BENUTZERDEFINIERTES SCHICHTSYSTEM ---
+function saveCustomShiftSystem() {
+    const sequenceInput = document.getElementById('customShiftSequence').value.trim();
+    const startDateInput = document.getElementById('customShiftStartDate').value; //YYYY-MM-DD
+    const startTypeInput = document.getElementById('customShiftStartType').value.trim();
+
+    // Eingaben validieren
+    if (!sequenceInput || !startDateInput || !startTypeInput) {
+        alert('Bitte fülle alle Felder für das Schichtsystem aus.');
+        return;
+    }
+
+    const sequenceArrayRaw = sequenceInput.split(',').map(s => s.trim().toLowerCase());
+    const sequenceArray = sequenceArrayRaw.map(s => {
+        if (s === 'f' || s === 'früh') return 'fruehschicht';
+        if (s === 'n' || s === 'nacht') return 'nachtschicht';
+        if (s === 's' || s === 'spät') return 'spaetschicht';
+        if (s === 'frei') return 'freischicht';
+        return null; // Ungültiger Typ
+    }).filter(s => s !== null); // Entferne ungültige Einträge
+
+    if (sequenceArray.length === 0 || sequenceArray.length !== sequenceArrayRaw.length) {
+        alert('Ungültige Schichtsequenz. Bitte verwende F, N, S, Frei oder die vollen Bezeichnungen und trenne mit Kommas.');
+        return;
+    }
+
+    let parsedStartType = null;
+    const lowerStartType = startTypeInput.toLowerCase();
+    if (lowerStartType === 'f' || lowerStartType === 'früh') parsedStartType = 'fruehschicht';
+    else if (lowerStartType === 'n' || lowerStartType === 'nacht') parsedStartType = 'nachtschicht';
+    else if (lowerStartType === 's' || lowerStartType === 'spät') parsedStartType = 'spaetschicht';
+    else if (lowerStartType === 'frei') parsedStartType = 'freischicht';
+
+    if (!parsedStartType) {
+        alert('Ungültiger Startschicht-Typ. Bitte verwende Früh, Nacht, Spät oder Frei.');
+        return;
+    }
+
+    if (!sequenceArray.includes(parsedStartType)) {
+        alert(`Der Startschicht-Typ "${startTypeInput}" ist nicht in deiner definierten Sequenz enthalten.`);
+        return;
+    }
+
+    // Speichere die Eingabewerte, um sie beim Laden wieder anzuzeigen
+    customShiftSystem = {
+        sequence: sequenceArray,
+        referenceStartDate: startDateInput,
+        referenceShiftType: parsedStartType,
+        sequence_input: sequenceInput, // Speichere die Roh-Eingabe
+        referenceStartDate_input: startDateInput, // Speichere die Roh-Eingabe
+        referenceShiftType_input: startTypeInput // Speichere die Roh-Eingabe
+    };
+
+    localStorage.setItem('customShiftSystem', JSON.stringify(customShiftSystem));
+    alert('Dein Schichtsystem wurde gespeichert und der Kalender wird aktualisiert.');
+    generateCalendar(currentCalendarYear); // Kalender neu generieren
+    document.getElementById('settingsDialogOverlay').classList.remove('active'); // Dialog schließen
+}
+
+// Angepasste Funktion zum Einstellen des vordefinierten Standard-Schichtsystems
+function resetCustomShiftSystem() { // Name der Funktion bleibt gleich, aber die Funktionalität ändert sich
+    // Definiere den gewünschten Standardrhythmus
+    const predefinedStandardSequence = ['fruehschicht', 'fruehschicht', 'fruehschicht', 'fruehschicht', 'fruehschicht', 'freischicht', 'freischicht', 'nachtschicht', 'nachtschicht', 'nachtschicht', 'nachtschicht', 'nachtschicht', 'freischicht', 'freischicht', 'spaetschicht', 'spaetschicht', 'spaetschicht', 'spaetschicht', 'spaetschicht', 'freischicht', 'freischicht'];
+    const predefinedStartDate = '2025-01-06'; // Ein Montag, passend für den Start der Nachtschicht
+    const predefinedStartType = 'nachtschicht'; // Die Schicht, die am predefinedStartDate beginnt
+
+    // Erstelle das neue 'customShiftSystem' Objekt mit den vordefinierten Werten
+    const newCustomShiftSystem = {
+        sequence: predefinedStandardSequence,
+        referenceStartDate: predefinedStartDate,
+        referenceShiftType: predefinedStartType,
+        // Speichere auch die "Input"-Versionen für die Anzeige im Dialog
+        sequence_input: 'F,F,F,F,F,Frei,Frei,N,N,N,N,N,Frei,Frei,S,S,S,S,S,Frei,Frei',
+        referenceStartDate_input: predefinedStartDate,
+        referenceShiftType_input: 'Nacht' // Die Anzeige-Version des Starttyps
+    };
+
+    // Speichere das vordefinierte System im localStorage
+    localStorage.setItem('customShiftSystem', JSON.stringify(newCustomShiftSystem));
+    
+    // Aktualisiere die In-Memory-Variable 'customShiftSystem'
+    customShiftSystem = newCustomShiftSystem; // Wichtig, damit generateCalendar die neue Einstellung verwendet
+
+    // Setze die Eingabefelder im Dialog zurück, um die neuen Werte anzuzeigen
+    document.getElementById('customShiftSequence').value = newCustomShiftSystem.sequence_input;
+    document.getElementById('customShiftStartDate').value = newCustomShiftSystem.referenceStartDate_input;
+    document.getElementById('customShiftStartType').value = newCustomShiftSystem.referenceShiftType_input;
+
+    alert('Der vordefinierte Standard-Schichtrhythmus wurde eingestellt. Der Kalender wird aktualisiert.');
+    generateCalendar(currentCalendarYear); // Kalender mit dem neuen System neu generieren
+    document.getElementById('settingsDialogOverlay').classList.remove('active'); // Dialog schließen
+}
+// --- ENDE FUNKTIONEN FÜR BENUTZERDEFINIERTES SCHICHTSYSTEM ---
+
 
 const todayButton = document.getElementById('todayButton');
 if (todayButton) {
@@ -532,7 +697,7 @@ const closeYearInputDialogBtn = document.getElementById('closeYearInputDialog');
 const yearInput = document.getElementById('yearInput');
 const setYearButton = document.getElementById('setYearButton');
 const decreaseYearButton = document.getElementById('decreaseYear');
-const increaseYearButton = document.getElementById('increaseYear');
+let increaseYearButton = document.getElementById('increaseYear');
 
 currentYearDisplay.addEventListener('click', () => {
     yearInput.value = currentCalendarYear;
