@@ -87,7 +87,7 @@ h2 {
 .header-icon {
     position: absolute;
     margin-top: 20px;
-    font-size: 8em; /* Wichtig für die Größe des Emojis */
+    font-size: 2.3em; /* Wichtig für die Größe des Emojis */
     color: inherit; /* Emojis ignorieren diese Eigenschaft oft, aber gut zu haben */
     cursor: pointer;
     z-index: 10;
