@@ -99,17 +99,17 @@ h2 {
 }
 
 .phone-icon-position {
-    left: 5px;
+    left: 10px;
 }
 
 .info-icon-position {
-    top: 105px;
-    left: 5px;
+    top: 175px;
+    left: 10px;
 }
 
 .today-icon-position {
-    top: 175px;
-    left: 5px;
+    top: 105px;
+    left: 10px;
 }
 
 /* NEUE CSS-Regeln für die Beat-Animation des Emojis */
