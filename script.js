@@ -519,7 +519,7 @@ function saveCustomShiftSystem() {
 function resetCustomShiftSystem() { // Name der Funktion bleibt gleich, aber die Funktionalität ändert sich
     // Definiere den gewünschten Standardrhythmus
     const predefinedStandardSequence = ['fruehschicht', 'fruehschicht', 'fruehschicht', 'fruehschicht', 'fruehschicht', 'freischicht', 'freischicht', 'nachtschicht', 'nachtschicht', 'nachtschicht', 'nachtschicht', 'nachtschicht', 'freischicht', 'freischicht', 'spaetschicht', 'spaetschicht', 'spaetschicht', 'spaetschicht', 'spaetschicht', 'freischicht', 'freischicht'];
-    const predefinedStartDate = '2025-01-06'; // Ein Montag, passend für den Start der Nachtschicht
+    const predefinedStartDate = '2030-01-07'; // Ein Montag, passend für den Start der Nachtschicht
     const predefinedStartType = 'nachtschicht'; // Die Schicht, die am predefinedStartDate beginnt
 
     // Erstelle das neue 'customShiftSystem' Objekt mit den vordefinierten Werten
