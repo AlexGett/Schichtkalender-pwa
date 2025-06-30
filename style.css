@@ -733,6 +733,33 @@ hr {
     margin: 30px 0;
 }
 
+/* Styling für den neuen Action-Button im Settings-Dialog */
+.action-button {
+    display: block; /* Volle Breite */
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 8px; /* Etwas größere Rundung */
+    font-size: 1.2em; /* Größere Schrift */
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #007bff; /* Primärfarbe */
+    color: white;
+    text-align: center;
+    margin-bottom: 20px; /* Abstand nach unten zum Inhalt */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.action-button:hover {
+    background-color: #0056b3; /* Dunklerer Farbton beim Hover */
+    transform: translateY(-1px); /* Leichter Hoch-Effekt */
+}
+
+.action-button:active {
+    transform: translateY(0); /* Zurück zum Ursprung beim Klicken */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
 
 .year-input-dialog label {
     display: block;
@@ -1017,6 +1044,16 @@ body.dark-mode .small-text {
 
 body.dark-mode hr {
     background: #444;
+}
+
+/* Dark Mode für Action-Button */
+body.dark-mode .action-button {
+    background-color: #4a4a4a; /* Dunklerer Hintergrund im Dark Mode */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+body.dark-mode .action-button:hover {
+    background-color: #666666;
 }
 
 

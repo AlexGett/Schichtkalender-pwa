@@ -7,7 +7,7 @@ const holidaysData = {
         { date: '2025-04-21', names: { de: 'Ostermontag', ru: 'Пасхальный понедельник', tr: 'Paskalya Pazartesi', sq: 'E Hëna e Pashkëve', ar: 'اثنين الفصح', hr: 'Uskrsni ponedjeljak', sk: 'Veľkonočný pondelok', en: 'Easter Monday' } },
         { date: '2025-05-01', names: { de: 'Tag der Arbeit', ru: 'День труда', tr: 'İşçi Bayramı', sq: 'Dita e Punës', ar: 'عيد العمال', hr: 'Praznik rada', sk: 'Sviatok práce', en: 'Labour Day' } },
         { date: '2025-05-29', names: { de: 'Christi Himmelfahrt', ru: 'Вознесение Господне', tr: 'İsa\'nın Göğe Yükselişi', sq: 'Dita e Ngritjes së Krishtit', ar: 'عيد الصعود', hr: 'Uzašašće', sk: 'Nanebovstúpenie Pána', en: 'Ascension Day' } },
-        { date: '2025-06-08', names: { de: 'Pfingstsonntag', ru: 'Пятидесятница', tr: 'Pentekost Pazarı', sq: 'E Diela e Rrëshajëve', ar: 'أحد العنصرë', hr: 'Duhovi', sk: 'Turíce', en: 'Pentecost Sunday' } },
+        { date: '2025-06-08', names: { de: 'Pfingstsonntag', ru: 'Пятидесятница', tr: 'Pentekost Pazarı', sq: 'E Diela e Rrëshajëve', ar: 'أحد العنصë', hr: 'Duhovi', sk: 'Turíce', en: 'Pentecost Sunday' } },
         { date: '2025-06-09', names: { de: 'Pfingstmontag', ru: 'Понедельник Пятидесятницы', tr: 'Pentekost Pazartesi', sq: 'E Hëna e Pashkëve', ar: 'اثنين العنصرة', hr: 'Duhovski ponedjeljak', sk: 'Turíčny pondelok', en: 'Pentecost Monday' } },
         { date: '2025-06-19', names: { de: 'Fronleichnam', ru: 'Празdник Тела и Крови Христовых', tr: 'Katolik Yortusu', sq: 'Corpus Christi', ar: 'عيد القربان', hr: 'Tijelovo', sk: 'Božie Telo', en: 'Corpus Christi' } },
         { date: '2025-08-15', names: { de: 'Mariä Himmelfahrt', ru: 'Успение Пресвятой Богородицы', tr: 'Meryem\'in Göğe Kabulü', sq: 'Fjetja e Shën Mërisë', ar: 'عيد انتقال العذراء', hr: 'Velika Gospa', sk: 'Nanebovzatie Panny Márie', en: 'Assumption Day' } },
@@ -53,7 +53,7 @@ const holidaysData = {
         { date: '2027-11-01', names: { de: 'Allerheiligen', en: 'All Saints\' Day', ru: 'День всех святых', tr: 'Azizler Günü', sq: 'Dita e të Gjithë Shenjtorëve', ar: 'عيد جميع القديسين', hr: 'Svi Sveti', sk: 'Sviatok Všetkých svätých' } },
         { date: '2027-12-24', names: { de: 'Heiligabend', en: 'Christmas Eve', ru: 'Сочельник', tr: 'Noel Arifesi', sq: 'Nata e Krishtlindjes', ar: 'ليلة عيد الميلاد', hr: 'Badnjak', sk: 'Štedrý deň' } },
         { date: '2027-12-25', names: { de: '1. Weihnachtstag', en: 'Christmas Day', ru: 'Рождество', tr: 'Noel', sq: 'Dita e Parë e Krishtlindjes', ar: 'عيد الميلاد الأول', hr: 'Božić', sk: 'Prvý sviatok vianočný' } },
-        { date: '2027-12-26', names: { de: '2. Weihnachtstag', en: 'St. Stephen\'s Day', ru: 'Второй день Рождества', tr: 'Noel\'in Икиии Günü', sq: 'Dita e Dytë e Krishtlindjes', ar: 'عيد الميلاد الثاني', hr: 'Sveti Stjepan', sk: 'Druhý sviatok vianočný' } },
+        { date: '2027-12-26', names: { de: '2. Weihnachtstag', en: 'St. Stephen\'s Day', ru: 'Второй день Рождества', tr: 'Noel\'in Икиии Günü', sq: 'Dita e Dytë e Krishtlindjes', ar: 'عيد الميلاد الثاني', hr: 'Sveti Stjepan', sk: 'Druhý sviatok vianočný', en: 'St. Stephen\'s Day' } },
         { date: '2027-12-31', names: { de: 'Silvester', en: 'New Year\'s Eve', ru: 'Новый год', tr: 'Yılbaşı Gecesi', sq: 'Nata e Vitit të Ri', ar: 'ليلة رأس السنة', hr: 'Stara godina', sk: 'Silvester' } }
     ],
     2028: [
@@ -123,6 +123,9 @@ let notesData = JSON.parse(localStorage.getItem('calendarNotes')) || {};
 const GITHUB_USERNAME = 'alexgett'; // Passe dies an deinen GitHub-Benutzernamen an
 const GITHUB_REPO_NAME = 'Schichtkalender-pwa'; // Passe dies an den Namen deines GitHub-Repositorys an
 const INFO_FOLDER_PATH = 'info_data'; // Der neue Ordner für deine PDFs und Bilder
+
+// Symbolisches Passwort für das Schichtsystem
+const SHIFT_SYSTEM_PASSWORD = "Hakunamatata";
 
 // --- BENUTZERDEFINIERTES SCHICHTSYSTEM ---
 // Schichttypen und ihre CSS-Klassen
@@ -451,6 +454,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const setStandardButton = document.getElementById('resetCustomShiftSystem'); // Die ID des Buttons bleibt gleich
     if (setStandardButton) {
         setStandardButton.addEventListener('click', resetCustomShiftSystem); // Die Funktion heißt weiterhin so
+    }
+
+    // NEUE FUNKTIONALITÄT FÜR DAS ÖFFNEN/SCHLIESSEN DES SCHICHTSYSTEM-BEREICHS MIT PASSWORT
+    const openCustomShiftSystemButton = document.getElementById('openCustomShiftSystemSettings');
+    const customShiftSystemSection = document.getElementById('customShiftSystemSection');
+
+    if (openCustomShiftSystemButton && customShiftSystemSection) {
+        openCustomShiftSystemButton.addEventListener('click', () => {
+            if (customShiftSystemSection.style.display === 'none') {
+                const passwordAttempt = prompt("Bitte gib das Passwort ein, um das eigene Schichtsystem zu bearbeiten:");
+                if (passwordAttempt === SHIFT_SYSTEM_PASSWORD) {
+                    customShiftSystemSection.style.display = 'block';
+                    openCustomShiftSystemButton.textContent = 'Eigenes Schichtsystem schließen';
+                } else {
+                    alert("Falsches Passwort.");
+                }
+            } else {
+                customShiftSystemSection.style.display = 'none';
+                openCustomShiftSystemButton.textContent = 'Eigenes Schichtsystem festlegen';
+            }
+        });
     }
 
     generateCalendar(currentCalendarYear); // Initialer Kalenderaufbau
