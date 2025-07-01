@@ -116,8 +116,29 @@ const holidaysData = {
     ]
 };
 
+// Funktion zur Berechnung des Buß- und Bettags
+function getBußUndBettag(year) {
+    // Der Buß- und Bettag ist der Mittwoch vor dem 23. November
+    let date = new Date(year, 10, 22); // 22. November
+    while (date.getDay() !== 3) { // 3 steht für Mittwoch
+        date.setDate(date.getDate() - 1);
+    }
+    return `${year}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
+}
+
 let currentCalendarYear = parseInt(localStorage.getItem('currentCalendarYear')) || 2025;
 let notesData = JSON.parse(localStorage.getItem('calendarNotes')) || {};
+
+// Füge die Buß- und Bettag Notizen hinzu
+for (let year = 2025; year <= 2030; year++) {
+    const bussUndBettagDate = getBußUndBettag(year);
+    // Füge die Notiz nur hinzu, wenn sie nicht bereits existiert oder geändert wurde
+    if (!notesData[bussUndBettagDate] || notesData[bussUndBettagDate] === '') {
+        notesData[bussUndBettagDate] = 'Buß- und Bettag';
+    }
+}
+localStorage.setItem('calendarNotes', JSON.stringify(notesData)); // Speichere die aktualisierten Notizen
+
 
 // NEUE KONSTANTEN FÜR GITHUB-DATEN
 const GITHUB_USERNAME = 'alexgett'; // Passe dies an deinen GitHub-Benutzernamen an
@@ -379,6 +400,7 @@ function generateCalendar(year) {
                     dateCell.dataset.fullDate = cellData.fullDate;
                     dateCell.innerHTML = `<div class="day-number">${cellData.day}</div><div class="note-indicator"></div>`;
 
+                    // Notiz direkt beim Generieren des Kalenders setzen
                     const noteText = notesData[cellData.fullDate];
                     if (noteText) {
                         dateCell.querySelector('.note-indicator').textContent = noteText;
@@ -799,8 +821,20 @@ saveNoteButton.addEventListener('click', () => {
             notesData[fullDate] = note;
             currentDayCell.querySelector('.note-indicator').textContent = note;
         } else {
-            delete notesData[fullDate];
-            currentDayCell.querySelector('.note-indicator').textContent = '';
+            // Wenn die Notiz leer ist und es sich nicht um eine automatische Notiz handelt, lösche sie.
+            // Ansonsten setze den Text auf den Standard ("Buß- und Bettag").
+            if (notesData[fullDate] === 'Buß- und Bettag') {
+                // Notiz des Buß- und Bettags kann nicht gelöscht werden, nur übertost werden
+                // oder wenn sie leer ist, wieder auf den Standardwert zurückgesetzt werden.
+                if (note === '') {
+                    currentDayCell.querySelector('.note-indicator').textContent = 'Buß- und Bettag';
+                } else {
+                    currentDayCell.querySelector('.note-indicator').textContent = note;
+                }
+            } else {
+                delete notesData[fullDate];
+                currentDayCell.querySelector('.note-indicator').textContent = '';
+            }
         }
         localStorage.setItem('calendarNotes', JSON.stringify(notesData));
         noteDialogOverlay.classList.remove('active');
@@ -810,6 +844,11 @@ saveNoteButton.addEventListener('click', () => {
 deleteNoteButton.addEventListener('click', () => {
     if (currentDayCell) {
         const fullDate = currentDayCell.dataset.fullDate;
+        // Verhindere das Löschen der automatischen Buß- und Bettag Notiz
+        if (notesData[fullDate] === 'Buß- und Bettag') {
+            alert('Diese Notiz wird automatisch gesetzt und kann nicht direkt gelöscht werden. Du kannst sie aber überschreiben.');
+            return;
+        }
         delete notesData[fullDate];
         localStorage.setItem('calendarNotes', JSON.stringify(notesData));
         currentDayCell.querySelector('.note-indicator').textContent = '';
