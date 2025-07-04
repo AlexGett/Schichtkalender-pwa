@@ -8,7 +8,7 @@ const holidaysData = {
         { date: '2025-05-01', names: { de: 'Tag der Arbeit', ru: 'День труда', tr: 'İşçi Bayramı', sq: 'Dita e Punës', ar: 'عيد العمال', hr: 'Praznik rada', sk: 'Sviatok práce', en: 'Labour Day' } },
         { date: '2025-05-29', names: { de: 'Christi Himmelfahrt', ru: 'Вознесение Господне', tr: 'İsa\'nın Göğe Yükselişi', sq: 'Dita e Ngritjes së Krishtit', ar: 'عيد الصعود', hr: 'Uzašašće', sk: 'Nanebovstúpenie Pána', en: 'Ascension Day' } },
         { date: '2025-06-08', names: { de: 'Pfingstsonntag', ru: 'Пятидесятница', tr: 'Pentekost Pazarı', sq: 'E Diela e Rrëshajëve', ar: 'أحد العنصë', hr: 'Duhovi', sk: 'Turíce', en: 'Pentecost Sunday' } },
-        { date: '2025-06-09', names: { de: 'Pfingstmontag', ru: 'Понедельник Пятидесятницы', tr: 'Pentekost Pazartesi', sq: 'E Hëna e Pashkëve', ar: 'اثنين العنصرة', hr: 'Duhovski ponedjeljak', sk: 'Turíčny pondelok', en: 'Pentecost Monday' } },
+        { date: '2025-06-09', names: { de: 'Pfingstmontag', ru: 'Понедельник Пятидесятницы', tr: 'Paskalya Pazartesi', sq: 'E Hëna e Pashkëve', ar: 'اثنين العنصرة', hr: 'Duhovski ponedjeljak', sk: 'Turíčny pondelok', en: 'Pentecost Monday' } },
         { date: '2025-06-19', names: { de: 'Fronleichnam', ru: 'Празdник Тела и Крови Христовых', tr: 'Katolik Yortusu', sq: 'Corpus Christi', ar: 'عيد القربان', hr: 'Tijelovo', sk: 'Božie Telo', en: 'Corpus Christi' } },
         { date: '2025-08-15', names: { de: 'Mariä Himmelfahrt', ru: 'Успение Пресвятой Богородицы', tr: 'Meryem\'in Göğe Kabulü', sq: 'Fjetja e Shën Mërisë', ar: 'عيد انتقال العذراء', hr: 'Velika Gospa', sk: 'Nanebovzatie Panny Márie', en: 'Assumption Day' } },
         { date: '2025-10-03', names: { de: 'Tag der Deutschen Einheit', ru: 'День герmanского единства', tr: 'Alman Birliği Günü', sq: 'Dita e Bashkimit Gjerman', ar: 'يوم الوحدة الألمانية', hr: 'Dan njemačkog jedinstwa', sk: 'Deň nemeckej jednoty', en: 'German Unity Day' } },
@@ -34,7 +34,7 @@ const holidaysData = {
         { date: '2026-11-01', names: { de: 'Allerheiligen', en: 'All Saints\' Day', ru: 'День всех святых', tr: 'Azizler Günü', sq: 'Dita e të Gjithë Shenjtorëve', ar: 'عيد جميع القديسين', hr: 'Svi Sveti', sk: 'Sviatok Všetkých svätých' } },
         { date: '2026-12-24', names: { de: 'Heiligabend', en: 'Christmas Eve', ru: 'Сочельник', tr: 'Noel Arifesi', sq: 'Nata e Krishtlindjes', ar: 'ليلة عيد الميلاد', hr: 'Badnjak', sk: 'Štedrý deň' } },
         { date: '2026-12-25', names: { de: '1. Weihnachtstag', en: 'Christmas Day', ru: 'Рождество', tr: 'Noel', sq: 'Dita e Parë e Krishtlindjes', ar: 'عيد الميلاد الأول', hr: 'Božić', sk: 'Prvý sviatok vianočný' } },
-        { date: '2026-12-26', names: { de: '2. Weihnachtstag', en: 'St. Stephen\'s Day', ru: 'Второй день Рождества', tr: 'Noel\'in Икиии Günü', sq: 'Dita e Dytë e Krishtlindjes', ar: 'عيد الميلاد الثاني', hr: 'Sveti Stjepan', sk: 'Druhý sviatok vianočný' } },
+        { date: '2026-12-26', names: { de: '2. Weihnachtstag', en: 'St. Stephen\'s Day', ru: 'Второй день Рождества', tr: 'Noel\'in Икиии Günü', sq: 'Dita e Dytë e Krishtlindjes', ar: 'عيد الميلاد الثاني', hr: 'Sveti Stjepan', sk: 'Druhý sviatok vianočný', en: 'St. Stephen\'s Day' } },
         { date: '2026-12-31', names: { de: 'Silvester', en: 'New Year\'s Eve', ru: 'Новый год', tr: 'Yılbaşı Gecesi', sq: 'Nata e Vitit të Ri', ar: 'ليلة رأس السنة', hr: 'Stara godina', sk: 'Silvester' } }
     ],
     2027: [
@@ -213,9 +213,10 @@ function getWeekNumber(d) {
 function generateCalendar(year) {
     currentCalendarYear = year;
     localStorage.setItem('currentCalendarYear', year);
+    document.getElementById('currentYearDisplay').textContent = year; // Aktualisiere die Jahresanzeige
     const monthGrid = document.querySelector('.month-grid');
     monthGrid.innerHTML = '';
-    document.getElementById('currentYearDisplay').textContent = year;
+    
 
     // --- ANPASSUNG FÜR INDIVIDUELLES SCHICHTSYSTEM ---
     const activeSystem = getActiveShiftSystem();
@@ -505,6 +506,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Event Listener für Backup und Restore
+    const backupButton = document.getElementById('backupSettingsButton');
+    const restoreButton = document.getElementById('restoreSettingsButton');
+
+    if (backupButton) {
+        backupButton.addEventListener('click', backupSettings);
+    }
+    if (restoreButton) {
+        restoreButton.addEventListener('click', restoreSettings);
+    }
+
 
     generateCalendar(currentCalendarYear); // Initialer Kalenderaufbau
 });
@@ -927,4 +940,106 @@ async function loadInfoFiles() {
         ul.appendChild(li);
     });
     infoFilesList.appendChild(ul);
+}
+
+
+// --- BACKUP UND RESTORE FUNKTIONEN ---
+
+// Funktion zum Erstellen eines Backups der Einstellungen
+function backupSettings() {
+    // Sammle alle relevanten Daten aus dem localStorage
+    const settingsToBackup = {};
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        // Schließe keine sensiblen Daten oder große, irrelevante Caches aus,
+        // hier nehmen wir alles, was wir gesetzt haben.
+        if (key.startsWith('currentCalendarYear') || 
+            key.startsWith('calendarNotes') ||
+            key.startsWith('customShiftSystem') ||
+            key.startsWith('animationsDisabled') ||
+            key.startsWith('calendarBorderColor') ||
+            key.startsWith('darkModeEnabled') ||
+            key.startsWith('autoDarkModeEnabled')) {
+            settingsToBackup[key] = localStorage.getItem(key);
+        }
+    }
+
+    // Erstelle einen JSON-String
+    const backupData = JSON.stringify(settingsToBackup, null, 2);
+
+    // Erstelle ein Blob und einen Download-Link
+    const blob = new Blob([backupData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `schichtkalender_backup_${new Date().toISOString().slice(0, 10)}.json`; // Dateiname mit Datum
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url); // Gib den URL-Speicher frei
+    alert('Backup erfolgreich erstellt! Datei wurde heruntergeladen.');
+}
+
+// Funktion zum Laden eines Backups der Einstellungen
+function restoreSettings() {
+    if (!confirm('Möchtest du wirklich ein Backup laden? Dies überschreibt alle aktuellen Kalendereinstellungen und Notizen!')) {
+        return;
+    }
+
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = '.json'; // Akzeptiere nur JSON-Dateien
+
+    input.onchange = e => {
+        const file = e.target.files[0];
+        if (!file) {
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = function(event) {
+            try {
+                const loadedData = JSON.parse(event.target.result);
+
+                // Lösche nur die relevanten alten Daten, nicht das gesamte localStorage
+                ['currentCalendarYear', 'calendarNotes', 'customShiftSystem', 
+                 'animationsDisabled', 'calendarBorderColor', 'darkModeEnabled', 'autoDarkModeEnabled']
+                 .forEach(key => localStorage.removeItem(key));
+
+                // Lade die neuen Daten
+                for (const key in loadedData) {
+                    if (loadedData.hasOwnProperty(key)) {
+                        localStorage.setItem(key, loadedData[key]);
+                    }
+                }
+
+                // Aktualisiere globale Variablen und UI
+                currentCalendarYear = parseInt(localStorage.getItem('currentCalendarYear')) || 2025;
+                notesData = JSON.parse(localStorage.getItem('calendarNotes')) || {};
+                customShiftSystem = JSON.parse(localStorage.getItem('customShiftSystem')) || { sequence: [], referenceStartDate: null, referenceShiftType: null };
+                
+                // Aktualisiere die UI-Elemente im Settings-Dialog sofort
+                document.getElementById('toggleAnimations').checked = (localStorage.getItem('animationsDisabled') === 'true');
+                document.getElementById('borderColorPicker').value = localStorage.getItem('calendarBorderColor') || '#0161FD';
+                document.getElementById('toggleDarkMode').checked = (localStorage.getItem('darkModeEnabled') === 'true');
+                document.getElementById('toggleAutoDarkMode').checked = (localStorage.getItem('autoDarkModeEnabled') === 'true');
+
+                const parsedSystem = JSON.parse(localStorage.getItem('customShiftSystem'));
+                document.getElementById('customShiftSequence').value = parsedSystem.sequence_input || '';
+                document.getElementById('customShiftStartDate').value = parsedSystem.referenceStartDate_input || '';
+                document.getElementById('customShiftStartType').value = parsedSystem.referenceShiftType_input || '';
+
+                updateDarkModeState(); // Stelle sicher, dass der Dark Mode korrekt angewendet wird
+                
+                generateCalendar(currentCalendarYear); // Kalender neu rendern
+                alert('Backup erfolgreich geladen! Der Kalender wurde aktualisiert.');
+                document.getElementById('settingsDialogOverlay').classList.remove('active'); // Dialog schließen
+            } catch (error) {
+                console.error('Fehler beim Laden des Backups:', error);
+                alert('Fehler beim Laden des Backups. Bitte stelle sicher, dass es eine gültige JSON-Datei ist.');
+            }
+        };
+        reader.readAsText(file);
+    };
+    input.click(); // Öffne den Dateiauswahldialog
 }
