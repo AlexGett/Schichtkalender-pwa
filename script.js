@@ -146,7 +146,7 @@ const GITHUB_REPO_NAME = 'Schichtkalender-pwa'; // Passe dies an den Namen deine
 const INFO_FOLDER_PATH = 'info_data'; // Der neue Ordner für deine PDFs und Bilder
 
 // Symbolisches Passwort für das Schichtsystem
-const SHIFT_SYSTEM_PASSWORD = "Hakunamatata";
+const SHIFT_SYSTEM_PASSWORD = ""; // Passwortprüfung ist jetzt deaktiviert
 
 // --- BENUTZERDEFINIERTES SCHICHTSYSTEM ---
 // Schichttypen und ihre CSS-Klassen
@@ -198,7 +198,7 @@ function getActiveShiftSystem() {
         referenceShiftType: defaultShiftSystem.referenceShiftType
     };
 }
-// --- ENDE BENUTZERDEFINIERTES SCHICHTSYSTEM ---
+// --- ENDE ANPASSUNG FÜR INDIVIDUELLES SCHICHTSYSTEM ---
 
 
 function getWeekNumber(d) {
@@ -285,12 +285,8 @@ function generateCalendar(year) {
             if (holiday) {
                 classes.push('feiertag');
                 holidayNames = holiday.names;
-            } else if (dayOfWeek === 6) { // Samstag
-                classes.push('samstag');
-            } else if (dayOfWeek === 0) { // Sonntag
-                classes.push('sonntag');
-            } else { // Wochentage Mo-Fr
-                // --- ANPASSUNG FÜR INDIVIDUELLES SCHICHTSYSTEM ---
+            } else {
+                // --- ANPASSUNG FÜR INDIVIDUELLES SCHICHTSYSTEM FÜR ALLE TAGE ---
                 const oneDay = 1000 * 60 * 60 * 24;
                 const diffDays = Math.round((currentDate.getTime() - referenceShiftStartDate.getTime()) / oneDay);
 
@@ -298,8 +294,23 @@ function generateCalendar(year) {
                 if (shiftIndex < 0) {
                     shiftIndex += shiftSequence.length;
                 }
-                classes.push(shiftSequence[shiftIndex]);
-                // --- ENDE ANPASSUNG FÜR INDIVIDUELLES SCHICHTSYSTEM ---
+                const assignedShiftClass = shiftSequence[shiftIndex];
+
+                if (assignedShiftClass === 'freischicht') {
+                    // Wenn es ein Freischicht-Tag ist, prüfe, ob es ein Wochenende ist
+                    if (dayOfWeek === 6) { // Samstag
+                        classes.push('samstag');
+                    } else if (dayOfWeek === 0) { // Sonntag
+                        classes.push('sonntag');
+                    } else {
+                        // Wenn Freischicht und kein Wochenende, dann die Freischicht-Farbe
+                        classes.push(assignedShiftClass);
+                    }
+                } else {
+                    // Wenn es ein Arbeitstag ist (keine Freischicht), verwende immer die Schichtfarbe
+                    classes.push(assignedShiftClass);
+                }
+                // --- ENDE ANPASSUNG FÜR INDIVIDUELLES SCHICHTSYSTEM FÜR ALLE TAGE ---
             }
 
             const weekNumber = getWeekNumber(currentDate);
@@ -485,13 +496,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (openCustomShiftSystemButton && customShiftSystemSection) {
         openCustomShiftSystemButton.addEventListener('click', () => {
             if (customShiftSystemSection.style.display === 'none') {
-                const passwordAttempt = prompt("Bitte gib das Passwort ein, um das eigene Schichtsystem zu bearbeiten:");
-                if (passwordAttempt === SHIFT_SYSTEM_PASSWORD) {
-                    customShiftSystemSection.style.display = 'block';
-                    openCustomShiftSystemButton.textContent = 'Eigenes Schichtsystem schließen';
-                } else {
-                    alert("Falsches Passwort.");
-                }
+                // Passworteingabe und -prüfung wurden entfernt
+                customShiftSystemSection.style.display = 'block';
+                openCustomShiftSystemButton.textContent = 'Eigenes Schichtsystem schließen';
             } else {
                 customShiftSystemSection.style.display = 'none';
                 openCustomShiftSystemButton.textContent = 'Eigenes Schichtsystem festlegen';
