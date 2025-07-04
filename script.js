@@ -281,13 +281,16 @@ function generateCalendar(year) {
 
             let classes = [];
             let holidayNames = {};
-            let isShiftDay = false; // Flag, um zu prüfen, ob es ein Schichttag ist
 
             if (holiday) {
                 classes.push('feiertag');
                 holidayNames = holiday.names;
-            } else {
-                // Berechne die Schicht für diesen Tag zuerst
+            } else if (dayOfWeek === 6) { // Samstag
+                classes.push('samstag');
+            } else if (dayOfWeek === 0) { // Sonntag
+                classes.push('sonntag');
+            } else { // Wochentage Mo-Fr
+                // --- ANPASSUNG FÜR INDIVIDUELLES SCHICHTSYSTEM ---
                 const oneDay = 1000 * 60 * 60 * 24;
                 const diffDays = Math.round((currentDate.getTime() - referenceShiftStartDate.getTime()) / oneDay);
 
@@ -295,23 +298,8 @@ function generateCalendar(year) {
                 if (shiftIndex < 0) {
                     shiftIndex += shiftSequence.length;
                 }
-                const assignedShiftClass = shiftSequence[shiftIndex];
-
-                // Füge die Schichtklasse hinzu, wenn es keine Freischicht ist
-                if (assignedShiftClass !== 'freischicht') {
-                    classes.push(assignedShiftClass);
-                    isShiftDay = true;
-                }
-
-                // Füge Samstag/Sonntag-Klassen nur hinzu, wenn es KEIN Schichttag ist
-                // (oder wenn die zugewiesene Schicht "Frei" war)
-                if (!isShiftDay) {
-                     if (dayOfWeek === 6) { // Samstag
-                        classes.push('samstag');
-                    } else if (dayOfWeek === 0) { // Sonntag
-                        classes.push('sonntag');
-                    }
-                }
+                classes.push(shiftSequence[shiftIndex]);
+                // --- ENDE ANPASSUNG FÜR INDIVIDUELLES SCHICHTSYSTEM ---
             }
 
             const weekNumber = getWeekNumber(currentDate);
@@ -932,115 +920,4 @@ async function loadInfoFiles() {
         ul.appendChild(li);
     });
     infoFilesList.appendChild(ul);
-}
-
-
-// --- BACKUP & RESTORE FUNKTIONEN ---
-
-const BACKUP_KEY_PREFIX = 'calendar_backup_'; // Präfix für Backup-Schlüssel (nicht direkt verwendet, aber gut für Kontext)
-const BACKUP_VERSION = '1.0'; // Version des Backup-Formats
-
-function createSettingsBackup() {
-    const backupData = {
-        version: BACKUP_VERSION,
-        timestamp: new Date().toISOString(),
-        settings: {
-            animationsDisabled: localStorage.getItem('animationsDisabled'),
-            calendarBorderColor: localStorage.getItem('calendarBorderColor'),
-            autoDarkModeEnabled: localStorage.getItem('autoDarkModeEnabled'),
-            darkModeEnabled: localStorage.getItem('darkModeEnabled'),
-            customShiftSystem: localStorage.getItem('customShiftSystem'),
-            calendarNotes: localStorage.getItem('calendarNotes'),
-            currentCalendarYear: localStorage.getItem('currentCalendarYear') // Jahr auch sichern
-        }
-    };
-
-    const backupString = JSON.stringify(backupData, null, 2); // Schön formatiert
-
-    // Erstelle einen Blob und lade ihn als Datei herunter
-    const blob = new Blob([backupString], { type: 'application/json' });
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = `schichtkalender_backup_${new Date().toISOString().slice(0, 10)}.json`; // z.B. schichtkalender_backup_2025-07-03.json
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(a.href);
-
-    alert('Backup erfolgreich erstellt und heruntergeladen!');
-}
-
-function restoreSettingsBackup() {
-    const input = document.createElement('input');
-    input.type = 'file';
-    input.accept = 'application/json';
-    input.style.display = 'none';
-
-    input.addEventListener('change', async (event) => {
-        const file = event.target.files[0];
-        if (!file) {
-            return;
-        }
-
-        const reader = new FileReader();
-        reader.onload = async (e) => {
-            try {
-                const backupString = e.target.result;
-                const backupData = JSON.parse(backupString);
-
-                if (backupData.version !== BACKUP_VERSION) {
-                    alert('Das Backup ist in einem inkompatiblen Format und kann nicht geladen werden.');
-                    return;
-                }
-
-                // Optional: Bestätigung vom Benutzer
-                if (!confirm('Möchtest du wirklich alle aktuellen Einstellungen und Notizen mit diesem Backup überschreiben? Dies kann nicht rückgängig gemacht werden.')) {
-                    return;
-                }
-
-                // Lösche alle relevanten aktuellen Einstellungen
-                localStorage.removeItem('animationsDisabled');
-                localStorage.removeItem('calendarBorderColor');
-                localStorage.removeItem('autoDarkModeEnabled');
-                localStorage.removeItem('darkModeEnabled');
-                localStorage.removeItem('customShiftSystem');
-                localStorage.removeItem('calendarNotes');
-                localStorage.removeItem('currentCalendarYear'); // Auch das aktuelle Jahr zurücksetzen
-
-                // Lade die Einstellungen aus dem Backup
-                for (const key in backupData.settings) {
-                    if (backupData.settings[key] !== undefined && backupData.settings[key] !== null) { // Prüfe auf undefined und null
-                        localStorage.setItem(key, backupData.settings[key]);
-                    } else {
-                        // Wenn der Wert null oder undefined ist, entfernen wir den Schlüssel, falls er existiert
-                        localStorage.removeItem(key);
-                    }
-                }
-
-                alert('Einstellungen erfolgreich aus Backup geladen! Die Seite wird neu geladen, um die Änderungen anzuwenden.');
-                location.reload(); // Seite neu laden, um alle Einstellungen anzuwenden
-
-            } catch (error) {
-                console.error('Fehler beim Laden des Backups:', error);
-                alert('Fehler beim Laden des Backups. Stelle sicher, dass es eine gültige JSON-Datei ist.');
-            }
-        };
-        reader.readAsText(file);
-    });
-
-    document.body.appendChild(input);
-    input.click();
-    document.body.removeChild(input);
-}
-
-// Event Listener für Backup-Buttons
-const backupSettingsButton = document.getElementById('backupSettingsButton');
-const restoreSettingsButton = document.getElementById('restoreSettingsButton');
-
-if (backupSettingsButton) {
-    backupSettingsButton.addEventListener('click', createSettingsBackup);
-}
-
-if (restoreSettingsButton) {
-    restoreSettingsButton.addEventListener('click', restoreSettingsBackup);
 }

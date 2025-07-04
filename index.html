@@ -152,15 +152,6 @@
                     </div>
                 </div>
             </div>
-
-            <div class="settings-section">
-                <h4>Einstellungen sichern & laden</h4>
-                <p class="small-text">Sichere deine aktuellen Einstellungen (Schichtsystem, Notizen, Design) oder lade ein gespeichertes Backup.</p>
-                <div class="button-group">
-                    <button id="backupSettingsButton" class="action-button">Backup erstellen</button>
-                    <button id="restoreSettingsButton" class="action-button">Backup laden</button>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -194,7 +185,7 @@
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./service-worker.js') // Oder 'service-worker.js'
+                navigator.serviceWorker.register('/worker.js')
                     .then(registration => {
                         console.log('Service Worker registriert mit Scope:', registration.scope);
                     })
