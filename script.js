@@ -157,7 +157,17 @@ const SHIFT_TYPES = {
     'Frei': 'freischicht',
     'Früh': 'fruehschicht', // Alternative Bezeichnungen für bessere UX
     'Nacht': 'nachtschicht',
-    'Spät': 'spaetschicht'
+    'Spät': 'spaetschicht',
+    'Sa': 'samstag', // Neue Definition für Samstag
+    'So': 'sonntag', // Neue Definition für Sonntag
+    'SaF': 'fruehschicht', // Samstag Frühschicht
+    'SaN': 'nachtschicht', // Samstag Nachtschicht
+    'SaS': 'spaetschicht', // Samstag Spätschicht
+    'SaFrei': 'freischicht', // Samstag Freischicht
+    'SoF': 'fruehschicht', // Sonntag Frühschicht
+    'SoN': 'nachtschicht', // Sonntag Nachtschicht
+    'SoS': 'spaetschicht', // Sonntag Spätschicht
+    'SoFrei': 'freischicht' // Sonntag Freischicht
 };
 
 // Laden des benutzerdefinierten Schichtsystems aus dem localStorage
@@ -285,12 +295,8 @@ function generateCalendar(year) {
             if (holiday) {
                 classes.push('feiertag');
                 holidayNames = holiday.names;
-            } else if (dayOfWeek === 6) { // Samstag
-                classes.push('samstag');
-            } else if (dayOfWeek === 0) { // Sonntag
-                classes.push('sonntag');
-            } else { // Wochentage Mo-Fr
-                // --- ANPASSUNG FÜR INDIVIDUELLES SCHICHTSYSTEM ---
+            } else {
+                // --- ANPASSUNG FÜR INDIVIDUELLES SCHICHTSYSTEM (Sa/So) ---
                 const oneDay = 1000 * 60 * 60 * 24;
                 const diffDays = Math.round((currentDate.getTime() - referenceShiftStartDate.getTime()) / oneDay);
 
@@ -298,8 +304,17 @@ function generateCalendar(year) {
                 if (shiftIndex < 0) {
                     shiftIndex += shiftSequence.length;
                 }
+
+                // Füge die Schichtklasse hinzu
                 classes.push(shiftSequence[shiftIndex]);
-                // --- ENDE ANPASSUNG FÜR INDIVIDUELLES SCHICHTSYSTEM ---
+
+                // Füge 'samstag' oder 'sonntag' Klasse hinzu, wenn es ein Wochenende ist
+                if (dayOfWeek === 6) { // Samstag
+                    classes.push('samstag');
+                } else if (dayOfWeek === 0) { // Sonntag
+                    classes.push('sonntag');
+                }
+                // --- ENDE ANPASSUNG FÜR INDIVIDUELLES SCHICHTSYSTEM (Sa/So) ---
             }
 
             const weekNumber = getWeekNumber(currentDate);
@@ -396,7 +411,7 @@ function generateCalendar(year) {
                 const cellData = week.find(data => data.originalDayOfWeek === dayIndex);
                 const dateCell = document.createElement('div');
                 if (cellData && cellData.fullDate) {
-                    dateCell.classList.add('date-cell', cellData.classes);
+                    dateCell.classList.add('date-cell', ...cellData.classes.split(' ')); // Hier Anpassung
                     dateCell.dataset.fullDate = cellData.fullDate;
                     dateCell.innerHTML = `<div class="day-number">${cellData.day}</div><div class="note-indicator"></div>`;
 
@@ -500,6 +515,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     generateCalendar(currentCalendarYear); // Initialer Kalenderaufbau
+
+    // Event Listener für Backup und Restore
+    document.getElementById('backupData').addEventListener('click', backupData);
+    document.getElementById('restoreDataButton').addEventListener('click', () => document.getElementById('restoreDataInput').click());
+    document.getElementById('restoreDataInput').addEventListener('change', restoreData);
 });
 
 // --- FUNKTIONEN FÜR BENUTZERDEFINIERTES SCHICHTSYSTEM ---
@@ -514,17 +534,28 @@ function saveCustomShiftSystem() {
         return;
     }
 
-    const sequenceArrayRaw = sequenceInput.split(',').map(s => s.trim().toLowerCase());
+    const sequenceArrayRaw = sequenceInput.split(',').map(s => s.trim()); // Nicht direkt zu lowercase, um Sa/So zu erkennen
     const sequenceArray = sequenceArrayRaw.map(s => {
-        if (s === 'f' || s === 'früh') return 'fruehschicht';
-        if (s === 'n' || s === 'nacht') return 'nachtschicht';
-        if (s === 's' || s === 'spät') return 'spaetschicht';
-        if (s === 'frei') return 'freischicht';
+        const lowerS = s.toLowerCase();
+        if (lowerS === 'f' || lowerS === 'früh') return 'fruehschicht';
+        if (lowerS === 'n' || lowerS === 'nacht') return 'nachtschicht';
+        if (lowerS === 's' || lowerS === 'spät') return 'spaetschicht';
+        if (lowerS === 'frei') return 'freischicht';
+        if (lowerS === 'saf') return 'fruehschicht'; // Samstag Früh
+        if (lowerS === 'san') return 'nachtschicht'; // Samstag Nacht
+        if (lowerS === 'sas') return 'spaetschicht'; // Samstag Spät
+        if (lowerS === 'safrei') return 'freischicht'; // Samstag Frei
+        if (lowerS === 'sof') return 'fruehschicht'; // Sonntag Früh
+        if (lowerS === 'son') return 'nachtschicht'; // Sonntag Nacht
+        if (lowerS === 'sos') return 'spaetschicht'; // Sonntag Spät
+        if (lowerS === 'sofrei') return 'freischicht'; // Sonntag Frei
+        if (lowerS === 'sa') return 'samstag'; // Nur Samstag (für Anzeige, wird überschrieben falls Schicht)
+        if (lowerS === 'so') return 'sonntag'; // Nur Sonntag (für Anzeige, wird überschrieben falls Schicht)
         return null; // Ungültiger Typ
     }).filter(s => s !== null); // Entferne ungültige Einträge
 
     if (sequenceArray.length === 0 || sequenceArray.length !== sequenceArrayRaw.length) {
-        alert('Ungültige Schichtsequenz. Bitte verwende F, N, S, Frei oder die vollen Bezeichnungen und trenne mit Kommas.');
+        alert('Ungültige Schichtsequenz. Bitte verwende F, N, S, Frei, SaF, SaN, SaS, SaFrei, SoF, SoN, SoS, SoFrei, Sa oder So und trenne mit Kommas.');
         return;
     }
 
@@ -534,13 +565,24 @@ function saveCustomShiftSystem() {
     else if (lowerStartType === 'n' || lowerStartType === 'nacht') parsedStartType = 'nachtschicht';
     else if (lowerStartType === 's' || lowerStartType === 'spät') parsedStartType = 'spaetschicht';
     else if (lowerStartType === 'frei') parsedStartType = 'freischicht';
+    else if (lowerStartType === 'saf') parsedStartType = 'fruehschicht';
+    else if (lowerStartType === 'san') parsedStartType = 'nachtschicht';
+    else if (lowerStartType === 'sas') parsedStartType = 'spaetschicht';
+    else if (lowerStartType === 'safrei') parsedStartType = 'freischicht';
+    else if (lowerStartType === 'sof') parsedStartType = 'fruehschicht';
+    else if (lowerStartType === 'son') parsedStartType = 'nachtschicht';
+    else if (lowerStartType === 'sos') parsedStartType = 'spaetschicht';
+    else if (lowerStartType === 'sofrei') parsedStartType = 'freischicht';
+    else if (lowerStartType === 'sa') parsedStartType = 'samstag';
+    else if (lowerStartType === 'so') parsedStartType = 'sonntag';
 
     if (!parsedStartType) {
-        alert('Ungültiger Startschicht-Typ. Bitte verwende Früh, Nacht, Spät oder Frei.');
+        alert('Ungültiger Startschicht-Typ. Bitte verwende Früh, Nacht, Spät, Frei, SaF, SaN, SaS, SaFrei, SoF, SoN, SoS, SoFrei, Sa oder So.');
         return;
     }
 
-    if (!sequenceArray.includes(parsedStartType)) {
+    if (!sequenceArray.includes(parsedStartType) && !['samstag', 'sonntag'].includes(parsedStartType)) {
+         // Erlaubt Sa/So als Starttyp, auch wenn es keine direkte Schichtklasse ist
         alert(`Der Startschicht-Typ "${startTypeInput}" ist nicht in deiner definierten Sequenz enthalten.`);
         return;
     }
@@ -920,4 +962,57 @@ async function loadInfoFiles() {
         ul.appendChild(li);
     });
     infoFilesList.appendChild(ul);
+}
+
+
+// Backup- und Restore-Funktionen
+function backupData() {
+    const dataToBackup = {};
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        dataToBackup[key] = localStorage.getItem(key);
+    }
+
+    const dataStr = JSON.stringify(dataToBackup, null, 2);
+    const blob = new Blob([dataStr], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'schichtkalender_backup.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    alert('Backup erstellt!');
+}
+
+function restoreData(event) {
+    const file = event.target.files[0];
+    if (!file) {
+        return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        try {
+            const restoredData = JSON.parse(e.target.result);
+            if (confirm('Möchten Sie die aktuellen Kalenderdaten wirklich durch das Backup ersetzen? Dies kann nicht rückgängig gemacht werden.')) {
+                // Nur die relevanten Daten aus dem Backup laden, um andere localStorage-Einträge nicht zu beeinflussen
+                const keysToRestore = ['currentCalendarYear', 'calendarNotes', 'customShiftSystem', 'animationsDisabled', 'calendarBorderColor', 'autoDarkModeEnabled', 'darkModeEnabled'];
+
+                keysToRestore.forEach(key => {
+                    if (restoredData[key] !== undefined) {
+                        localStorage.setItem(key, restoredData[key]);
+                    }
+                });
+
+                alert('Backup erfolgreich geladen! Der Kalender wird neu geladen.');
+                location.reload(); // Seite neu laden, um die neuen Einstellungen anzuwenden
+            }
+        } catch (error) {
+            alert('Fehler beim Laden des Backups: Ungültiges Dateiformat. Bitte stellen Sie sicher, dass es sich um eine gültige JSON-Datei handelt.');
+            console.error('Fehler beim Wiederherstellen:', error);
+        }
+    };
+    reader.readAsText(file);
 }
