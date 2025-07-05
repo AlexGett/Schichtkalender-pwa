@@ -743,7 +743,7 @@ hr {
     font-size: 1.2em; /* Größere Schrift */
     font-weight: bold;
     cursor: pointer;
-    background-color: #007bff; /* Primärfarbe */
+    background-color: #4a4a4a; /* Primärfarbe */
     color: white;
     text-align: center;
     margin-bottom: 20px; /* Abstand nach unten zum Inhalt */
@@ -752,7 +752,7 @@ hr {
 }
 
 .action-button:hover {
-    background-color: #0056b3; /* Dunklerer Farbton beim Hover */
+    background-color: #666666; /* Dunklerer Farbton beim Hover */
     transform: translateY(-1px); /* Leichter Hoch-Effekt */
 }
 
