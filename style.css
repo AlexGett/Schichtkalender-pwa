@@ -220,10 +220,10 @@ h2 {
     flex-shrink: 0;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     font-weight: bold;
     font-size: 1em;
-    padding-right: 8px;
+    padding-left: 8px;
     position: relative;
     z-index: 2;
 }
@@ -232,7 +232,8 @@ h2 {
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: var(--cell-width);
-    gap: calc(var(--cell-gap) - 4px);
+    align-items: center;
+    gap: 1.9px;
     flex-grow: 1;
     overflow-x: auto;
     scrollbar-width: none;
@@ -278,12 +279,13 @@ h2 {
     justify-content: flex-start;
     padding-right: 8px;
     flex-shrink: 0;
-    gap: 4px;
+    gap: 1.5px;
 }
 
 .day-label {
     height: var(--cell-height);
     display: flex;
+    margin-left: 23px;
     align-items: center;
     justify-content: flex-start;
     font-weight: bold;
@@ -311,13 +313,14 @@ h2 {
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
-    gap: var(--cell-gap);
+    gap: 1.5px;
 }
 
 .date-cell {
     width: var(--cell-width);
     height: var(--cell-height);
     display: flex;
+    margin-left: 1.5px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
