@@ -617,7 +617,7 @@ h2 {
     border-radius: 8px;
     padding: 15px;
     margin-bottom: 25px;
-    background-color: #f9f9f9;
+    background-color: #E6E6E6;
 }
 
 .settings-section h4 {
@@ -672,7 +672,7 @@ h2 {
 
 /* Anpassung für Settings-Optionen, die nebeneinander sein sollen */
 .settings-option.inline {
-    flex-direction: row;
+    flex-direction: row;    
     justify-content: space-between;
     align-items: center;
 }
@@ -743,8 +743,8 @@ hr {
     font-size: 1.2em; /* Größere Schrift */
     font-weight: bold;
     cursor: pointer;
-    background-color: #4a4a4a; /* Primärfarbe */
-    color: white;
+    background-color: white; /* Primärfarbe */
+    color: black;
     text-align: center;
     margin-bottom: 20px; /* Abstand nach unten zum Inhalt */
     transition: background-color 0.3s ease, transform 0.2s ease;
@@ -752,7 +752,7 @@ hr {
 }
 
 .action-button:hover {
-    background-color: #666666; /* Dunklerer Farbton beim Hover */
+    background-color: #CCCCCC; /* Dunklerer Farbton beim Hover */
     transform: translateY(-1px); /* Leichter Hoch-Effekt */
 }
 
@@ -1039,16 +1039,17 @@ body.dark-mode .delete-button:hover {
 }
 
 body.dark-mode .small-text {
-    color: #aaa;
+    color: #AAAAAA;
 }
 
 body.dark-mode hr {
     background: #444;
 }
 
-/* Dark Mode für Action-Button */
+/* Dark Mode für "Action-Button" */
 body.dark-mode .action-button {
-    background-color: #4a4a4a; /* Dunklerer Hintergrund im Dark Mode */
+    background-color: #4a4a4a;
+    color: white;/* Dunklerer Hintergrund im Dark Mode */
     box-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
 
