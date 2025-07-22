@@ -1,0 +1,9 @@
+{
+  "calendarBorderColor": "#0161fd",
+  "animationsDisabled": "false",
+  "customShiftSystem": "{\"sequence\":[\"nachtschicht\",\"nachtschicht\",\"nachtschicht\",\"nachtschicht\",\"nachtschicht\",\"freischicht\",\"freischicht\",\"spaetschicht\",\"spaetschicht\",\"spaetschicht\",\"spaetschicht\",\"spaetschicht\",\"spaetschicht\",\"freischicht\",\"fruehschicht\",\"fruehschicht\",\"fruehschicht\",\"fruehschicht\",\"fruehschicht\",\"freischicht\",\"freischicht\",\"nachtschicht\",\"nachtschicht\",\"nachtschicht\",\"nachtschicht\",\"nachtschicht\",\"freischicht\",\"freischicht\",\"spaetschicht\",\"spaetschicht\",\"spaetschicht\",\"spaetschicht\",\"spaetschicht\",\"freischicht\",\"freischicht\",\"fruehschicht\",\"fruehschicht\",\"fruehschicht\",\"fruehschicht\",\"fruehschicht\",\"fruehschicht\",\"nachtschicht\"],\"referenceStartDate\":\"2030-01-28\",\"referenceShiftType\":\"nachtschicht\",\"sequence_input\":\"N,N,N,N,N,Frei,Frei,S,S,S,S,S,S,Frei,F,F,F,F,F,Frei,Frei,N,N,N,N,N,Frei,Frei,S,S,S,S,S,Frei,Frei,F,f,f,f,f,f,n\",\"referenceStartDate_input\":\"2030-01-28\",\"referenceShiftType_input\":\"Nacht\"}",
+  "darkModeEnabled": "false",
+  "autoDarkModeEnabled": "true",
+  "calendarNotes": "{\"2025-11-19\":\"Buß- und Bettag\",\"2026-11-18\":\"Buß- und Bettag\",\"2027-11-17\":\"Buß- und Bettag\",\"2028-11-22\":\"Buß- und Bettag\",\"2029-11-21\":\"Buß- und Bettag\",\"2030-11-20\":\"Buß- und Bettag\"}",
+  "currentCalendarYear": "2025"
+}
