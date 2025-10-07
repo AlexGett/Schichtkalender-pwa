@@ -428,11 +428,12 @@ h2 {
         left: 12px;
     }
     .today-icon-position {
-        left: 140px;
+        left:12px;
+		top: 55px;
     }
     .info-icon-position {
         left: 12px;
-	    top: 50px;
+	    top: 110px;
     }
 }
 
