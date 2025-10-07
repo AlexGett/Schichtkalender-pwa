@@ -431,7 +431,8 @@ h2 {
         left: 140px;
     }
     .info-icon-position {
-    left: 271px;
+        left: 12px;
+		    top: 175px;
     }
 }
 
