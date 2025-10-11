@@ -1,4 +1,4 @@
-const CACHE_NAME = 'schichtkalender-cache-v16.5';
+const CACHE_NAME = 'schichtkalender-cache-v16.6';
 const urlsToCache = [
     '/',
     '/index.html',
@@ -6,7 +6,7 @@ const urlsToCache = [
     '/script.js',
     '/manifest.json',
     'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css',
-    '/motherson-logo.png',
+    '/motherson-logo.PNG',
     '/ios/16.png',
     '/ios/32.png',
     '/ios/60.png',
