@@ -1,4 +1,4 @@
-const CACHE_NAME = 'schichtkalender-cache-v15.1';
+const CACHE_NAME = 'schichtkalender-cache-v17.0';
 const urlsToCache = [
     '/',
     '/index.html',
