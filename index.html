@@ -157,9 +157,11 @@
                         <label for="customShiftStartType">Schichtart am Startdatum (z.B. Früh, Nacht, Spät, Frei):</label>
                         <input type="text" id="customShiftStartType" placeholder="Früh">
                     </div>
-                    <div class="button-group">
-                        <button id="saveCustomShiftSystem" class="confirm-button">Schichtsystem speichern</button>
-                        <button id="resetCustomShiftSystem" class="confirm-button">Standard-Rhythmus einstellen</button>
+                    <div class="button-group" style="flex-wrap: wrap;">
+                        <button id="saveCustomShiftSystem" class="confirm-button" style="flex: 1 0 40%; margin: 5px; background-color: #007bff;">Speichern</button>
+                        <button id="setStandardShiftSystem" class="confirm-button" style="flex: 1 0 40%; margin: 5px; background-color: #6c757d;">Standard</button>
+                        <button id="setGroupAShiftSystem" class="confirm-button" style="flex: 1 0 40%; margin: 5px;">Gruppe A</button>
+                        <button id="setGroupBShiftSystem" class="confirm-button" style="flex: 1 0 40%; margin: 5px;">Gruppe B</button>
                     </div>
                 </div>
             </div>

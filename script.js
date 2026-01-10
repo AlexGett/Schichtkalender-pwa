@@ -1,23 +1,4 @@
 const holidaysData = {
-    2025: [
-        { date: '2025-01-01', names: { de: 'Neujahr', ru: 'Новый год', tr: 'Yılbaşı', sq: 'Viti i Ri', ar: 'رأس السنة', hr: 'Nova godina', sk: 'Nový rok', en: 'New Year\'s Day' } },
-        { date: '2025-01-06', names: { de: 'Heilige Drei Könige', ru: 'Богоявление', tr: 'Epifani', sq: 'Uji i Bekuar', ar: 'عيد الغطاس', hr: 'Sveta Tri kralja', sk: 'Zjavenie Pána', en: 'Epiphany' } },
-        { date: '2025-04-18', names: { de: 'Karfreitag', ru: 'Страстная пятница', tr: 'Kutsal Cuma', sq: 'E Premtja e Madhe', ar: 'الجمعة العظيمة', hr: 'Veliki petak', sk: 'Veľký piatok', en: 'Good Friday' } },
-        { date: '2025-04-20', names: { de: 'Ostersonntag', ru: 'Пасха', tr: 'Paskalya Pazarı', sq: 'E Diela e Pashkëve', ar: 'أحد الفصح', hr: 'Uskrsna nedeľa', sk: 'Veľkonočná nedeľa', en: 'Easter Sunday' } },
-        { date: '2025-04-21', names: { de: 'Ostermontag', ru: 'Пасхальный понедельник', tr: 'Paskalya Pazartesi', sq: 'E Hëna e Pashkëve', ar: 'اثنين الفصح', hr: 'Uskrsni ponedjeljak', sk: 'Veľkonočný pondelok', en: 'Easter Monday' } },
-        { date: '2025-05-01', names: { de: 'Tag der Arbeit', ru: 'День труда', tr: 'İşçi Bayramı', sq: 'Dita e Punës', ar: 'عيد العمال', hr: 'Praznik rada', sk: 'Sviatok práce', en: 'Labour Day' } },
-        { date: '2025-05-29', names: { de: 'Christi Himmelfahrt', ru: 'Вознесение Господне', tr: 'İsa\'nın Göğe Yükselişi', sq: 'Dita e Ngritjes së Krishtit', ar: 'عيد الصعود', hr: 'Uzašašće', sk: 'Nanebovstúpenie Pána', en: 'Ascension Day' } },
-        { date: '2025-06-08', names: { de: 'Pfingstsonntag', ru: 'Пятидесятница', tr: 'Pentekost Pazarı', sq: 'E Diela e Rrëshajëve', ar: 'أحد العنصë', hr: 'Duhovi', sk: 'Turíce', en: 'Pentecost Sunday' } },
-        { date: '2025-06-09', names: { de: 'Pfingstmontag', ru: 'Понедельник Пятидесятницы', tr: 'Paskalya Pazartesi', sq: 'E Hëna e Pashkëve', ar: 'اثنين العنصرة', hr: 'Duhovski ponedjeljak', sk: 'Turíčny pondelok', en: 'Pentecost Monday' } },
-        { date: '2025-06-19', names: { de: 'Fronleichnam', ru: 'Празdник Тела и Крови Христовых', tr: 'Katolik Yortusu', sq: 'Corpus Christi', ar: 'عيد القربان', hr: 'Tijelovo', sk: 'Božie Telo', en: 'Corpus Christi' } },
-        { date: '2025-08-15', names: { de: 'Mariä Himmelfahrt', ru: 'Успение Пресвятой Богородицы', tr: 'Meryem\'in Göğe Kabulü', sq: 'Fjetja e Shën Mërisë', ar: 'عيد انتقال العذراء', hr: 'Velika Gospa', sk: 'Nanebovzatie Panny Márie', en: 'Assumption Day' } },
-        { date: '2025-10-03', names: { de: 'Tag der Deutschen Einheit', ru: 'День герmanского единства', tr: 'Alman Birliği Günü', sq: 'Dita e Bashkimit Gjerman', ar: 'يوم الوحدة الألمانية', hr: 'Dan njemačkog jedinstwa', sk: 'Deň nemeckej jednoty', en: 'German Unity Day' } },
-        { date: '2025-11-01', names: { de: 'Allerheiligen', ru: 'День всех святых', tr: 'Azizler Günü', sq: 'Dita e të Gjithë Shenjtorëve', ar: 'عيد جميع القديسين', hr: 'Svi Sveti', sk: 'Sviatok Všetkých svätých', en: 'All Saints\' Day' } },
-        { date: '2025-12-24', names: { de: 'Heiligabend', ru: 'Сочельник', tr: 'Noel Arifesi', sq: 'Nata e Krishtlindjes', ar: 'ليلة عيد الميلاد', hr: 'Badnjak', sk: 'Štedrý deň', en: 'Christmas Eve' } },
-        { date: '2025-12-25', names: { de: '1. Weihnachtstag', ru: 'Рождество', tr: 'Noel', sq: 'Dita e Parë e Krishtlindjes', ar: 'عيد الميلاد الأول', hr: 'Božić', sk: 'Prvý sviatok vianočný', en: 'Christmas Day' } },
-        { date: '2025-12-26', names: { de: '2. Weihnachtstag', ru: 'Второй день Рождества', tr: 'Noel\'in Икиии Günü', sq: 'Dita e Dytë e Krishtlindjes', ar: 'عيد الميلاد الثاني', hr: 'Sveti Stjepan', sk: 'Druhý sviatok vianočný', en: 'St. Stephen\'s Day' } },
-        { date: '2025-12-31', names: { de: 'Silvester', ru: 'Новый год', tr: 'Yılbaşı Gecesi', sq: 'Nata e Vitit të Ri', ar: 'ليلة رأس السنة', hr: 'Stara godina', sk: 'Silvester', en: 'New Year\'s Eve' } }
-    ],
     2026: [
         { date: '2026-01-01', names: { de: 'Neujahr', en: 'New Year\'s Day', ru: 'Новый год', tr: 'Yılbaşı', sq: 'Viti i Ri', ar: 'رأس السنة', hr: 'Nova godina', sk: 'Nový rok' } },
         { date: '2026-01-06', names: { de: 'Heilige Drei Könige', en: 'Epiphany', ru: 'Богоявление', tr: 'Epifani', sq: 'Uji i Bekuar', ar: 'عيد الغطاس', hr: 'Sveta Tri kralja', sk: 'Zjavenie Pána' } },
@@ -49,7 +30,7 @@ const holidaysData = {
         { date: '2027-05-17', names: { de: 'Pfingstmontag', en: 'Pentecost Monday', ru: 'Понедельник Пятидесятницы', tr: 'Pentekost Pazartesi', sq: 'E Hëna e Pashkëve', ar: 'اثنين العنصرة', hr: 'Duhovski ponedjeljak', sk: 'Turíčny pondelok' } },
         { date: '2027-05-27', names: { de: 'Fronleichnam', en: 'Corpus Christi', ru: 'Празdник Тела и Крови Христовых', tr: 'Katolik Yortusu', sq: 'Corpus Christi', ar: 'عيد القربان', hr: 'Tijelovo', sk: 'Božie Telo' } },
         { date: '2027-08-15', names: { de: 'Mariä Himmelfahrt', en: 'Assumption Day', ru: 'Успение Пресвятой Богородицы', tr: 'Meryem\'in Göğe Kabulü', sq: 'Fjetja e Shën Mërisë', ar: 'عيد انتقال العذراء', hr: 'Velika Gospa', sk: 'Nanebovzatie Panny Márie' } },
-        { date: '2027-10-03', names: { de: 'Tag der Deutschen Einheit', en: 'German Unity Day', ru: 'День герmanского единства', tr: 'Alman Birliği Günü', sq: 'Dita e Bashkimit Germa', ar: 'يوم الوحدة الألمانية', hr: 'Dan njemačkog jedinstwa', sk: 'Deň nemeckej jednoty' } },
+        { date: '2027-10-03', names: { de: 'Tag der Deutschen Einheit', en: 'German Unity Day', ru: 'День герmanского единства', tr: 'Alman Birliği Günü', sq: 'Dita e Bashkimit Gjerman', ar: 'يوم الوحدة الألمانية', hr: 'Dan njemačkog jedinstwa', sk: 'Deň nemeckej jednoty' } },
         { date: '2027-11-01', names: { de: 'Allerheiligen', en: 'All Saints\' Day', ru: 'День всех святых', tr: 'Azizler Günü', sq: 'Dita e të Gjithë Shenjtorëve', ar: 'عيد جميع القديسين', hr: 'Svi Sveti', sk: 'Sviatok Všetkých svätých' } },
         { date: '2027-12-24', names: { de: 'Heiligabend', en: 'Christmas Eve', ru: 'Сочельник', tr: 'Noel Arifesi', sq: 'Nata e Krishtlindjes', ar: 'ليلة عيد الميلاد', hr: 'Badnjak', sk: 'Štedrý deň' } },
         { date: '2027-12-25', names: { de: '1. Weihnachtstag', en: 'Christmas Day', ru: 'Рождество', tr: 'Noel', sq: 'Dita e Parë e Krishtlindjes', ar: 'عيد الميلاد الأول', hr: 'Božić', sk: 'Prvý sviatok vianočný' } },
@@ -57,62 +38,80 @@ const holidaysData = {
         { date: '2027-12-31', names: { de: 'Silvester', en: 'New Year\'s Eve', ru: 'Новый год', tr: 'Yılbaşı Gecesi', sq: 'Nata e Vitit të Ri', ar: 'ليلة رأس السنة', hr: 'Stara godina', sk: 'Silvester' } }
     ],
     2028: [
-        { date: '2028-01-01', names: { de: 'Neujahr', en: 'New Year\'s Day' } },
-        { date: '2028-01-06', names: { de: 'Heilige Drei Könige', en: 'Epiphany' } },
-        { date: '2028-04-14', names: { de: 'Karfreitag', en: 'Good Friday' } },
-        { date: '2028-04-16', names: { de: 'Ostersonntag', en: 'Easter Sunday' } },
-        { date: '2028-04-17', names: { de: 'Ostermontag', en: 'Easter Monday' } },
-        { date: '2028-05-01', names: { de: 'Tag der Arbeit', en: 'Labour Day' } },
-        { date: '2028-05-25', names: { de: 'Christi Himmelfahrt', en: 'Ascension Day' } },
-        { date: '2028-06-04', names: { de: 'Pfingstsonntag', en: 'Pentecost Sunday' } },
-        { date: '2028-06-05', names: { de: 'Pfingstmontag', en: 'Pentecost Monday' } },
-        { date: '2028-06-15', names: { de: 'Fronleichnam', en: 'Corpus Christi' } },
-        { date: '2028-08-15', names: { de: 'Mariä Himmelfahrt', en: 'Assumption Day' } },
-        { date: '2028-10-03', names: { de: 'Tag der Deutschen Einheit', en: 'German Unity Day' } },
-        { date: '2028-11-01', names: { de: 'Allerheiligen', en: 'All Saints\' Day' } },
-        { date: '2028-12-24', names: { de: 'Heiligabend', en: 'Christmas Eve' } },
-        { date: '2028-12-25', names: { de: '1. Weihnachtstag', en: 'Christmas Day' } },
-        { date: '2028-12-26', names: { de: '2. Weihnachtstag', en: 'St. Stephen\'s Day' } },
-        { date: '2028-12-31', names: { de: 'Silvester', en: 'New Year\'s Eve' } }
+        { date: '2028-01-01', names: { de: 'Neujahr', en: 'New Year\'s Day', ru: 'Новый год', tr: 'Yılbaşı', sq: 'Viti i Ri', ar: 'رأس السنة', hr: 'Nova godina', sk: 'Nový rok' } },
+        { date: '2028-01-06', names: { de: 'Heilige Drei Könige', en: 'Epiphany', ru: 'Богоявление', tr: 'Epifani', sq: 'Uji i Bekuar', ar: 'عيد الغطاس', hr: 'Sveta Tri kralja', sk: 'Zjavenie Pána' } },
+        { date: '2028-04-14', names: { de: 'Karfreitag', en: 'Good Friday', ru: 'Страстная пятница', tr: 'Kutsal Cuma', sq: 'E Premtja e Madhe', ar: 'الجمعة العظيمة', hr: 'Veliki petak', sk: 'Veľký piatok' } },
+        { date: '2028-04-16', names: { de: 'Ostersonntag', en: 'Easter Sunday', ru: 'Пасха', tr: 'Paskalya Pazarı', sq: 'E Diela e Pashkëve', ar: 'أحد الفصح', hr: 'Uskrsna nedeľa', sk: 'Veľkonočná nedeľa' } },
+        { date: '2028-04-17', names: { de: 'Ostermontag', en: 'Easter Monday', ru: 'Пасхальный понедельник', tr: 'Paskalya Pazartesi', sq: 'E Hëna e Pashkëve', ar: 'اثنين الفصح', hr: 'Uskrsni ponedjeljak', sk: 'Veľkonočný pondelok' } },
+        { date: '2028-05-01', names: { de: 'Tag der Arbeit', en: 'Labour Day', ru: 'День труда', tr: 'İşçi Bayramı', sq: 'Dita e Punës', ar: 'عيد العمال', hr: 'Praznik rada', sk: 'Sviatok práce' } },
+        { date: '2028-05-25', names: { de: 'Christi Himmelfahrt', en: 'Ascension Day', ru: 'Вознесение Господне', tr: 'İsa\'nın Göğe Yükselişi', sq: 'Dita e Ngritjes së Krishtit', ar: 'عيد الصعود', hr: 'Uzašašće', sk: 'Nanebovstúpenie Pána' } },
+        { date: '2028-06-04', names: { de: 'Pfingstsonntag', en: 'Pentecost Sunday', ru: 'Пятидесятница', tr: 'Pentekost Pazarı', sq: 'E Diela e Rrëshajëve', ar: 'أحد العنصرة', hr: 'Duhovi', sk: 'Turíce' } },
+        { date: '2028-06-05', names: { de: 'Pfingstmontag', en: 'Pentecost Monday', ru: 'Понедельник Пятидесятницы', tr: 'Pentekost Pazartesi', sq: 'E Hëna e Pashkëve', ar: 'اثنين العنصرة', hr: 'Duhovski ponedjeljak', sk: 'Turíčny pondelok' } },
+        { date: '2028-06-15', names: { de: 'Fronleichnam', en: 'Corpus Christi', ru: 'Празdник Тела и Крови Христовых', tr: 'Katolik Yortusu', sq: 'Corpus Christi', ar: 'عيد القربان', hr: 'Tijelovo', sk: 'Božie Telo' } },
+        { date: '2028-08-15', names: { de: 'Mariä Himmelfahrt', en: 'Assumption Day', ru: 'Успение Пресвятой Богородицы', tr: 'Meryem\'in Göğe Kabulü', sq: 'Fjetja e Shën Mërisë', ar: 'عيد انتقال العذراء', hr: 'Velika Gospa', sk: 'Nanebovzatie Panny Márie' } },
+        { date: '2028-10-03', names: { de: 'Tag der Deutschen Einheit', en: 'German Unity Day', ru: 'День герmanского единства', tr: 'Alman Birliği Günü', sq: 'Dita e Bashkimit Gjerman', ar: 'يوم الوحدة الألمانية', hr: 'Dan njemačkog jedinstwa', sk: 'Deň nemeckej jednoty' } },
+        { date: '2028-11-01', names: { de: 'Allerheiligen', en: 'All Saints\' Day', ru: 'День всех святых', tr: 'Azizler Günü', sq: 'Dita e të Gjithë Shenjtorëve', ar: 'عيد جميع القديسين', hr: 'Svi Sveti', sk: 'Sviatok Všetkých svätých' } },
+        { date: '2028-12-24', names: { de: 'Heiligabend', en: 'Christmas Eve', ru: 'Сочельник', tr: 'Noel Arifesi', sq: 'Nata e Krishtlindjes', ar: 'ليلة عيد الميلاد', hr: 'Badnjak', sk: 'Štedrý deň' } },
+        { date: '2028-12-25', names: { de: '1. Weihnachtstag', en: 'Christmas Day', ru: 'Рождество', tr: 'Noel', sq: 'Dita e Parë e Krishtlindjes', ar: 'عيد الميلاد الأول', hr: 'Božić', sk: 'Prvý sviatok vianočný' } },
+        { date: '2028-12-26', names: { de: '2. Weihnachtstag', en: 'St. Stephen\'s Day', ru: 'Второй день Рождества', tr: 'Noel\'in Икиии Günü', sq: 'Dita e Dytë e Krishtlindjes', ar: 'عيد الميلاد الثاني', hr: 'Sveti Stjepan', sk: 'Druhý sviatok vianočný', en: 'St. Stephen\'s Day' } },
+        { date: '2028-12-31', names: { de: 'Silvester', en: 'New Year\'s Eve', ru: 'Новый год', tr: 'Yılbaşı Gecesi', sq: 'Nata e Vitit të Ri', ar: 'ليلة رأس السنة', hr: 'Stara godina', sk: 'Silvester' } }
     ],
     2029: [
-        { date: '2029-01-01', names: { de: 'Neujahr', en: 'New Year\'s Day' } },
-        { date: '2029-01-06', names: { de: 'Heilige Drei Könige', en: 'Epiphany' } },
-        { date: '2029-03-30', names: { de: 'Karfreitag', en: 'Good Friday' } },
-        { date: '2029-04-01', names: { de: 'Ostersonntag', en: 'Easter Sunday' } },
-        { date: '2029-04-02', names: { de: 'Ostermontag', en: 'Easter Monday' } },
-        { date: '2029-05-01', names: { de: 'Tag der Arbeit', en: 'Labour Day' } },
-        { date: '2029-05-10', names: { de: 'Christi Himmelfahrt', en: 'Ascension Day' } },
-        { date: '2029-05-20', names: { de: 'Pfingstsonntag', en: 'Pentecost Sunday' } },
-        { date: '2029-05-21', names: { de: 'Pfingstmontag', en: 'Pentecost Monday' } },
-        { date: '2029-05-31', names: { de: 'Fronleichnam', en: 'Corpus Christi' } },
-        { date: '2029-08-15', names: { de: 'Mariä Himmelfahrt', en: 'Assumption Day' } },
-        { date: '2029-10-03', names: { de: 'Tag der Deutschen Einheit', en: 'German Unity Day' } },
-        { date: '2029-11-01', names: { de: 'Allerheiligen', en: 'All Saints\' Day' } }
-        ,
-        { date: '2029-12-24', names: { de: 'Heiligabend', en: 'Christmas Eve' } },
-        { date: '2029-12-25', names: { de: '1. Weihnachtstag', en: 'Christmas Day' } },
-        { date: '2029-12-26', names: { de: '2. Weihnachtstag', en: 'St. Stephen\'s Day' } },
-        { date: '2029-12-31', names: { de: 'Silvester', en: 'New Year\'s Eve' } }
+        { date: '2029-01-01', names: { de: 'Neujahr', en: 'New Year\'s Day', ru: 'Новый год', tr: 'Yılbaşı', sq: 'Viti i Ri', ar: 'رأس السنة', hr: 'Nova godina', sk: 'Nový rok' } },
+        { date: '2029-01-06', names: { de: 'Heilige Drei Könige', en: 'Epiphany', ru: 'Богоявление', tr: 'Epifani', sq: 'Uji i Bekuar', ar: 'عيد الغطاس', hr: 'Sveta Tri kralja', sk: 'Zjavenie Pána' } },
+        { date: '2029-03-30', names: { de: 'Karfreitag', en: 'Good Friday', ru: 'Страстная пятница', tr: 'Kutsal Cuma', sq: 'E Premtja e Madhe', ar: 'الجمعة العظيمة', hr: 'Veliki petak', sk: 'Veľký piatok' } },
+        { date: '2029-04-01', names: { de: 'Ostersonntag', en: 'Easter Sunday', ru: 'Пасха', tr: 'Paskalya Pazarı', sq: 'E Diela e Pashkëve', ar: 'أحد الفصح', hr: 'Uskrsna nedeľa', sk: 'Veľkonočná nedeľa' } },
+        { date: '2029-04-02', names: { de: 'Ostermontag', en: 'Easter Monday', ru: 'Пасхальный понедельник', tr: 'Paskalya Pazartesi', sq: 'E Hëna e Pashkëve', ar: 'اثنين الفصح', hr: 'Uskrsni ponedjeljak', sk: 'Veľkonočný pondelok' } },
+        { date: '2029-05-01', names: { de: 'Tag der Arbeit', en: 'Labour Day', ru: 'День труда', tr: 'İşçi Bayramı', sq: 'Dita e Punës', ar: 'عيد العمال', hr: 'Praznik rada', sk: 'Sviatok práce' } },
+        { date: '2029-05-10', names: { de: 'Christi Himmelfahrt', en: 'Ascension Day', ru: 'Вознесение Господне', tr: 'İsa\'nın Göğe Yükselişi', sq: 'Dita e Ngritjes së Krishtit', ar: 'عيد الصعود', hr: 'Uzašašće', sk: 'Nanebovstúpenie Pána' } },
+        { date: '2029-05-20', names: { de: 'Pfingstsonntag', en: 'Pentecost Sunday', ru: 'Пятидесятница', tr: 'Pentekost Pazarı', sq: 'E Diela e Rrëshajëve', ar: 'أحد العنصرة', hr: 'Duhovi', sk: 'Turíce' } },
+        { date: '2029-05-21', names: { de: 'Pfingstmontag', en: 'Pentecost Monday', ru: 'Понедельник Пятидесятницы', tr: 'Pentekost Pazartesi', sq: 'E Hëna e Pashkëve', ar: 'اثنين العنصرة', hr: 'Duhovski ponedjeljak', sk: 'Turíčny pondelok' } },
+        { date: '2029-05-31', names: { de: 'Fronleichnam', en: 'Corpus Christi', ru: 'Празdник Тела и Крови Христовых', tr: 'Katolik Yortusu', sq: 'Corpus Christi', ar: 'عيد القربان', hr: 'Tijelovo', sk: 'Božie Telo' } },
+        { date: '2029-08-15', names: { de: 'Mariä Himmelfahrt', en: 'Assumption Day', ru: 'Успение Пресвятой Богородицы', tr: 'Meryem\'in Göğe Kabulü', sq: 'Fjetja e Shën Mërisë', ar: 'عيد انتقال العذراء', hr: 'Velika Gospa', sk: 'Nanebovzatie Panny Márie' } },
+        { date: '2029-10-03', names: { de: 'Tag der Deutschen Einheit', en: 'German Unity Day', ru: 'День герmanского единства', tr: 'Alman Birliği Günü', sq: 'Dita e Bashkimit Gjerman', ar: 'يوم الوحدة الألمانية', hr: 'Dan njemačkog jedinstwa', sk: 'Deň nemeckej jednoty' } },
+        { date: '2029-11-01', names: { de: 'Allerheiligen', en: 'All Saints\' Day', ru: 'День всех святых', tr: 'Azizler Günü', sq: 'Dita e të Gjithë Shenjtorëve', ar: 'عيد جميع القديسين', hr: 'Svi Sveti', sk: 'Sviatok Všetkých svätých' } },
+        { date: '2029-12-24', names: { de: 'Heiligabend', en: 'Christmas Eve', ru: 'Сочельник', tr: 'Noel Arifesi', sq: 'Nata e Krishtlindjes', ar: 'ليلة عيد الميلاد', hr: 'Badnjak', sk: 'Štedrý deň' } },
+        { date: '2029-12-25', names: { de: '1. Weihnachtstag', en: 'Christmas Day', ru: 'Рождество', tr: 'Noel', sq: 'Dita e Parë e Krishtlindjes', ar: 'عيد الميلاد الأول', hr: 'Božić', sk: 'Prvý sviatok vianočný' } },
+        { date: '2029-12-26', names: { de: '2. Weihnachtstag', en: 'St. Stephen\'s Day', ru: 'Второй день Рождества', tr: 'Noel\'in Икиии Günü', sq: 'Dita e Dytë e Krishtlindjes', ar: 'عيد الميلاد الثاني', hr: 'Sveti Stjepan', sk: 'Druhý sviatok vianočný', en: 'St. Stephen\'s Day' } },
+        { date: '2029-12-31', names: { de: 'Silvester', en: 'New Year\'s Eve', ru: 'Новый год', tr: 'Yılbaşı Gecesi', sq: 'Nata e Vitit të Ri', ar: 'ليلة رأس السنة', hr: 'Stara godina', sk: 'Silvester' } }
     ],
     2030: [
-        { date: '2030-01-01', names: { de: 'Neujahr', en: 'New Year\'s Day' } },
-        { date: '2030-01-06', names: { de: 'Heilige Drei Könige', en: 'Epiphany' } },
-        { date: '2030-04-19', names: { de: 'Karfreitag', en: 'Good Friday' } },
-        { date: '2030-04-21', names: { de: 'Ostersonntag', en: 'Easter Sunday' } },
-        { date: '2030-04-22', names: { de: 'Ostermontag', en: 'Easter Monday' } },
-        { date: '2030-05-01', names: { de: 'Tag der Arbeit', en: 'Labour Day' } },
-        { date: '2030-05-30', names: { de: 'Christi Himmelfahrt', en: 'Ascension Day' } },
-        { date: '2030-06-09', names: { de: 'Pfingstsonntag', en: 'Pentecost Sunday' } },
-        { date: '2030-06-10', names: { de: 'Pfingstmontag', en: 'Pentecost Monday' } },
-        { date: '2030-06-20', names: { de: 'Fronleichnam', en: 'Corpus Christi' } },
-        { date: '2030-08-15', names: { de: 'Mariä Himmelfahrt', en: 'Assumption Day' } },
-        { date: '2030-10-03', names: { de: 'Tag der Deutschen Einheit', en: 'German Unity Day' } },
-        { date: '2030-11-01', names: { de: 'Allerheiligen', en: 'All Saints\' Day' } },
-        { date: '2030-12-24', names: { de: 'Heiligabend', en: 'Christmas Eve' } },
-        { date: '2030-12-25', names: { de: '1. Weihnachtstag', en: 'Christmas Day' } },
-        { date: '2030-12-26', names: { de: '2. Weihnachtstag', en: 'St. Stephen\'s Day' } },
-        { date: '2030-12-31', names: { de: 'Silvester', en: 'New Year\'s Eve' } }
+        { date: '2030-01-01', names: { de: 'Neujahr', en: 'New Year\'s Day', ru: 'Новый год', tr: 'Yılbaşı', sq: 'Viti i Ri', ar: 'رأس السنة', hr: 'Nova godina', sk: 'Nový rok' } },
+        { date: '2030-01-06', names: { de: 'Heilige Drei Könige', en: 'Epiphany', ru: 'Богоявление', tr: 'Epifani', sq: 'Uji i Bekuar', ar: 'عيد الغطاس', hr: 'Sveta Tri kralja', sk: 'Zjavenie Pána' } },
+        { date: '2030-04-19', names: { de: 'Karfreitag', en: 'Good Friday', ru: 'Страстная пятница', tr: 'Kutsal Cuma', sq: 'E Premtja e Madhe', ar: 'الجمعة العظيمة', hr: 'Veliki petak', sk: 'Veľký piatok' } },
+        { date: '2030-04-21', names: { de: 'Ostersonntag', en: 'Easter Sunday', ru: 'Пасха', tr: 'Paskalya Pazarı', sq: 'E Diela e Pashkëve', ar: 'أحد الفصح', hr: 'Uskrsna nedeľa', sk: 'Veľkonočná nedeľa' } },
+        { date: '2030-04-22', names: { de: 'Ostermontag', en: 'Easter Monday', ru: 'Пасхальный понедельник', tr: 'Paskalya Pazartesi', sq: 'E Hëna e Pashkëve', ar: 'اثنين الفصح', hr: 'Uskrsni ponedjeljak', sk: 'Veľkonočný pondelok' } },
+        { date: '2030-05-01', names: { de: 'Tag der Arbeit', en: 'Labour Day', ru: 'День труда', tr: 'İşçi Bayramı', sq: 'Dita e Punës', ar: 'عيد العمال', hr: 'Praznik rada', sk: 'Sviatok práce' } },
+        { date: '2030-05-30', names: { de: 'Christi Himmelfahrt', en: 'Ascension Day', ru: 'Вознесение Господне', tr: 'İsa\'nın Göğe Yükselişi', sq: 'Dita e Ngritjes së Krishtit', ar: 'عيد الصعود', hr: 'Uzašašće', sk: 'Nanebovstúpenie Pána' } },
+        { date: '2030-06-09', names: { de: 'Pfingstsonntag', en: 'Pentecost Sunday', ru: 'Пятидесятница', tr: 'Pentekost Pazarı', sq: 'E Diela e Rrëshajëve', ar: 'أحد العنصرة', hr: 'Duhovi', sk: 'Turíce' } },
+        { date: '2030-06-10', names: { de: 'Pfingstmontag', en: 'Pentecost Monday', ru: 'Понедельник Пятидесятницы', tr: 'Pentekost Pazartesi', sq: 'E Hëna e Pashkëve', ar: 'اثنين العنصرة', hr: 'Duhovski ponedjeljak', sk: 'Turíčny pondelok' } },
+        { date: '2030-06-20', names: { de: 'Fronleichnam', en: 'Corpus Christi', ru: 'Празdник Тела и Крови Христовых', tr: 'Katolik Yortusu', sq: 'Corpus Christi', ar: 'عيد القربان', hr: 'Tijelovo', sk: 'Božie Telo' } },
+        { date: '2030-08-15', names: { de: 'Mariä Himmelfahrt', en: 'Assumption Day', ru: 'Успение Пресвятой Богородицы', tr: 'Meryem\'in Göğe Kabulü', sq: 'Fjetja e Shën Mërisë', ar: 'عيد انتقال العذراء', hr: 'Velika Gospa', sk: 'Nanebovzatie Panny Márie' } },
+        { date: '2030-10-03', names: { de: 'Tag der Deutschen Einheit', en: 'German Unity Day', ru: 'День герmanского единства', tr: 'Alman Birliği Günü', sq: 'Dita e Bashkimit Gjerman', ar: 'يوم الوحدة الألمانية', hr: 'Dan njemačkog jedinstwa', sk: 'Deň nemeckej jednoty' } },
+        { date: '2030-11-01', names: { de: 'Allerheiligen', en: 'All Saints\' Day', ru: 'День всех святых', tr: 'Azizler Günü', sq: 'Dita e të Gjithë Shenjtorëve', ar: 'عيد جميع القديسين', hr: 'Svi Sveti', sk: 'Sviatok Všetkých svätých' } },
+        { date: '2030-12-24', names: { de: 'Heiligabend', en: 'Christmas Eve', ru: 'Сочельник', tr: 'Noel Arifesi', sq: 'Nata e Krishtlindjes', ar: 'ليلة عيد الميلاد', hr: 'Badnjak', sk: 'Štedrý deň' } },
+        { date: '2030-12-25', names: { de: '1. Weihnachtstag', en: 'Christmas Day', ru: 'Рождество', tr: 'Noel', sq: 'Dita e Parë e Krishtlindjes', ar: 'عيد الميلاد الأول', hr: 'Božić', sk: 'Prvý sviatok vianočný' } },
+        { date: '2030-12-26', names: { de: '2. Weihnachtstag', en: 'St. Stephen\'s Day', ru: 'Второй день Рождества', tr: 'Noel\'in Икиии Günü', sq: 'Dita e Dytë e Krishtlindjes', ar: 'عيد الميلاد الثاني', hr: 'Sveti Stjepan', sk: 'Druhý sviatok vianočný', en: 'St. Stephen\'s Day' } },
+        { date: '2030-12-31', names: { de: 'Silvester', en: 'New Year\'s Eve', ru: 'Новый год', tr: 'Yılbaşı Gecesi', sq: 'Nata e Vitit të Ri', ar: 'ليلة رأس السنة', hr: 'Stara godina', sk: 'Silvester' } }
+    ],
+    2031: [
+        { date: '2031-01-01', names: { de: 'Neujahr', en: 'New Year\'s Day', ru: 'Новый год', tr: 'Yılbaşı', sq: 'Viti i Ri', ar: 'رأس السنة', hr: 'Nova godina', sk: 'Nový rok' } },
+        { date: '2031-01-06', names: { de: 'Heilige Drei Könige', en: 'Epiphany', ru: 'Богоявление', tr: 'Epifani', sq: 'Uji i Bekuar', ar: 'عيد الغطاس', hr: 'Sveta Tri kralja', sk: 'Zjavenie Pána' } },
+        { date: '2031-04-11', names: { de: 'Karfreitag', en: 'Good Friday', ru: 'Страстная пятница', tr: 'Kutsal Cuma', sq: 'E Premtja e Madhe', ar: 'الجمعة العظيمة', hr: 'Veliki petak', sk: 'Veľký piatok' } },
+        { date: '2031-04-13', names: { de: 'Ostersonntag', en: 'Easter Sunday', ru: 'Пасха', tr: 'Paskalya Pazarı', sq: 'E Diela e Pashkëve', ar: 'أحد الفصح', hr: 'Uskrsna nedeľa', sk: 'Veľkonočná nedeľa' } },
+        { date: '2031-04-14', names: { de: 'Ostermontag', en: 'Easter Monday', ru: 'Пасхальный понедельник', tr: 'Paskalya Pazartesi', sq: 'E Hëna e Pashkëve', ar: 'اثنين الفصح', hr: 'Uskrsni ponedjeljak', sk: 'Veľkonočný pondelok' } },
+        { date: '2031-05-01', names: { de: 'Tag der Arbeit', en: 'Labour Day', ru: 'День труда', tr: 'İşçi Bayramı', sq: 'Dita e Punës', ar: 'عيد العمال', hr: 'Praznik rada', sk: 'Sviatok práce' } },
+        { date: '2031-05-22', names: { de: 'Christi Himmelfahrt', en: 'Ascension Day', ru: 'Вознесение Господне', tr: 'İsa\'nın Göğe Yükselişi', sq: 'Dita e Ngritjes së Krishtit', ar: 'عيد الصعود', hr: 'Uzašašće', sk: 'Nanebovstúpenie Pána' } },
+        { date: '2031-06-01', names: { de: 'Pfingstsonntag', en: 'Pentecost Sunday', ru: 'Пятидесятница', tr: 'Pentekost Pazarı', sq: 'E Diela e Rrëshajëve', ar: 'أحد العنصرة', hr: 'Duhovi', sk: 'Turíce' } },
+        { date: '2031-06-02', names: { de: 'Pfingstmontag', en: 'Pentecost Monday', ru: 'Понедельник Пятидесятницы', tr: 'Pentekost Pazartesi', sq: 'E Hëna e Pashkëve', ar: 'اثنين العنصرة', hr: 'Duhovski ponedjeljak', sk: 'Turíčny pondelok' } },
+        { date: '2031-06-12', names: { de: 'Fronleichnam', en: 'Corpus Christi', ru: 'Празdник Тела и Крови Христовых', tr: 'Katolik Yortusu', sq: 'Corpus Christi', ar: 'عيد القربان', hr: 'Tijelovo', sk: 'Božie Telo' } },
+        { date: '2031-08-15', names: { de: 'Mariä Himmelfahrt', en: 'Assumption Day', ru: 'Успение Пресвятой Богородицы', tr: 'Meryem\'in Göğe Kabulü', sq: 'Fjetja e Shën Mërisë', ar: 'عيد انتقال العذراء', hr: 'Velika Gospa', sk: 'Nanebovzatie Panny Márie' } },
+        { date: '2031-10-03', names: { de: 'Tag der Deutschen Einheit', en: 'German Unity Day', ru: 'День герmanского единства', tr: 'Alman Birliği Günü', sq: 'Dita e Bashkimit Gjerman', ar: 'يوم الوحدة الألمانية', hr: 'Dan njemačkog jedinstwa', sk: 'Deň nemeckej jednoty' } },
+        { date: '2031-11-01', names: { de: 'Allerheiligen', en: 'All Saints\' Day', ru: 'День всех святых', tr: 'Azizler Günü', sq: 'Dita e të Gjithë Shenjtorëve', ar: 'عيد جميع القديسين', hr: 'Svi Sveti', sk: 'Sviatok Všetkých svätých' } },
+        { date: '2031-12-24', names: { de: 'Heiligabend', en: 'Christmas Eve', ru: 'Сочельник', tr: 'Noel Arifesi', sq: 'Nata e Krishtlindjes', ar: 'ليلة عيد الميلاد', hr: 'Badnjak', sk: 'Štedrý deň' } },
+        { date: '2031-12-25', names: { de: '1. Weihnachtstag', en: 'Christmas Day', ru: 'Рождество', tr: 'Noel', sq: 'Dita e Parë e Krishtlindjes', ar: 'عيد الميلاد الأول', hr: 'Božić', sk: 'Prvý sviatok vianočný' } },
+        { date: '2031-12-26', names: { de: '2. Weihnachtstag', en: 'St. Stephen\'s Day', ru: 'Второй день Рождества', tr: 'Noel\'in Икиии Günü', sq: 'Dita e Dytë e Krishtlindjes', ar: 'عيد الميلاد الثاني', hr: 'Sveti Stjepan', sk: 'Druhý sviatok vianočný', en: 'St. Stephen\'s Day' } },
+        { date: '2031-12-31', names: { de: 'Silvester', en: 'New Year\'s Eve', ru: 'Новый год', tr: 'Yılbaşı Gecesi', sq: 'Nata e Vitit të Ri', ar: 'ليلة رأس السنة', hr: 'Stara godina', sk: 'Silvester' } }
     ]
 };
 
@@ -126,11 +125,11 @@ function getBußUndBettag(year) {
     return `${year}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
 }
 
-let currentCalendarYear = parseInt(localStorage.getItem('currentCalendarYear')) || 2025;
+let currentCalendarYear = parseInt(localStorage.getItem('currentCalendarYear')) || 2026;
 let notesData = JSON.parse(localStorage.getItem('calendarNotes')) || {};
 
 // Füge die Buß- und Bettag Notizen hinzu
-for (let year = 2025; year <= 2030; year++) {
+for (let year = 2026; year <= 2031; year++) {
     const bussUndBettagDate = getBußUndBettag(year);
     // Füge die Notiz nur hinzu, wenn sie nicht bereits existiert oder geändert wurde
     if (!notesData[bussUndBettagDate] || notesData[bussUndBettagDate] === '') {
@@ -172,7 +171,7 @@ let customShiftSystem = JSON.parse(localStorage.getItem('customShiftSystem')) ||
 const defaultShiftSystem = {
     sequence: ['fruehschicht', 'fruehschicht', 'fruehschicht', 'fruehschicht', 'fruehschicht', 'freischicht', 'freischicht', 'nachtschicht', 'nachtschicht', 'nachtschicht', 'nachtschicht', 'nachtschicht', 'freischicht', 'freischicht', 'spaetschicht', 'spaetschicht', 'spaetschicht', 'spaetschicht', 'spaetschicht', 'freischicht', 'freischicht'],
     // WICHTIG: Passe dieses Datum an einen bekannten Startpunkt an, z.B. einen Montag, an dem die erste Schicht des Zyklus war
-    referenceStartDate: '2025-01-06', // Beispiel: Ein Montag
+    referenceStartDate: '2030-01-07', // Beispiel: Ein Montag
     referenceShiftType: 'nachtschicht' // Beispiel: Die Schicht, die am 2025-01-06 beginnt
 };
 
@@ -236,6 +235,9 @@ function generateCalendar(year) {
     const orderedDayNames = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'];
     const orderedDayIndices = [1, 2, 3, 4, 5, 6, 0];
 
+    // Heutiges Datum für die Markierung einmalig abrufen (Performance-Optimierung)
+    const todayDate = new Date();
+
     const CELL_WIDTH = 42;
     const CELL_HEIGHT = 42;
     const CELL_GAP = 4;
@@ -282,6 +284,11 @@ function generateCalendar(year) {
 
             let classes = [];
             let holidayNames = {};
+
+            // Überprüfen, ob es der heutige Tag ist
+            if (year === todayDate.getFullYear() && month === todayDate.getMonth() && day === todayDate.getDate()) {
+                classes.push('heute');
+            }
 
             if (holiday) {
                 classes.push('feiertag');
@@ -408,7 +415,7 @@ function generateCalendar(year) {
                 const cellData = week.find(data => data.originalDayOfWeek === dayIndex);
                 const dateCell = document.createElement('div');
                 if (cellData && cellData.fullDate) {
-                    dateCell.classList.add('date-cell', cellData.classes);
+                    dateCell.className = `date-cell ${cellData.classes}`;
                     dateCell.dataset.fullDate = cellData.fullDate;
                     dateCell.innerHTML = `<div class="day-number">${cellData.day}</div><div class="note-indicator"></div>`;
 
@@ -484,10 +491,20 @@ document.addEventListener('DOMContentLoaded', () => {
         saveButton.addEventListener('click', saveCustomShiftSystem);
     }
     
-    // Geänderter Event Listener für das "Einstellen" des Standard-Schichtsystems
-    const setStandardButton = document.getElementById('resetCustomShiftSystem'); // Die ID des Buttons bleibt gleich
-    if (setStandardButton) {
-        setStandardButton.addEventListener('click', resetCustomShiftSystem); // Die Funktion heißt weiterhin so
+    // Event Listener für die Preset-Buttons (Standard, Gruppe A, Gruppe B)
+    const btnStandard = document.getElementById('setStandardShiftSystem');
+    if (btnStandard) {
+        btnStandard.addEventListener('click', () => setShiftGroup('Standard'));
+    }
+
+    const btnGroupA = document.getElementById('setGroupAShiftSystem');
+    if (btnGroupA) {
+        btnGroupA.addEventListener('click', () => setShiftGroup('A'));
+    }
+
+    const btnGroupB = document.getElementById('setGroupBShiftSystem');
+    if (btnGroupB) {
+        btnGroupB.addEventListener('click', () => setShiftGroup('B'));
     }
 
     // NEUE FUNKTIONALITÄT FÜR DAS ÖFFNEN/SCHLIESSEN DES SCHICHTSYSTEM-BEREICHS MIT PASSWORT
@@ -581,38 +598,63 @@ function saveCustomShiftSystem() {
     document.getElementById('settingsDialogOverlay').classList.remove('active'); // Dialog schließen
 }
 
-// Angepasste Funktion zum Einstellen des vordefinierten Standard-Schichtsystems
-function resetCustomShiftSystem() { // Name der Funktion bleibt gleich, aber die Funktionalität ändert sich
-    // Definiere den gewünschten Standardrhythmus
-    const predefinedStandardSequence = ['fruehschicht', 'fruehschicht', 'fruehschicht', 'fruehschicht', 'fruehschicht', 'freischicht', 'freischicht', 'nachtschicht', 'nachtschicht', 'nachtschicht', 'nachtschicht', 'nachtschicht', 'freischicht', 'freischicht', 'spaetschicht', 'spaetschicht', 'spaetschicht', 'spaetschicht', 'spaetschicht', 'freischicht', 'freischicht'];
-    const predefinedStartDate = '2030-01-07'; // Ein Montag, passend für den Start der Nachtschicht
-    const predefinedStartType = 'nachtschicht'; // Die Schicht, die am predefinedStartDate beginnt
+// Funktion zum Einstellen der Gruppen A und B
+function setShiftGroup(group) {
+    let sequenceInput = "";
+    let startDate = "";
+    let startType = "";
+    let startTypeInput = "";
+    
+    if (group === 'A') {
+        sequenceInput = "N,N,N,N,N,Frei,Frei,S,S,S,S,S,S,Frei,F,F,F,F,F,Frei,Frei,N,N,N,N,N,Frei,Frei,S,S,S,S,S,Frei,Frei,F,F,F,F,F,F,N";
+        startDate = "2030-01-07";
+        startType = "nachtschicht";
+        startTypeInput = "Nacht";
+    } else if (group === 'B') {
+        sequenceInput = "N,N,N,N,N,Frei,Frei,S,S,S,S,S,S,Frei,F,F,F,F,F,Frei,Frei,N,N,N,N,N,Frei,Frei,S,S,S,S,S,Frei,Frei,F,F,F,F,F,F,N";
+        startDate = "2030-01-28";
+        startType = "nachtschicht";
+        startTypeInput = "Nacht";
+    } else if (group === 'Standard') {
+        sequenceInput = "N,N,N,N,N,Frei,Frei,S,S,S,S,S,Frei,Frei,F,F,F,F,F,Frei,Frei";
+        startDate = "2030-01-07";
+        startType = "nachtschicht";
+        startTypeInput = "Nacht";
+    } else {
+        return;
+    }
 
-    // Erstelle das neue 'customShiftSystem' Objekt mit den vordefinierten Werten
+    // Sequenz parsen
+    const sequenceArrayRaw = sequenceInput.split(',').map(s => s.trim());
+    const sequenceArray = sequenceArrayRaw.map(s => {
+        const lower = s.toLowerCase();
+        if (lower === 'f' || lower === 'früh') return 'fruehschicht';
+        if (lower === 'n' || lower === 'nacht') return 'nachtschicht';
+        if (lower === 's' || lower === 'spät') return 'spaetschicht';
+        if (lower === 'frei') return 'freischicht';
+        return 'freischicht'; // Fallback
+    });
+
     const newCustomShiftSystem = {
-        sequence: predefinedStandardSequence,
-        referenceStartDate: predefinedStartDate,
-        referenceShiftType: predefinedStartType,
-        // Speichere auch die "Input"-Versionen für die Anzeige im Dialog
-        sequence_input: 'F,F,F,F,F,Frei,Frei,N,N,N,N,N,Frei,Frei,S,S,S,S,S,Frei,Frei',
-        referenceStartDate_input: predefinedStartDate,
-        referenceShiftType_input: 'Nacht' // Die Anzeige-Version des Starttyps
+        sequence: sequenceArray,
+        referenceStartDate: startDate,
+        referenceShiftType: startType,
+        sequence_input: sequenceInput,
+        referenceStartDate_input: startDate,
+        referenceShiftType_input: startTypeInput
     };
 
-    // Speichere das vordefinierte System im localStorage
     localStorage.setItem('customShiftSystem', JSON.stringify(newCustomShiftSystem));
-    
-    // Aktualisiere die In-Memory-Variable 'customShiftSystem'
-    customShiftSystem = newCustomShiftSystem; // Wichtig, damit generateCalendar die neue Einstellung verwendet
+    customShiftSystem = newCustomShiftSystem;
 
-    // Setze die Eingabefelder im Dialog zurück, um die neuen Werte anzuzeigen
-    document.getElementById('customShiftSequence').value = newCustomShiftSystem.sequence_input;
-    document.getElementById('customShiftStartDate').value = newCustomShiftSystem.referenceStartDate_input;
-    document.getElementById('customShiftStartType').value = newCustomShiftSystem.referenceShiftType_input;
+    // Update UI inputs
+    document.getElementById('customShiftSequence').value = sequenceInput;
+    document.getElementById('customShiftStartDate').value = startDate;
+    document.getElementById('customShiftStartType').value = startTypeInput;
 
-    alert('Der vordefinierte Standard-Schichtrhythmus wurde eingestellt. Der Kalender wird aktualisiert.');
-    generateCalendar(currentCalendarYear); // Kalender mit dem neuen System neu generieren
-    document.getElementById('settingsDialogOverlay').classList.remove('active'); // Dialog schließen
+    alert(`Schichtsystem für Gruppe ${group} wurde eingestellt.`);
+    generateCalendar(currentCalendarYear);
+    document.getElementById('settingsDialogOverlay').classList.remove('active');
 }
 // --- ENDE FUNKTIONEN FÜR BENUTZERDEFINIERTES SCHICHTSYSTEM ---
 
@@ -781,20 +823,20 @@ yearInputDialogOverlay.addEventListener('click', (event) => {
 });
 
 decreaseYearButton.addEventListener('click', () => {
-    yearInput.value = Math.max(2025, parseInt(yearInput.value, 10) - 1);
+    yearInput.value = Math.max(2026, parseInt(yearInput.value, 10) - 1);
 });
 
 increaseYearButton.addEventListener('click', () => {
-    yearInput.value = Math.min(2030, parseInt(yearInput.value, 10) + 1);
+    yearInput.value = Math.min(2031, parseInt(yearInput.value, 10) + 1);
 });
 
 setYearButton.addEventListener('click', () => {
     const newYear = parseInt(yearInput.value, 10);
-    if (!isNaN(newYear) && newYear >= 2025 && newYear <= 2030) {
+    if (!isNaN(newYear) && newYear >= 2026 && newYear <= 2031) {
         generateCalendar(newYear);
         yearInputDialogOverlay.classList.remove('active');
     } else {
-        alert('Bitte geben Sie ein gültiges Jahr zwischen 2025 und 2030 ein.');
+        alert('Bitte geben Sie ein gültiges Jahr zwischen 2026 und 2031 ein.');
     }
 });
 
