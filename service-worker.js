@@ -1,4 +1,4 @@
-const CACHE_NAME = 'schichtkalender-cache-v17.9.16';
+const CACHE_NAME = 'schichtkalender-cache-v17.9.25';
 const urlsToCache = [
     '/',
     '/index.html',
@@ -34,6 +34,14 @@ self.addEventListener('install', event => {
             console.error('Fehler beim Caching der Dateien:', error);
         })
     );
+});
+
+self.addEventListener('message', (event) => {
+    if (event.data && event.data.type === 'SKIP_WAITING') {
+        // Diese Anweisung sorgt dafür, dass der neue Service Worker sofort aktiv wird
+        // und den alten ersetzt, ohne dass der Benutzer alle Tabs schließen muss.
+        self.skipWaiting();
+    }
 });
 
 self.addEventListener('fetch', event => {

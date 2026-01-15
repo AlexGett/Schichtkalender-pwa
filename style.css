@@ -399,6 +399,12 @@ h2 {
     cursor: pointer;
 }
 
+.urlaub {
+    background-color: #D1C4E9; /* Lila */
+    color: #333;
+    font-weight: bold;
+}
+
 @media (max-width: 1200px) {
     .calendar-container {
         max-width: calc(var(--month-card-width) * 2 + var(--month-grid-gap));
@@ -810,6 +816,7 @@ hr {
     border-radius: 5px;
     font-size: 1.1em;
     text-align: center;
+    appearance: textfield;
     -moz-appearance: textfield;
 }
 
@@ -970,6 +977,10 @@ body.dark-mode .sonntag {
 }
 body.dark-mode .feiertag {
     background-color: #7a3d3d;
+}
+
+body.dark-mode .urlaub {
+    background-color: #4527a0;
 }
 
 body.dark-mode .dialog {
@@ -1137,4 +1148,43 @@ body.dark-mode .info-files-list a:hover {
 
 body.dark-mode .loading-message {
     color: #aaa;
+}
+
+/* Stile für die Update-Benachrichtigung */
+#update-banner {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #28a745;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    z-index: 2000;
+    font-size: 1.1em;
+}
+
+#update-banner button {
+    background-color: white;
+    color: #28a745;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+#update-banner button:hover {
+    background-color: #f0f0f0;
+}
+
+/* Dark-Mode-Stile für die Benachrichtigung */
+body.dark-mode #update-banner {
+    background-color: #007bff;
+    color: white;
 }

@@ -100,6 +100,10 @@
                 <div class="shift-color-box feiertag"></div>
                 <span>Feiertag</span>
             </div>
+            <div class="shift-info-item">
+                <div class="shift-color-box urlaub"></div>
+                <span>Urlaub</span>
+            </div>
 
             <hr class="info-divider">
 
@@ -186,7 +190,7 @@
             <label for="yearInput">Geben Sie ein Jahr ein:</label>
             <div class="input-group">
                 <button class="year-nav" id="decreaseYear">-</button>
-                <input type="number" id="yearInput" min="2025" max="2030">
+                <input type="number" id="yearInput" min="1900" max="2100">
                 <button class="year-nav" id="increaseYear">+</button>
             </div>
             <button id="setYearButton" class="confirm-button">Bestätigen</button>
@@ -199,25 +203,18 @@
             <h3 id="noteDialogTitle">Notiz für [Datum]</h3>
             <textarea id="noteInput" placeholder="Hier Notizen eingeben..."></textarea>
             <div class="button-group">
+                <button id="toggleVacationButton">Als Urlaub markieren</button>
                 <button id="deleteNoteButton">Notiz löschen</button>
                 <button id="saveNoteButton">Notiz speichern</button>
             </div>
         </div>
     </div>
 
+    <div id="update-banner" style="display: none;">
+        <span>Eine neue Version ist verfügbar!</span>
+        <button id="reload-button">Aktualisieren</button>
+    </div>
+
     <script src="script.js"></script>
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./service-worker.js')
-                    .then(registration => {
-                        console.log('Service Worker registriert mit Scope:', registration.scope);
-                    })
-                    .catch(error => {
-                        console.log('Service Worker Registrierung fehlgeschlagen:', error);
-                    });
-            });
-        }
-    </script>
 </body>
 </html>
