@@ -942,13 +942,36 @@ async function fetchInfoFiles() {
 
 async function loadInfoFiles() {
     const infoFilesList = document.getElementById('infoFilesList');
-    infoFilesList.innerHTML = '<p class="loading-message">Lade Informationen...</p>'; // Ladeanzeige
+    infoFilesList.innerHTML = '<p class="loading-message">Lade Informationen...</p>';
 
-    const files = await fetchInfoFiles();
+    // Statische Links, die immer als Buttons angezeigt werden sollen
+    const staticFiles = [
+        {
+            name: 'Bestellung Arbeitskleidung',
+            download_url: 'https://forms.office.com/e/YzwV8pCFgZ',
+            _type: 'arbeitskleidung' // Ein benutzerdefiniertes Feld zur einfachen Identifizierung
+        },
+        {
+            name: 'Mein Arbeitsplatz',
+            download_url: 'https://forms.office.com/Pages/ResponsePage.aspx?id=Qmd0ejF5XU-K89K_b7s6FXmT7fWZHiVNqbjyr6mXCo5UQTgxT1I1WUs3T0dBTzQ2SDlJT0tHUU5QUy4u&origin=QRCode',
+            _type: 'arbeitsplatz'
+        }
+    ];
 
-    infoFilesList.innerHTML = ''; // Lösche die Ladeanzeige
+    const githubFiles = await fetchInfoFiles();
 
-    if (files.length === 0) {
+    // Kombiniere die statischen Links mit den von GitHub geladenen Dateien.
+    // Wir filtern, um zu verhindern, dass Links doppelt erscheinen, falls sie auch auf GitHub liegen.
+    const filteredGithubFiles = githubFiles.filter(file => {
+        const nameLower = file.name.toLowerCase();
+        return !nameLower.includes('arbeitskleidung') && !nameLower.includes('arbeitsplatz');
+    });
+
+    const allFiles = [...staticFiles, ...filteredGithubFiles];
+
+    infoFilesList.innerHTML = '';
+
+    if (allFiles.length === 0) {
         infoFilesList.innerHTML = '<p>Keine weiteren Informationen verfügbar.</p>';
         return;
     }
@@ -956,29 +979,59 @@ async function loadInfoFiles() {
     const ul = document.createElement('ul');
     ul.classList.add('info-files-ul');
 
-    files.forEach(file => {
+    allFiles.forEach(file => {
         const li = document.createElement('li');
-        const fileLink = document.createElement('a');
-        fileLink.href = file.download_url; // Direkter Link zur Datei
-        fileLink.textContent = file.name;
-        fileLink.target = '_blank'; // Öffnet Link in neuem Tab
-
         const fileIcon = document.createElement('i');
         const fileNameLower = file.name.toLowerCase();
+        // Benutze das _type Feld für die statischen Links, ansonsten den Dateinamen
+        const fileType = file._type || fileNameLower;
 
-        if (fileNameLower.endsWith('.pdf')) {
-            fileIcon.classList.add('fas', 'fa-file-pdf');
-            fileIcon.style.color = 'red';
-        } else if (fileNameLower.endsWith('.jpg') || fileNameLower.endsWith('.jpeg') || fileNameLower.endsWith('.png') || fileNameLower.endsWith('.gif')) {
-            fileIcon.classList.add('fas', 'fa-image');
-            fileIcon.style.color = 'blue';
-        } else {
-            fileIcon.classList.add('fas', 'fa-file'); // Standard-Symbol für andere Dateitypen
-        }
-        fileIcon.classList.add('file-list-icon');
-        
+        fileIcon.classList.add('fas', 'file-list-icon');
+
+        const fileLink = document.createElement('a');
+        fileLink.href = file.download_url;
+        fileLink.target = '_blank';
+
         li.appendChild(fileIcon);
-        li.appendChild(fileLink);
+
+        if (fileType.includes('arbeitskleidung')) {
+            fileIcon.classList.add('fa-shirt'); // Beste kostenlose Alternative für "Warnweste"
+            fileIcon.style.color = '#ff8c00'; // Leuchtendes Orange
+
+            const description = document.createElement('span');
+            description.textContent = file.name;
+            description.classList.add('info-file-description');
+            fileLink.textContent = 'Öffnen';
+            fileLink.classList.add('info-file-button');
+
+            li.appendChild(description);
+            li.appendChild(fileLink);
+        } else if (fileType.includes('arbeitsplatz')) {
+            fileIcon.classList.add('fa-briefcase');
+            fileIcon.style.color = '#007bff'; // Professionelles Blau
+ 
+            const description = document.createElement('span');
+            description.textContent = file.name;
+            description.classList.add('info-file-description');
+            fileLink.textContent = 'Öffnen';
+            fileLink.classList.add('info-file-button');
+
+            li.appendChild(description);
+            li.appendChild(fileLink);
+        } else {
+            // Logik für alle anderen Dateien von GitHub
+            if (fileNameLower.endsWith('.pdf')) {
+                fileIcon.classList.add('fa-file-pdf');
+                fileIcon.style.color = 'red';
+            } else if (fileNameLower.endsWith('.jpg') || fileNameLower.endsWith('.jpeg') || fileNameLower.endsWith('.png') || fileNameLower.endsWith('.gif')) {
+                fileIcon.classList.add('fa-image');
+                fileIcon.style.color = 'blue';
+            } else {
+                fileIcon.classList.add('fa-file');
+            }
+            fileLink.textContent = file.name;
+            li.appendChild(fileLink);
+        }
         ul.appendChild(li);
     });
     infoFilesList.appendChild(ul);

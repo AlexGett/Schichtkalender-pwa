@@ -580,17 +580,17 @@ h2 {
     margin: 25px 0;
 }
 
-.info-files-list {
+#infoFilesList {
     margin-top: 15px;
 }
 
-.info-files-list ul {
+#infoFilesList ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.info-files-list li {
+#infoFilesList li {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
@@ -598,13 +598,14 @@ h2 {
     padding-bottom: 8px;
 }
 
-.info-files-list li:last-child {
+#infoFilesList li:last-child {
     border-bottom: none;
     margin-bottom: 0;
     padding-bottom: 0;
 }
 
-.info-files-list a {
+/* Stile für normale Text-Links in der Liste (die keine Buttons sind) */
+#infoFilesList a:not(.info-file-button) {
     font-weight: normal;
     color: #007bff;
     text-decoration: none;
@@ -612,8 +613,32 @@ h2 {
     flex-grow: 1;
 }
 
-.info-files-list a:hover {
+#infoFilesList a:not(.info-file-button):hover {
     text-decoration: underline;
+}
+
+.info-file-description {
+    flex-grow: 1;
+    margin-left: 10px;
+}
+
+/* Stile für die Links, die als Button dargestellt werden sollen */
+#infoFilesList .info-file-button {
+    flex-grow: 0;
+    padding: 5px 12px;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+    margin-left: 10px; /* Expliziter Abstand zum Beschreibungstext */
+}
+
+#infoFilesList .info-file-button:hover {
+    background-color: #0056b3;
+    color: white;
+    text-decoration: none;
 }
 
 .file-list-icon {
@@ -1134,16 +1159,27 @@ body.dark-mode .info-divider {
     background: #444;
 }
 
-body.dark-mode .info-files-list li {
+body.dark-mode #infoFilesList li {
     border-bottom: 1px solid #3a3a3a;
 }
 
-body.dark-mode .info-files-list a {
+body.dark-mode #infoFilesList a:not(.info-file-button) {
     color: #8ab4f8;
 }
 
-body.dark-mode .info-files-list a:hover {
+body.dark-mode #infoFilesList a:not(.info-file-button):hover {
     color: #a6c8ff;
+}
+
+body.dark-mode #infoFilesList .info-file-button {
+    background-color: #8ab4f8;
+    color: #121212;
+}
+
+body.dark-mode #infoFilesList .info-file-button:hover {
+    background-color: #a6c8ff;
+    color: #121212;
+    text-decoration: none;
 }
 
 body.dark-mode .loading-message {
