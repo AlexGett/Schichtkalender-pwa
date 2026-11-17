@@ -343,6 +343,22 @@ h2 {
     margin-bottom: 2px;
 }
 
+.date-cell {
+    position: relative;
+}
+
+/* Punkt oben rechts an Tagen in den bayerischen Schulferien */
+.date-cell .ferien-dot {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #E67E22;
+    pointer-events: none;
+}
+
 .date-cell .note-indicator {
     font-size: 0.7em;
     color: #666;
@@ -1223,4 +1239,14 @@ body.dark-mode .loading-message {
 body.dark-mode #update-banner {
     background-color: #007bff;
     color: white;
+}
+
+.ferien-dot-legend {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #E67E22;
+    margin: 0 10px;
+    flex-shrink: 0;
 }

@@ -28,6 +28,28 @@ function calculateEaster(year) {
     return new Date(year, month - 1, day);
 }
 
+// --- BAYERISCHE SCHULFERIEN (Quelle: Bayerisches Kultusministerium) ---
+// Format: [erster Ferientag, letzter Ferientag] als 'JJJJ-MM-TT'. Für weitere Jahre hier einfach ergänzen.
+const bavarianSchoolHolidays = [
+    ['2025-11-03', '2025-11-07'], // Unterrichtsfreie Tage um Allerheiligen 2025
+    ['2025-12-22', '2026-01-05'], // Weihnachtsferien 2025/26
+    ['2026-02-16', '2026-02-20'], // Frühjahrsferien 2026
+    ['2026-03-30', '2026-04-10'], // Osterferien 2026
+    ['2026-05-26', '2026-06-05'], // Pfingstferien 2026
+    ['2026-08-03', '2026-09-14'], // Sommerferien 2026
+    ['2026-11-02', '2026-11-06'], // Unterrichtsfreie Tage um Allerheiligen 2026
+    ['2026-12-24', '2027-01-08'], // Weihnachtsferien 2026/27
+    ['2027-02-08', '2027-02-12'], // Frühjahrsferien 2027
+    ['2027-03-22', '2027-04-02'], // Osterferien 2027
+    ['2027-05-18', '2027-05-28'], // Pfingstferien 2027
+    ['2027-08-02', '2027-09-13']  // Sommerferien 2027
+];
+
+function isBavarianSchoolHoliday(dateStr) {
+    // ISO-Datumsstrings lassen sich direkt alphabetisch vergleichen
+    return bavarianSchoolHolidays.some(([start, end]) => dateStr >= start && dateStr <= end);
+}
+
 // Zentralisierte Feiertagsnamen zur Wiederverwendung
 const holidayNames = {
     neujahr: { de: 'Neujahr', en: 'New Year\'s Day', ru: 'Новый год', tr: 'Yılbaşı', sq: 'Viti i Ri', ar: 'رأس السنة', hr: 'Nova godina', sk: 'Nový rok' },
@@ -393,7 +415,7 @@ function generateCalendar(year) {
                 if (cellData && cellData.fullDate) {
                     dateCell.className = `date-cell ${cellData.classes}`;
                     dateCell.dataset.fullDate = cellData.fullDate;
-                    dateCell.innerHTML = `<div class="day-number">${cellData.day}</div><div class="note-indicator"></div>`;
+                    dateCell.innerHTML = `<div class="day-number">${cellData.day}</div><div class="note-indicator"></div>` + (isBavarianSchoolHoliday(cellData.fullDate) ? '<span class="ferien-dot"></span>' : '');
 
                     // Notiz direkt beim Generieren des Kalenders setzen
                     const noteText = notesData[cellData.fullDate];
