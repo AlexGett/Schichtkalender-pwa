@@ -352,8 +352,8 @@ h2 {
     position: absolute;
     top: 3px;
     right: 3px;
-    width: 6px;
-    height: 6px;
+    width: 4px;
+    height: 4px;
     border-radius: 50%;
     background-color: #E67E22;
     pointer-events: none;
@@ -1241,14 +1241,14 @@ body.dark-mode #update-banner {
     color: white;
 }
 
-.ferien-dot-legend {
+.shift-info-item .ferien-dot-legend {
     display: inline-block;
-    width: 10px;
-    height: 10px;
+    flex: 0 0 6px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
     background-color: #E67E22;
-    margin: 0 10px;
-    flex-shrink: 0;
+    margin: 0 21px 0 9.5px;
 }
 
 .hide-ferien-dots .ferien-dot {
