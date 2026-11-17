@@ -1250,3 +1250,7 @@ body.dark-mode #update-banner {
     margin: 0 10px;
     flex-shrink: 0;
 }
+
+.hide-ferien-dots .ferien-dot {
+    display: none;
+}

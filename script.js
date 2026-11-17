@@ -42,7 +42,9 @@ const bavarianSchoolHolidays = [
     ['2027-02-08', '2027-02-12'], // Frühjahrsferien 2027
     ['2027-03-22', '2027-04-02'], // Osterferien 2027
     ['2027-05-18', '2027-05-28'], // Pfingstferien 2027
-    ['2027-08-02', '2027-09-13']  // Sommerferien 2027
+    ['2027-08-02', '2027-09-13'], // Sommerferien 2027
+    ['2027-11-02', '2027-11-05'], // Unterrichtsfreie Tage um Allerheiligen 2027
+    ['2027-12-24', '2028-01-07']  // Weihnachtsferien 2027/28
 ];
 
 function isBavarianSchoolHoliday(dateStr) {
@@ -729,6 +731,18 @@ if (savedAnimationState === 'true') {
     calendarContainer.classList.remove('no-animation');
 }
 
+const toggleFerienDotsCheckbox = document.getElementById('toggleFerienDots');
+function applyFerienDotsState() {
+    const hidden = localStorage.getItem('ferienDotsHidden') === 'true';
+    toggleFerienDotsCheckbox.checked = !hidden;
+    calendarContainer.classList.toggle('hide-ferien-dots', hidden);
+}
+applyFerienDotsState();
+toggleFerienDotsCheckbox.addEventListener('change', () => {
+    localStorage.setItem('ferienDotsHidden', toggleFerienDotsCheckbox.checked ? 'false' : 'true');
+    applyFerienDotsState();
+});
+
 const savedBorderColor = localStorage.getItem('calendarBorderColor');
 if (savedBorderColor) {
     borderColorPicker.value = savedBorderColor;
@@ -1139,6 +1153,7 @@ function restoreSettings() {
                 
                 // Aktualisiere die UI-Elemente im Settings-Dialog sofort
                 document.getElementById('toggleAnimations').checked = (localStorage.getItem('animationsDisabled') === 'true');
+                applyFerienDotsState();
                 document.getElementById('borderColorPicker').value = localStorage.getItem('calendarBorderColor') || '#0161FD';
                 document.getElementById('toggleDarkMode').checked = (localStorage.getItem('darkModeEnabled') === 'true');
                 document.getElementById('toggleAutoDarkMode').checked = (localStorage.getItem('autoDarkModeEnabled') === 'true');
