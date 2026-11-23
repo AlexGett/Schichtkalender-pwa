@@ -1,4 +1,4 @@
-const CACHE_NAME = 'schichtkalender-cache-v17.9.47'; // WICHTIG: Versionsnummer erhöht, um Update zu erzwingen
+const CACHE_NAME = 'schichtkalender-cache-v17.9.48'; // WICHTIG: Versionsnummer erhöht, um Update zu erzwingen
 const urlsToCache = [
     '/',
     '/index.html',

@@ -280,6 +280,11 @@ function generateCalendar(year) {
             const holiday = yearHolidays.find(h => h.date === currentFormattedDate);
             const isVacation = vacationData[currentFormattedDate];
 
+            // Schicht dieses Tages (auch an Feiertagen und Urlaubstagen) für den Buchstaben oben links
+            const shiftDiffDays = Math.round((currentDate.getTime() - referenceShiftStartDate.getTime()) / (1000 * 60 * 60 * 24));
+            const dayShiftIndex = (((referenceShiftStartIndex + shiftDiffDays) % shiftSequence.length) + shiftSequence.length) % shiftSequence.length;
+            const shiftLetter = { fruehschicht: 'F', spaetschicht: 'S', nachtschicht: 'N' }[shiftSequence[dayShiftIndex]] || '';
+
             let classes = [];
             let holidayNames = {};
 
@@ -323,7 +328,7 @@ function generateCalendar(year) {
 
             const weekNumber = getWeekNumber(currentDate);
 
-            currentWeek.push({ day: day, classes: classes.join(' '), originalDayOfWeek: dayOfWeek, weekNumber: weekNumber, holidayNames: holidayNames, fullDate: currentFormattedDate });
+            currentWeek.push({ day: day, classes: classes.join(' '), originalDayOfWeek: dayOfWeek, weekNumber: weekNumber, holidayNames: holidayNames, fullDate: currentFormattedDate, shiftLetter: shiftLetter });
         }
 
         // Fill up the last week if it's not full
@@ -417,7 +422,7 @@ function generateCalendar(year) {
                 if (cellData && cellData.fullDate) {
                     dateCell.className = `date-cell ${cellData.classes}`;
                     dateCell.dataset.fullDate = cellData.fullDate;
-                    dateCell.innerHTML = `<div class="day-number">${cellData.day}</div><div class="note-indicator"></div>` + (isBavarianSchoolHoliday(cellData.fullDate) ? '<span class="ferien-dot"></span>' : '');
+                    dateCell.innerHTML = `<div class="day-number">${cellData.day}</div><div class="note-indicator"></div>` + (cellData.shiftLetter ? `<span class="shift-letter">${cellData.shiftLetter}</span>` : '') + (isBavarianSchoolHoliday(cellData.fullDate) ? '<span class="ferien-dot"></span>' : '');
 
                     // Notiz direkt beim Generieren des Kalenders setzen
                     const noteText = notesData[cellData.fullDate];
